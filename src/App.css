@@ -3,3 +3,9 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+:root {
+  --peach: #ef9273;
+  --cream: #fef9f8;
+  --charcoal: #0d0d0d;
+}
