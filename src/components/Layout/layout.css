@@ -1,3 +1,9 @@
 .layout {
-  background-color: var(--sky);
+  width: 100%;
+  min-height: 100vh;
+}
+
+.layout--main {
+  height: calc(100vh - 60px);
+  background-color: var(--charcoal);
 }
