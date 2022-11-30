@@ -2,7 +2,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: violet;
   height: 100%;
   width: 100%;
 }
@@ -11,7 +10,6 @@
   display: flex;
   width: 80%;
   height: 90%;
-  background-color: yellow;
 }
 
 .login--image {
@@ -25,5 +23,17 @@
 
 .login--form {
   width: 40%;
-  background-color: brown;
+  border: 1px solid brown;
+  padding: 20px;
+}
+
+.login--form__item {
+  margin: 40px 0;
+}
+
+.form--item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 25px;
 }
