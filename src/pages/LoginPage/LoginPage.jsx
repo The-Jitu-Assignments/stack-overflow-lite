@@ -12,11 +12,11 @@ const LoginPage = () => {
           <h2>Login</h2>
           <div className='login--form__item'>
             <div className='form--item'>
-              <label>Email</label>
+              <label>Email:</label>
               <input type={"email"} placeholder='Enter your email address' />
             </div>
             <div className='form--item'>
-              <label>Password</label>
+              <label>Password:</label>
               <input type={"password"} placeholder='Enter your email address' />
             </div>
           </div>

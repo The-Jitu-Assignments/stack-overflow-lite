@@ -37,3 +37,14 @@
   gap: 10px;
   margin-bottom: 25px;
 }
+
+.form--item label {
+  color: rgb(100, 93, 93);
+}
+
+.form--item input {
+  border: 1px solid var(--sky);
+  border-radius: 5px;
+  padding: 12px 15px;
+  outline: none;
+}
