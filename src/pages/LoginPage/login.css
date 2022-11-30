@@ -10,6 +10,7 @@
   display: flex;
   width: 80%;
   height: 90%;
+  box-shadow: 1px 1px 15px 1px gray;
 }
 
 .login--image {
@@ -23,7 +24,6 @@
 
 .login--form {
   width: 40%;
-  border: 1px solid brown;
   padding: 20px;
 }
 
@@ -47,4 +47,39 @@
   border-radius: 5px;
   padding: 12px 15px;
   outline: none;
+  box-shadow: 1px 1px 8px 1px rgba(16, 25, 150, 0.371) inset;
+}
+
+.login--btn {
+  background-color: var(--sky);
+  width: 100%;
+  padding: 12px 0;
+  outline: none;
+  border: none;
+  font-size: 16px;
+  border-radius: 5px;
+  color: var(--cream);
+  margin-bottom: 25px;
+  cursor: pointer;
+}
+
+.login--btn:hover {
+  background-color: var(--cream);
+  border: 1px solid var(--sky);
+  color: var(--sky);
+  box-shadow: 1px 1px 8px 1px rgba(16, 25, 150, 0.371) inset;
+}
+
+
+.login--text {
+  font-size: 16px;
+}
+
+.login--form span {
+  color: var(--sky);
+  cursor: pointer;
+}
+
+.login--form span:hover {
+  text-decoration: underline;
 }

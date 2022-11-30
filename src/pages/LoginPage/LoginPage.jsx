@@ -20,10 +20,10 @@ const LoginPage = () => {
               <input type={"password"} placeholder='Enter your email address' />
             </div>
           </div>
-          <button>
+          <button className='login--btn'>
             Submit
           </button>
-          <div>
+          <div className='login--text'>
             I do not have an account yet...<span>Register Now</span>
           </div>
         </div>
