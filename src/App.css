@@ -5,7 +5,12 @@
 }
 
 :root {
-  --peach: #ef9273;
+  --sky: #7f73ef;
   --cream: #fef9f8;
   --charcoal: #0d0d0d;
+}
+
+body {
+  background-color: var(--cream);
+  color: var(--charcoal);
 }
