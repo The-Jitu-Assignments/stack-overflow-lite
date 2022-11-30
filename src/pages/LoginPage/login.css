@@ -1,4 +1,25 @@
 .login--page {
-  background-color: chartreuse;
-  height: 900px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: violet;
+  height: 100%;
+  width: 100%;
+}
+
+.login--container {
+  display: flex;
+  width: 80%;
+  height: 90%;
+  background-color: yellow;
+}
+
+.login--image {
+  width: 50%;
+  background-color: yellowgreen;
+}
+
+.login--form {
+  width: 50%;
+  background-color: brown;
 }

@@ -3,7 +3,12 @@ import './login.css'
 
 const LoginPage = () => {
   return (
-    <div className='login--page'>LoginPage</div>
+    <div className='login--page'>
+      <div className='login--container'>
+        <div className='login--image'>Item1</div>
+        <div className='login--form'>Item2</div>
+      </div>
+    </div>
   )
 }
 
