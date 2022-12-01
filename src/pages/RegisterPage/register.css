@@ -14,12 +14,12 @@
 }
 
 .register--form {
-  width: 40%;
+  background-color: #fff;
+  width: 30%;
 }
 
 .register--image {
-  background-color: cornflowerblue;
-  width: 60%;
+  width: 70%;
 }
 
 .register--image img {
@@ -32,10 +32,10 @@
 }
 
 .register--form__inputs {
-  margin: 40px 0;
+  margin: 20px 0;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
 }
 
 .login--text span {

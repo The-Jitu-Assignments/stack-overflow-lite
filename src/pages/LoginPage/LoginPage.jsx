@@ -23,7 +23,7 @@ const LoginPage = () => {
             </div>
           </div>
           <button className='login--btn'>
-            Submit
+            Login
           </button>
           <div className='login--text'>
             I do not have an account yet...<span onClick={() => navigate('/register')}>Register Now</span>
