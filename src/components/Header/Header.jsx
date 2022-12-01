@@ -18,8 +18,8 @@ const Header = () => {
           </div>
         </div>
         <div className='header--auth'>
-          <div onClick={() => navigate('/login')}>Login</div>
-          <div onClick={() => navigate('/register')}>Signup</div>
+          <div onClick={() => navigate('/login')} className='auth--btn'>Login</div>
+          <div onClick={() => navigate('/register')} className='auth--btn'>Signup</div>
         </div>
       </div>
     </div>

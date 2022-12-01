@@ -46,3 +46,16 @@
   width: 100%;
   height: 100%;
 }
+
+.auth--btn {
+  background-color: var(--lightBlue);
+  color: var(--cream);
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.auth--btn:hover {
+  background-color: var(--darkBlue);
+}

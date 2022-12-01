@@ -53,7 +53,7 @@
 }
 
 .login--btn {
-  background-color: var(--darkBlue);
+  background-color: var(--lightBlue);
   width: 100%;
   padding: 12px 0;
   outline: none;
@@ -66,9 +66,7 @@
 }
 
 .login--btn:hover {
-  background-color: var(--lightBlue);
-  border: 1px solid var(--sky);
-  /* color: var(--sky); */
+  background-color: var(--darkBlue);
   box-shadow: 1px 1px 8px 1px rgba(16, 25, 150, 0.371) inset;
 }
 
