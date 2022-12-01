@@ -10,6 +10,7 @@
   display: flex;
   width: 80%;
   height: auto;
+  box-shadow: 1px 1px 15px 1px gray;
 }
 
 .register--form {
@@ -35,4 +36,13 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+
+.login--text span {
+  color: var(--sky);
+  cursor: pointer;
+}
+
+.login--text span:hover {
+  text-decoration: underline;
 }

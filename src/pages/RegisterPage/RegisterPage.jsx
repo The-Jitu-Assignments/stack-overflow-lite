@@ -27,7 +27,7 @@ const RegisterPage = () => {
             Submit
           </button>
           <div className='login--text'>
-            Already have an account...<span onClick={() => navigate('/login')}>Register Now</span>
+            Already have an account...<span onClick={() => navigate('/login')}>Login Now</span>
           </div>
         </div>
         <div className='register--image'>
