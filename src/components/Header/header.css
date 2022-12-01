@@ -19,12 +19,26 @@
   flex-basis: 12%;
 }
 
+.search {
+  padding-left: 2rem;
+  flex-basis: 50%;
+}
+
+.search input {
+  margin: 0 auto;
+  width: 100%;
+  padding: 10px 20px;
+  outline: none;
+  border: 1px solid var(--lightBlue);
+  border-radius: 5px;
+}
+
 .header--auth {
   display: flex;
   align-items: center;
   justify-content: flex-end;
   height: 100%;
-  flex-basis: 88%;
+  flex-basis: 38%;
   gap: 20px;
 }
 

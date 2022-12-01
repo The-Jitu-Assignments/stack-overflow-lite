@@ -1,0 +1,23 @@
+.homepage {
+  max-width: 1250px;
+  height: 900px;
+  padding: 20px 0;
+  margin: 0 auto;
+}
+
+.homepage--container {
+  display: flex;
+  gap: 20px;
+  height: 100%;
+  background-color: wheat;
+}
+
+.homepage--all {
+  background-color: yellow;
+  flex-basis: 65%;
+}
+
+.homepage--premium {
+  background-color: yellowgreen;
+  flex: 1;
+}
