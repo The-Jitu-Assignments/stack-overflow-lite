@@ -1,4 +1,17 @@
 .question--card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   border: 1px solid black;
   padding: 20px;
+}
+
+.question--card__header {
+  background-color: violet;
+  height: 50px;
+}
+
+.question--card__body {
+  background-color: yellow;
+  height: auto;
 }

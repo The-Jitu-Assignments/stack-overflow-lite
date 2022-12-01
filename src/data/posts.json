@@ -105,5 +105,26 @@
         ]
       }
     },
+    {
+      "userName": "Len",
+      "days": 3,
+      "question": {
+        "details": "Why is programming hard and yet people still love it",
+        "answers": [
+          {
+            "answer": "We earn a lot of money from it",
+            "accepted": false
+          },
+          {
+            "answer": "It makes us smarter and improves our critical thinking",
+            "accepted": true
+          },
+          {
+            "answer": "It is easy to secure a job",
+            "accepted": false
+          }
+        ]
+      }
+    }
   ]
 }
