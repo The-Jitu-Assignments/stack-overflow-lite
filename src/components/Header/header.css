@@ -14,8 +14,10 @@
   margin: 0 auto;
 }
 
-
 .header--intro {
+  gap: 20px;
+  display: flex;
+  align-items: center;
   height: 100%;
   flex-basis: 10%;
   background-color: aqua;
@@ -29,4 +31,12 @@
   flex-basis: 90%;
   background-color: yellowgreen;
   gap: 20px;
+}
+
+.header--menu {
+  display: flex;
+  align-items: center;
+  background-color: blue;
+  height: 100%;
+  width: 30%;
 }

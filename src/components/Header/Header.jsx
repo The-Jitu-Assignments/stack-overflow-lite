@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { AiOutlineMenu } from 'react-icons/ai';
 import './header.css'
 
 const Header = () => {
@@ -8,7 +9,12 @@ const Header = () => {
     <div className='header'>
       <div className='header--box'>
         <div className='header--intro'>
-          <div onClick={() => navigate('/')}>Home</div>
+          <div className='header--menu'>
+            <AiOutlineMenu />
+          </div>
+          <div onClick={() => navigate('/')}>
+            hello
+          </div>
         </div>
         <div className='header--auth'>
           <div onClick={() => navigate('/login')}>Login</div>
