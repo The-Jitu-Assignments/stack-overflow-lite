@@ -5,15 +5,16 @@ import './header.css'
 
 const Header = () => {
   const navigate = useNavigate();
+  const style = { cursor: 'pointer' }
   return (
     <div className='header'>
       <div className='header--box'>
         <div className='header--intro'>
           <div className='header--menu'>
-            <AiOutlineMenu />
+            <AiOutlineMenu style={style} fontSize={"1.7em"} />
           </div>
-          <div onClick={() => navigate('/')}>
-            hello
+          <div onClick={() => navigate('/')} className='header--title'>
+          <img src='/assets/johnQA.png' alt='header--title' />
           </div>
         </div>
         <div className='header--auth'>
