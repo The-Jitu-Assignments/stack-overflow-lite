@@ -72,7 +72,25 @@
 
 
 .modal--content__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   padding: 20px 0 20px 30px;
-  background-color: yellow;
   cursor: pointer;
+  animation: showText 3s linear;
+}
+
+.modal--content__item:hover {
+  background-color: var(--lightBlue);
+  color: var(--cream);
+}
+
+@keyframes showText {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
