@@ -1,8 +1,16 @@
-import React from 'react'
+import React from 'react';
+import './modal.css'
 
-const Modal = () => {
+const Modal = ({ open, close }) => {
+  if (!open) return null;
   return (
-    <div>Modal</div>
+    <div className='modal--overlay'>
+      <div className='modal--body'>
+        <div className='modal--header'>
+          <div onClick={close}>Close</div>
+        </div>
+      </div>
+    </div>
   )
 }
 
