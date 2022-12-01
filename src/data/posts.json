@@ -1,0 +1,109 @@
+{
+  "posts": [
+    {
+      "userName": "John",
+      "days": 2,
+      "question": {
+        "details": "Why is programming hard and yet people still love it",
+        "answers": [
+          {
+            "answer": "We earn a lot of money from it",
+            "accepted": false
+          },
+          {
+            "answer": "It makes us smarter and improves our critical thinking",
+            "accepted": true
+          },
+          {
+            "answer": "It is easy to secure a job",
+            "accepted": false
+          }
+        ]
+      }
+    },
+    {
+      "userName": "Anna",
+      "days": 5,
+      "question": {
+        "details": "Why is programming hard and yet people still love it",
+        "answers": [
+          {
+            "answer": "We earn a lot of money from it",
+            "accepted": false
+          },
+          {
+            "answer": "It makes us smarter and improves our critical thinking",
+            "accepted": true
+          },
+          {
+            "answer": "It is easy to secure a job",
+            "accepted": false
+          }
+        ]
+      }
+    },
+    {
+      "userName": "Millicent",
+      "days": 1,
+      "question": {
+        "details": "Why is programming hard and yet people still love it",
+        "answers": [
+          {
+            "answer": "We earn a lot of money from it",
+            "accepted": false
+          },
+          {
+            "answer": "It makes us smarter and improves our critical thinking",
+            "accepted": true
+          },
+          {
+            "answer": "It is easy to secure a job",
+            "accepted": false
+          }
+        ]
+      }
+    },
+    {
+      "userName": "Kim",
+      "days": 12,
+      "question": {
+        "details": "Why is programming hard and yet people still love it",
+        "answers": [
+          {
+            "answer": "We earn a lot of money from it",
+            "accepted": false
+          },
+          {
+            "answer": "It makes us smarter and improves our critical thinking",
+            "accepted": true
+          },
+          {
+            "answer": "It is easy to secure a job",
+            "accepted": false
+          }
+        ]
+      }
+    },
+    {
+      "userName": "Len",
+      "days": 3,
+      "question": {
+        "details": "Why is programming hard and yet people still love it",
+        "answers": [
+          {
+            "answer": "We earn a lot of money from it",
+            "accepted": false
+          },
+          {
+            "answer": "It makes us smarter and improves our critical thinking",
+            "accepted": true
+          },
+          {
+            "answer": "It is easy to secure a job",
+            "accepted": false
+          }
+        ]
+      }
+    },
+  ]
+}
