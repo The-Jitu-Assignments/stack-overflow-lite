@@ -5,7 +5,10 @@ const RegisterPage = () => {
   return (
     <div className='registration--page'>
       <div className='register--container'>
-        Register
+        <div className='register--form'>A</div>
+        <div className='register--image'>
+          <img src="/assets/img1.jpg" alt='register-img' />
+        </div>
       </div>
     </div>
   )
