@@ -1,8 +1,13 @@
 import React from 'react'
+import './register.css'
 
 const RegisterPage = () => {
   return (
-    <div>RegisterPage</div>
+    <div className='registration--page'>
+      <div className='register--container'>
+        Register
+      </div>
+    </div>
   )
 }
 

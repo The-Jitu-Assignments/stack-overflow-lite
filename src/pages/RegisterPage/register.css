@@ -1,0 +1,14 @@
+.registration--page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: brown;
+  width: 100%;
+  min-height: 100%;
+}
+
+.register--container {
+  background-color: burlywood;
+  width: 80%;
+  height: auto;
+}
