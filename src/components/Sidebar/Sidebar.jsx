@@ -8,7 +8,7 @@ import { GrLanguage } from 'react-icons/gr';
 const Sidebar = ({ close }) => {
   const navigate = useNavigate();
   return (
-    <>
+    <div className='modal--body' onClick={(e) => e.stopPropagation()}>
       <div className='modal--header'>
         <div onClick={close} className='modal--close__btn'>
           x
@@ -36,7 +36,7 @@ const Sidebar = ({ close }) => {
           Pricing
         </div>
       </div>
-    </>
+    </div>
   )
 }
 
