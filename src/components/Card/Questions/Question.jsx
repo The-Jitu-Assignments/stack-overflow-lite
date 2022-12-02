@@ -14,8 +14,14 @@ const QuestionCard = ({ post }) => {
           <div className='question--user__days'>{post.days > 1 ? `${post.days} days ago` : `${post.days} day ago`}</div>
         </div>
         <div className='question--user__links'>
-          <AiOutlineEllipsis />
-          <div className='question--tooltip'></div>
+          <AiOutlineEllipsis fontSize={"1.7em"} />
+          <div className='question--tooltip'>
+            <div className='question--tooltip__item'>View User</div>
+            <div className='question--tooltip__item'>Reply</div>
+            <div className='question--tooltip__item'>Accept Answer</div>
+            <div className='question--tooltip__item'>View Answers</div>
+            <div className='question--tooltip__item'>Delete Question</div>
+          </div>
         </div>
       </div>
       <div className='question--card__body'>
@@ -23,10 +29,10 @@ const QuestionCard = ({ post }) => {
       </div>
       <div className='question--card__footer'>
         <button className='question--btn'>
-          View Answers
+          Like
         </button>
         <button className='question--btn'>
-          Reply
+          Dislike
         </button>
       </div>
     </div>
