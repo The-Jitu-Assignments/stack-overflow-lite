@@ -80,6 +80,9 @@
 }
 
 .question--btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   background-color: var(--lightBlue);
   color: var(--cream);
   padding: 10px 16px;
