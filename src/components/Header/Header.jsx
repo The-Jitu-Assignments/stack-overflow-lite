@@ -28,12 +28,14 @@ const Header = () => {
         </div>
         <div className='header--auth'>
           {!user ? (
-            <div>Logged In</div>
+            <div className='auth--btn'>
+              Johnkatua@gmail.com
+              <div className='test'>Just a tooltip</div>
+            </div>
           ) : (
             <>
               <div onClick={() => navigate('/login')} className='auth--btn'>
                 Login
-                <div className='test'>Just a tooltip</div>
               </div>
               <div onClick={() => navigate('/register')} className='auth--btn'>Signup</div>
             </>

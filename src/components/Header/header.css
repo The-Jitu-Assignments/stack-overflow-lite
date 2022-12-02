@@ -81,7 +81,7 @@
   width: 200px;
   padding: 15px;
   color: var(--charcoal);
-  left: -100%;
+  left: -50%;
   height: 200px;
   box-shadow: 0 1px 30px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
