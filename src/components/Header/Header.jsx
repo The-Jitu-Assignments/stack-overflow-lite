@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AiOutlineMenu } from 'react-icons/ai';
+import { useSelector } from 'react-redux';
 import './header.css'
 import Modal from '../Modal/Modal';
 
 const Header = () => {
+  const { user } = useSelector(state => state.user);
+  console.log(user)
   const [ open, setIsOpen ] = useState(false);
   const navigate = useNavigate();
   const style = { cursor: 'pointer' }
@@ -24,11 +27,17 @@ const Header = () => {
           <input type={"search"} alt='Search a question' placeholder='Search a question' />
         </div>
         <div className='header--auth'>
-          <div onClick={() => navigate('/login')} className='auth--btn'>
-            Login
-            <div className='test'>Just a tooltip</div>
-          </div>
-          <div onClick={() => navigate('/register')} className='auth--btn'>Signup</div>
+          {!user ? (
+            <div>Logged In</div>
+          ) : (
+            <>
+              <div onClick={() => navigate('/login')} className='auth--btn'>
+                Login
+                <div className='test'>Just a tooltip</div>
+              </div>
+              <div onClick={() => navigate('/register')} className='auth--btn'>Signup</div>
+            </>
+          )}
         </div>
       </div>
     </div>
