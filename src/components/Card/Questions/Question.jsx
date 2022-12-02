@@ -15,6 +15,7 @@ const QuestionCard = ({ post }) => {
         </div>
         <div className='question--user__links'>
           <AiOutlineEllipsis />
+          <div className='question--tooltip'></div>
         </div>
       </div>
       <div className='question--card__body'>
