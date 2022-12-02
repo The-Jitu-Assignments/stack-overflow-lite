@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AiOutlineMenu } from 'react-icons/ai';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout } from '../../features/user/userSlice';
 import './header.css'
 import Modal from '../Modal/Modal';
 
 const Header = () => {
+  const dispatch = useDispatch();
   const { user } = useSelector(state => state.user);
   console.log(user)
   const [ open, setIsOpen ] = useState(false);
@@ -27,13 +29,14 @@ const Header = () => {
           <input type={"search"} alt='Search a question' placeholder='Search a question' />
         </div>
         <div className='header--auth'>
-          {!user ? (
+          {user ? (
             <div className='auth--btn'>
-              Johnkatua@gmail.com
+              {user?.email}
               <div className='auth--tooltip'>
                 <div className='auth--tooltip__item'>Profile</div>
                 <div className='auth--tooltip__item'>My questions</div>
-                <div className='auth--tooltip__item'>Logout</div>
+                <div className='auth--tooltip__item'>Add a question</div>
+                <div className='auth--tooltip__item' onClick={() => dispatch(logout())}>Logout</div>
               </div>
             </div>
           ) : (
