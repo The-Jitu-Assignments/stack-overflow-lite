@@ -93,6 +93,16 @@
   visibility: visible;
 }
 
+.auth--tooltip__item {
+  padding: 10px;
+}
+
+.auth--tooltip__item:hover {
+  background-color: var(--lightBlue);
+  color: var(--cream);
+  border-radius: 5px;
+}
+
 .auth--btn:hover {
   background-color: var(--darkBlue);
 }
