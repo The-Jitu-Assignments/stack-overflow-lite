@@ -8,7 +8,7 @@ const QuestionCard = ({ post }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div className='question--card'>
-      <Modal open={isOpen} content={<User close={() => setIsOpen(false)} />} />
+      <Modal open={isOpen} close={() => setIsOpen(false)} content={<User close={() => setIsOpen(false)} />} />
       <div className='question--card__header'>
         <div className='question--user__img'>
           <img src={post.image} alt="user--face" />
