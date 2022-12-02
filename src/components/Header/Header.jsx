@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { AiOutlineMenu } from 'react-icons/ai';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../features/user/userSlice';
+import Sidebar from '../Sidebar/Sidebar';
 import './header.css'
 import Modal from '../Modal/Modal';
 
@@ -15,7 +16,7 @@ const Header = () => {
   const style = { cursor: 'pointer' }
   return (
     <div className='header'>
-      <Modal open={open} close={() => setIsOpen(false)} />
+      <Modal open={open} close={() => setIsOpen(false)} content={<Sidebar close={() => setIsOpen(false)} />} />
       <div className='header--box'>
         <div className='header--intro'>
           <div className='header--menu'>

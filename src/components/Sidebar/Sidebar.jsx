@@ -5,7 +5,7 @@ import { GiPapers, GiPriceTag } from 'react-icons/gi'
 import { BsQuestionSquareFill } from 'react-icons/bs';
 import { GrLanguage } from 'react-icons/gr';
 
-const Sidebar = () => {
+const Sidebar = ({ close }) => {
   const navigate = useNavigate();
   return (
     <>
