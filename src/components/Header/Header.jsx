@@ -24,7 +24,10 @@ const Header = () => {
           <input type={"search"} alt='Search a question' placeholder='Search a question' />
         </div>
         <div className='header--auth'>
-          <div onClick={() => navigate('/login')} className='auth--btn'>Login</div>
+          <div onClick={() => navigate('/login')} className='auth--btn'>
+            Login
+            <div className='test'>Just a tooltip</div>
+          </div>
           <div onClick={() => navigate('/register')} className='auth--btn'>Signup</div>
         </div>
       </div>

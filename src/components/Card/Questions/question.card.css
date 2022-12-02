@@ -2,15 +2,15 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  border: 1px solid black;
   padding: 20px;
+  box-shadow: 0 1px 30px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
 }
 
 .question--card__header {
   display: flex;
   align-items: center;
   gap: 10px;
-  background-color: violet;
   height: 50px;
 }
 
@@ -25,7 +25,37 @@
   border-radius: 50%;
 }
 
+.question--user__details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  height: 100%;
+}
+
+.question--user__days {
+  color: rgba(157, 151, 151, 0.945);
+}
+
 .question--card__body {
-  background-color: yellow;
   height: auto;
+}
+
+.question--card__footer {
+  display: flex;
+  gap: 20px;
+}
+
+.question--btn {
+  background-color: var(--lightBlue);
+  color: var(--cream);
+  padding: 10px 16px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.question--btn:hover {
+  background-color: var(--darkBlue);
 }

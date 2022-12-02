@@ -1,5 +1,6 @@
 import React from 'react'
-import './question.card.css'
+import './question.card.css';
+import { AiOutlineEllipsis } from 'react-icons/ai';
 
 const QuestionCard = ({ post }) => {
   return (
@@ -8,11 +9,25 @@ const QuestionCard = ({ post }) => {
         <div className='question--user__img'>
           <img src={post.image} alt="user--face" />
         </div>
-        <div className='question--user__details'>Data</div>
-        <div className='question--user__links'>Links</div>
+        <div className='question--user__details'>
+          <h3>{post.userName}</h3>
+          <div className='question--user__days'>{post.days > 1 ? `${post.days} days ago` : `${post.days} day ago`}</div>
+        </div>
+        <div className='question--user__links'>
+          <AiOutlineEllipsis />
+        </div>
       </div>
-      <div className='question--card__body'>Body</div>
-      <div className='question--card__footer'>Footer</div>
+      <div className='question--card__body'>
+        {post.question.details}
+      </div>
+      <div className='question--card__footer'>
+        <button className='question--btn'>
+          View Answers
+        </button>
+        <button className='question--btn'>
+          Reply
+        </button>
+      </div>
     </div>
   )
 }

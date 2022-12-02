@@ -69,6 +69,26 @@
   cursor: pointer;
   font-size: 16px;
   border-radius: 5px;
+  position: relative;
+  display: inline-block;
+}
+
+.auth--btn .test {
+  visibility: hidden;
+  position: absolute;
+  background-color: var(--cream);
+  margin-top: 10px;
+  width: 200px;
+  padding: 15px;
+  color: var(--charcoal);
+  left: -100%;
+  height: 200px;
+  box-shadow: 0 1px 30px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+}
+
+.auth--btn:hover .test {
+  visibility: visible;
 }
 
 .auth--btn:hover {
