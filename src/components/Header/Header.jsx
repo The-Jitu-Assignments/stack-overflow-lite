@@ -30,7 +30,11 @@ const Header = () => {
           {!user ? (
             <div className='auth--btn'>
               Johnkatua@gmail.com
-              <div className='test'>Just a tooltip</div>
+              <div className='auth--tooltip'>
+                <div className='auth--tooltip__item'>Profile</div>
+                <div className='auth--tooltip__item'>My questions</div>
+                <div className='auth--tooltip__item'>Logout</div>
+              </div>
             </div>
           ) : (
             <>
