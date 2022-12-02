@@ -1,6 +1,6 @@
 import React from 'react'
 import './question.card.css';
-import { AiOutlineEllipsis } from 'react-icons/ai';
+import { AiOutlineEllipsis, AiFillLike, AiFillDislike } from 'react-icons/ai';
 
 const QuestionCard = ({ post }) => {
   return (
@@ -30,9 +30,11 @@ const QuestionCard = ({ post }) => {
       <div className='question--card__footer'>
         <button className='question--btn'>
           Like
+          <AiFillLike />
         </button>
         <button className='question--btn'>
           Dislike
+          <AiFillDislike />
         </button>
       </div>
     </div>
