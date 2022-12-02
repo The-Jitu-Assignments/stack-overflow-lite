@@ -1,6 +1,12 @@
-import React from 'react'
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { AiFillHome,  } from 'react-icons/ai';
+import { GiPapers, GiPriceTag } from 'react-icons/gi'
+import { BsQuestionSquareFill } from 'react-icons/bs';
+import { GrLanguage } from 'react-icons/gr';
 
 const Sidebar = () => {
+  const navigate = useNavigate();
   return (
     <>
       <div className='modal--header'>
