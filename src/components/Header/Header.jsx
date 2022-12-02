@@ -10,7 +10,6 @@ import Modal from '../Modal/Modal';
 const Header = () => {
   const dispatch = useDispatch();
   const { user } = useSelector(state => state.user);
-  console.log(user)
   const [ open, setIsOpen ] = useState(false);
   const navigate = useNavigate();
   const style = { cursor: 'pointer' }

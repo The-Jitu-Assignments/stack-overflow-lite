@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './question.card.css';
 import { AiOutlineEllipsis, AiFillLike, AiFillDislike } from 'react-icons/ai';
+import Modal from '../../Modal/Modal';
+import User from '../../User/User';
 
 const QuestionCard = ({ post }) => {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <div className='question--card'>
+      <Modal open={isOpen} content={<User close={() => setIsOpen(false)} />} />
       <div className='question--card__header'>
         <div className='question--user__img'>
           <img src={post.image} alt="user--face" />
@@ -16,7 +20,7 @@ const QuestionCard = ({ post }) => {
         <div className='question--user__links'>
           <AiOutlineEllipsis fontSize={"1.7em"} />
           <div className='question--tooltip'>
-            <div className='question--tooltip__item'>View User</div>
+            <div className='question--tooltip__item' onClick={() => setIsOpen(true)}>View User</div>
             <div className='question--tooltip__item'>Reply</div>
             <div className='question--tooltip__item'>Accept Answer</div>
             <div className='question--tooltip__item'>View Answers</div>

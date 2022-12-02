@@ -63,11 +63,13 @@
 }
 
 .question--tooltip__item {
-  padding: 5px 0;
+  padding: 10px;
+  border-radius: 5px;
 }
 
 .question--tooltip__item:hover {
-  background-color: var(--cream);
+  background-color: var(--lightBlue);
+  color: var(--cream);
 }
 
 .question--card__body {

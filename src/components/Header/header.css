@@ -78,7 +78,7 @@
   flex-direction: column;
   visibility: hidden;
   position: absolute;
-  background-color: var(--cream);
+  background-color: white;
   margin-top: 10px;
   width: 200px;
   padding: 15px;
