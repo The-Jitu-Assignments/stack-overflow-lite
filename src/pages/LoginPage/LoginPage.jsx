@@ -1,9 +1,17 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import './login.css'
+import { login } from '../../features/user/userSlice';
 
 const LoginPage = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const handleLogin = () => {
+    dispatch(login({ email: 'johnkatua@gmail.com' }));
+    navigate('/')
+  }
   return (
     <div className='login--page'>
       <div className='login--container'>
@@ -22,7 +30,7 @@ const LoginPage = () => {
               <input type={"password"} placeholder='Enter your email address' />
             </div>
           </div>
-          <button className='login--btn'>
+          <button className='login--btn' onClick={handleLogin}>
             Login
           </button>
           <div className='login--text'>
