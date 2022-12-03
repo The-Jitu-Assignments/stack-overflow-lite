@@ -1,6 +1,11 @@
 .reply--modal {
+  display: flex;
+  flex-direction: column;
   width: 30%;
   height: auto;
   background-color: white;
   z-index: 2;
+  gap: 10px;
+  padding: 20px;
+  border-radius: 5px;
 }
