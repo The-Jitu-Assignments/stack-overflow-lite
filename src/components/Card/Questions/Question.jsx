@@ -3,12 +3,36 @@ import './question.card.css';
 import { AiOutlineEllipsis, AiFillLike, AiFillDislike } from 'react-icons/ai';
 import Modal from '../../Modal/Modal';
 import User from '../../User/User';
+import Reply from '../../Reply/Reply';
+import ViewAnswers from '../../ViewAnswers/ViewAnswers';
 
 const QuestionCard = ({ post }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [selectedItem, setSelectedItem] = useState('');
+
+  const handleOpen = (text) => {
+    setIsOpen(true)
+    setSelectedItem(text);
+  };
+
+  const handleClose = () => {
+    setIsOpen(false);
+    setSelectedItem('')
+  };
+
+  let content = '';
+
+  if (selectedItem === 'reply') {
+    content = <Reply close={handleClose} />
+  } else if (selectedItem === 'view-user') {
+    content = <User close={handleClose} post={post} />
+  } else if (selectedItem === 'view-ans') {
+    content = <ViewAnswers close={handleClose} />
+  }
+
   return (
     <div className='question--card'>
-      <Modal open={isOpen} close={() => setIsOpen(false)} content={<User close={() => setIsOpen(false)} />} />
+      <Modal open={isOpen} close={handleClose} content={content} />
       <div className='question--card__header'>
         <div className='question--user__img'>
           <img src={post.image} alt="user--face" />
@@ -20,11 +44,10 @@ const QuestionCard = ({ post }) => {
         <div className='question--user__links'>
           <AiOutlineEllipsis fontSize={"1.7em"} />
           <div className='question--tooltip'>
-            <div className='question--tooltip__item' onClick={() => setIsOpen(true)}>View User</div>
-            <div className='question--tooltip__item'>Reply</div>
-            <div className='question--tooltip__item'>Accept Answer</div>
-            <div className='question--tooltip__item'>View Answers</div>
-            <div className='question--tooltip__item'>Delete Question</div>
+            <div className='question--tooltip__item' onClick={() => handleOpen('view-user')}>View User</div>
+            <div className='question--tooltip__item' onClick={() => handleOpen('view-ans')}>View Answers</div>
+            <div className='question--tooltip__item' onClick={() => handleOpen('reply')}>Reply</div>
+            <div className='question--tooltip__item' onClick={() => setSelectedItem('reply')}>Delete Question</div>
           </div>
         </div>
       </div>

@@ -1,0 +1,6 @@
+.reply--modal {
+  width: 50%;
+  height: 60%;
+  background-color: white;
+  z-index: 2;
+}

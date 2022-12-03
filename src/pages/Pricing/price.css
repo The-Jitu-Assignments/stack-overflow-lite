@@ -1,0 +1,14 @@
+.pricing {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  height: 100%;
+  background-color: yellow;
+  padding: 20px;
+  gap: 20px;
+}
+
+.pricing--item {
+  border-radius: 5px;
+  background-color: aqua;
+  padding: 20px;
+}
