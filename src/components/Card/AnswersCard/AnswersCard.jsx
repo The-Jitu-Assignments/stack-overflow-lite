@@ -8,6 +8,7 @@ const AnswersCard = ({ post }) => {
       <div className='answersCard__header'>
         <div className='answersCard__header--user'>   
           <img src={post.image} alt="user-img" />
+          <h3>{post.userName}</h3>
         </div>
         <Button className={"accept--btn"} text={"Accept"} />
       </div>
