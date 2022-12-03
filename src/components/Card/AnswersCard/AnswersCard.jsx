@@ -12,8 +12,14 @@ const AnswersCard = ({ post }) => {
         </div>
         <Button className={"accept--btn"} text={"Accept"} />
       </div>
-      <div>Body</div>
-      <div>Footer</div>
+      <div>
+        {post.question.details}
+      </div>
+      <div className='answersCard--footer'>
+        <Button className={"like--btn"} text={"Like"}/>
+        <Button text={"Dislike"} />
+        <Button text={"Comment"} />
+      </div>
     </div>
   )
 }
