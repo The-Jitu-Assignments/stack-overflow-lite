@@ -1,0 +1,9 @@
+.answersCard {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: coral;
+  height: 300px;
+}

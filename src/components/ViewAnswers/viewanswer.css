@@ -13,8 +13,12 @@
 }
 
 .viewAnswer--body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   overflow-y: scroll;
   height: calc(100% - 50px);
   overflow-y: scroll;
   margin-top: 10px;
+  padding: 0 10px;
 }
