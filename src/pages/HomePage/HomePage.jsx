@@ -3,8 +3,6 @@ import './home.css';
 import dummyData from '../../data/posts.json';
 import QuestionCard from '../../components/Card/Questions/Question';
 
-console.log(dummyData)
-
 const HomePage = () => {
   const { posts } = dummyData;
   return (
