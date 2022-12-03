@@ -7,3 +7,16 @@
   background-color: coral;
   height: 300px;
 }
+
+.answersCard__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+
+.answersCard__header img {
+  width: 10%;
+  height: 100%;
+  border-radius: 50%;
+}
