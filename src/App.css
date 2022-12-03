@@ -28,7 +28,7 @@ body {
   cursor: pointer;
   font-weight: 400;
   background-color: var(--lightBlue);
-  padding: 5px 10px;
+  padding: 5px 15px;
   border-radius: 5px;
   color: var(--cream);
 }

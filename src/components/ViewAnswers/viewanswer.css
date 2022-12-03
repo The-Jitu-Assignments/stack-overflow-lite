@@ -6,3 +6,20 @@
   border-radius: 5px;
   padding: 20px;
 }
+
+.viewAnswer--header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.viewAnswer--body {
+  background-color: rgb(199, 199, 55);
+  overflow-y: scroll;
+  height: calc(100% - 50px);
+  overflow-y: scroll;
+  margin-top: 10px;
+}
+
+.test--item {
+  height: 300px;
+}
