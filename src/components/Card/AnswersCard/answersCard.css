@@ -32,3 +32,10 @@
   display: flex;
   gap: 20px;
 }
+
+.like--btn {
+  background-color: var(--lightBlue);
+  padding: 6px 20px;
+  color: var(--cream);
+  cursor: pointer;
+}
