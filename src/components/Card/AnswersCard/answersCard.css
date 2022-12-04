@@ -1,11 +1,19 @@
+.answers--container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
 .answersCard {
   display: flex;
   flex-direction: column;
   gap: 20px;
   padding: 10px;
   border-radius: 5px;
-  height: 300px;
   box-shadow: 0 1px 30px rgba(0, 0, 0, 0.25);
+  width: 100%;
 }
 
 .answersCard__header {
@@ -16,7 +24,7 @@
 }
 
 .answersCard__header--user img {
-  width: 60px;
+  width: 70px;
   height: 100%;
   border-radius: 50%;
 }
@@ -35,10 +43,11 @@
 
 .like--btn {
   background-color: var(--lightBlue);
-  padding: 6px 20px;
+  padding: 5px 14px;
   color: var(--cream);
   cursor: pointer;
   border-radius: 5px;
+  font-size: 12px;
 }
 
 .accept--btn {
@@ -47,4 +56,26 @@
   padding: 7px 15px;
   cursor: pointer;
   border-radius: 5px;
+}
+
+.answer--comments {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 90%;
+}
+
+.answer--comments__input {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.answer--comments__input input {
+  flex: 1;
+  padding: 5px 10px;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid var(--charcoal);
+  background-color: transparent;
 }

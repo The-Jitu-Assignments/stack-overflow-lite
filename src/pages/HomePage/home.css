@@ -17,6 +17,10 @@
   padding: 0 10px;
 }
 
+.homepage--all::-webkit-scrollbar {
+  display: none;
+}
+
 .homepage--all__header {
   display: flex;
   flex-direction: column;
@@ -64,10 +68,18 @@
 }
 
 .homepage--premium {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   flex: 1;
-  background-color: blue;
   position: sticky;
   height: 500px;
+  overflow-y: scroll;
+  padding: 0 10px;
+}
+
+.homepage--premium::-webkit-scrollbar {
+  display: none;
 }
 
 .homepage--questions {

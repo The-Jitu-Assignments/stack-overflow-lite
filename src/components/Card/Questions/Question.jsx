@@ -46,8 +46,6 @@ const QuestionCard = ({ post, selectQuiz }) => {
         <div className='question--user__links'>
           <AiOutlineEllipsis fontSize={"1.7em"} />
           <div className='question--tooltip'>
-            {/* <div className='question--tooltip__item' onClick={() => handleOpen('view-user')}>View User</div>
-            <div className='question--tooltip__item' onClick={() => handleOpen('view-ans')}>View Answers</div> */}
             <div className='question--tooltip__item' onClick={() => handleOpen('reply')}>Reply</div>
             <div className='question--tooltip__item' onClick={() => setSelectedItem('reply')}>Delete Question</div>
           </div>
@@ -56,7 +54,7 @@ const QuestionCard = ({ post, selectQuiz }) => {
       <div className='question--card__body'>
         {post.question.details}
       </div>
-      <div className='question--card__footer'>
+      {/* <div className='question--card__footer'>
         <button className='question--btn'>
           Like
           <AiFillLike />
@@ -65,7 +63,7 @@ const QuestionCard = ({ post, selectQuiz }) => {
           Dislike
           <AiFillDislike />
         </button>
-      </div>
+      </div> */}
     </div>
   )
 }

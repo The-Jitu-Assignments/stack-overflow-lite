@@ -10,7 +10,7 @@ import AnswersCard from '../../components/Card/AnswersCard/AnswersCard';
 
 const HomePage = () => {
   const { selectedQuiz } = useSelector(state => state.quiz)
-  console.log(selectedQuiz)
+  console.log(selectedQuiz?.question?.answers)
   const dispatch = useDispatch();
   const [showFilterBtns, setShowFilterBtns] = React.useState(false);
   const { posts } = dummyData;
@@ -42,8 +42,10 @@ const HomePage = () => {
           </div>
         </div>
         <div className='homepage--premium'>
-          Answers
-          <AnswersCard post={selectedQuiz} />
+          <h2>Answers</h2>
+          {selectedQuiz?.question?.answers.map((answer) => (
+            <AnswersCard post={selectedQuiz} answer={answer} />
+          ))}
         </div>
       </div>
     </div>
