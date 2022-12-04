@@ -9,7 +9,10 @@ const HomePage = () => {
     <div className='homepage'>
       <div className='homepage--container'>
         <div className='homepage--all'>
-          <h2>All Questions</h2>
+          {/* <h2>All Questions</h2> */}
+          <div className='homepage--all__header'>
+            Header
+          </div>
           <div className='homepage--questions'>
             {posts.map((post, i) => (
               <QuestionCard key={i} post={post} />

@@ -43,4 +43,8 @@
 
 .accept--btn {
   background-color: var(--lightBlue);
+  color: var(--cream);
+  padding: 7px 15px;
+  cursor: pointer;
+  border-radius: 5px;
 }
