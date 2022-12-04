@@ -46,9 +46,6 @@ const Header = () => {
           <img src='/assets/johnQA.png' alt='header--title' />
           </div>
         </div>
-        <div className='search'>
-          <input type={"search"} alt='Search a question' placeholder='Search a question' />
-        </div>
         <div className='header--auth'>
           {user ? (
             <div className='auth--btn'>
