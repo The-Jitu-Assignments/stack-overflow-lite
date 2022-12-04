@@ -29,6 +29,27 @@
 }
 
 .profile--page__right {
-  background-color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
   flex: 1;
+}
+
+.profile--right__top {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  height: auto;
+  background-color: aqua;
+  padding: 20px;
+}
+
+.profile--item {
+  background-color: yellowgreen;
+  padding: 15px 0;
+}
+
+.profile--right__bottom {
+  background-color: yellowgreen;
+  height: 500px;
 }
