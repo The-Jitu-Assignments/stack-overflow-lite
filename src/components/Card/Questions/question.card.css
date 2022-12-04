@@ -48,7 +48,8 @@
   gap: 10px;
   top: 10%;
   position: absolute;
-  left: 100%;
+  /* left: 100%; */
+  left: -200px;
   visibility: hidden;
   height: auto;
   width: 200px;

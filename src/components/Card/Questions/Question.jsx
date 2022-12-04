@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './question.card.css';
 import { AiOutlineEllipsis, AiFillLike, AiFillDislike } from 'react-icons/ai';
 import Modal from '../../Modal/Modal';
@@ -7,6 +8,7 @@ import Reply from '../../Reply/Reply';
 import ViewAnswers from '../../ViewAnswers/ViewAnswers';
 
 const QuestionCard = ({ post }) => {
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState('');
 
@@ -34,7 +36,7 @@ const QuestionCard = ({ post }) => {
     <div className='question--card'>
       <Modal open={isOpen} close={handleClose} content={content} />
       <div className='question--card__header'>
-        <div className='question--user__img'>
+        <div className='question--user__img' onClick={() => navigate('/profile')}>
           <img src={post.image} alt="user--face" />
         </div>
         <div className='question--user__details'>
@@ -44,8 +46,8 @@ const QuestionCard = ({ post }) => {
         <div className='question--user__links'>
           <AiOutlineEllipsis fontSize={"1.7em"} />
           <div className='question--tooltip'>
-            <div className='question--tooltip__item' onClick={() => handleOpen('view-user')}>View User</div>
-            <div className='question--tooltip__item' onClick={() => handleOpen('view-ans')}>View Answers</div>
+            {/* <div className='question--tooltip__item' onClick={() => handleOpen('view-user')}>View User</div>
+            <div className='question--tooltip__item' onClick={() => handleOpen('view-ans')}>View Answers</div> */}
             <div className='question--tooltip__item' onClick={() => handleOpen('reply')}>Reply</div>
             <div className='question--tooltip__item' onClick={() => setSelectedItem('reply')}>Delete Question</div>
           </div>

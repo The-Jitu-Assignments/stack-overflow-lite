@@ -36,7 +36,7 @@ const HomePage = () => {
           </div>
         </div>
         <div className='homepage--premium'>
-          Suggested for you
+          Answers
         </div>
       </div>
     </div>

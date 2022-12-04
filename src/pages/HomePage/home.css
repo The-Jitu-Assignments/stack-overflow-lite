@@ -11,7 +11,10 @@
 }
 
 .homepage--all {
-  flex-basis: 65%;
+  height: 600px;
+  overflow-y: scroll;
+  flex-basis: 60%;
+  padding: 0 10px;
 }
 
 .homepage--all__header {
@@ -62,6 +65,9 @@
 
 .homepage--premium {
   flex: 1;
+  background-color: blue;
+  position: sticky;
+  height: 500px;
 }
 
 .homepage--questions {

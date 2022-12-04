@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Profile.css'
 import dummyData from '../../data/posts.json';
+import PersonalQuiz from '../../components/PersonalQuiz/PersonalQuiz';
 
 const Profile = () => {
+  const [currentData, setCurrentData] = useState('Recent Asked Quizes');
   const { posts } = dummyData;
   const img = posts.map((post) => post.image);
   return (
@@ -35,15 +37,15 @@ const Profile = () => {
         </div>
         <div className='profile--right__bottom'>
           <div className='profile--bottom__header'>
-            <div className='profile--quizes__recent'>
+            <div className='profile--quizes__recent' onClick={() => setCurrentData('Recent Asked Questions')}>
               Recent Asked Questions
             </div>
-            <div className='profile--quizes--mostAnswered'>
+            <div className='profile--quizes--mostAnswered' onClick={() => setCurrentData('Most Answered Questions')}>
               Most Answered Questions
             </div>
           </div>
           <div>
-            Body
+            <PersonalQuiz data={currentData} />
           </div>
         </div>
       </div>
