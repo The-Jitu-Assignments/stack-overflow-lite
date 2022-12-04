@@ -48,3 +48,13 @@
 .login--text span:hover {
   text-decoration: underline;
 }
+
+@media screen and (max-width: 800px) {
+  .register--image {
+    display: none;
+  }
+
+  .register--form {
+    width: 100%;
+  }
+}
