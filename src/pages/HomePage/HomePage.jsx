@@ -3,26 +3,31 @@ import './home.css';
 import dummyData from '../../data/posts.json';
 import QuestionCard from '../../components/Card/Questions/Question';
 import { BsFilter } from 'react-icons/bs'
+import Button from '../../components/Button/Button';
 
 const HomePage = () => {
+  const [showFilterBtns, setShowFilterBtns] = React.useState(false);
   const { posts } = dummyData;
   return (
     <div className='homepage'>
       <div className='homepage--container'>
         <div className='homepage--all'>
           <div className='homepage--all__header'>
-            <div className='homepage--search'>
-              <input type="search" placeholder='Search a question' />
+            <div className='homepage--all__filter'>
+              <div className='homepage--search'>
+                <input type="search" placeholder='Search a question' />
+              </div>
+              <div className='homepage--filter' onClick={() => setShowFilterBtns(!showFilterBtns)}>
+                Filter
+                <BsFilter />
+              </div>
             </div>
-            <div className='homepage--filter'>
-              Filter
-              <BsFilter />
-            </div>
+            {showFilterBtns && (
             <div className='homepage--filter__buttons'>
-              <div>Item1</div>
-              <div>Item2</div>
-              <div>3S</div>
+              <Button text={"Most Recent"} className={"home--filter__btn"} />
+              <Button text={"Most Replies"} className={"home--filter__btn"} />
             </div>
+            )}
           </div>
           <div className='homepage--questions'>
             {posts.map((post, i) => (
