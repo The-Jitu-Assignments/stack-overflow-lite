@@ -4,13 +4,15 @@
   justify-content: center;
   width: 100%;
   min-height: 100%;
+  padding: 20px 0;
 }
 
 .register--container {
   display: flex;
-  width: 80%;
+  width: 90%;
   height: auto;
   box-shadow: 1px 1px 15px 1px gray;
+  border-radius: 5px;
 }
 
 .register--form {

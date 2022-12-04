@@ -10,8 +10,8 @@
   display: flex;
   width: 80%;
   height: auto;
-  /* box-shadow: 1px 1px 15px 1px gray; */
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
 }
 
 .login--image {
@@ -82,4 +82,14 @@
 
 .login--form span:hover {
   text-decoration: underline;
+}
+
+@media screen and (max-width: 800px) {
+  .login--image {
+    display: none;
+  }
+
+  .login--form {
+    width: 100%;
+  }
 }
