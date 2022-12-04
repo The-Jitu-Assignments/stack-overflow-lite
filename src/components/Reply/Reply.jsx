@@ -5,9 +5,9 @@ import './reply.css';
 const Reply = ({ close }) => {
   return (
     <div className='reply--modal' onClick={close}>
-      <div>Header</div>
-      <textarea></textarea>
-      <Button method={close} className={'submitBtn'} text={"Submit"} />
+      <div>Reply</div>
+      <textarea placeholder="Add a response to the question"></textarea>
+      <Button method={close} className={'submitButton'} text={"Submit"} />
     </div>
   )
 }
