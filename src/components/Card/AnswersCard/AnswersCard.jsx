@@ -1,8 +1,10 @@
 import React from 'react'
 import Button from '../../Button/Button'
+import Comment from '../Comments/Comment';
 import './answersCard.css'
 
 const AnswersCard = ({ post, answer }) => {
+  const [ show, setShow ] = React.useState(false);
   console.log(answer)
   console.log('post', post)
   return (
@@ -21,16 +23,20 @@ const AnswersCard = ({ post, answer }) => {
         <div className='answersCard--footer'>
           <Button className={"like--btn"} text={"Like"}/>
           <Button className={"like--btn"} text={"Dislike"} />
-          <Button className={"like--btn"} text={"Comment"} />
+          <Button className={"like--btn"} text={"Comment"} method={() => setShow(!show)} />
         </div>
       </div>
+      {show && (
       <div className='answer--comments'>
         <div className='answer--comments__input'>
           <input type={"text"} placeholder='Add a comment' />
           <Button text={"submit"} />
         </div>
-        <div>B</div>
+        <div className='comment--container'>
+          <Comment />
+        </div>
       </div>
+      )}
     </div>
   )
 }

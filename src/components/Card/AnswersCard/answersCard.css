@@ -78,4 +78,11 @@
   outline: none;
   border: 1px solid var(--charcoal);
   background-color: transparent;
+  font-size: 12px;
+}
+
+.comment--container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
