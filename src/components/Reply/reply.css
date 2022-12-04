@@ -10,6 +10,11 @@
   border-radius: 5px;
 }
 
+.reply--modal__header {
+  display: flex;
+  justify-content: space-between;
+}
+
 .reply--modal textarea {
   height: 150px;
   padding: 10px;
