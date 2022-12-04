@@ -18,12 +18,21 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: violet;
+  gap: 40px;
   padding: 20px 0;
 }
 
-.homepage--all h2 {
-  margin-bottom: 10px;
+.homepage--search {
+  flex: 1;
+}
+
+.homepage--search input {
+  width: 80%;
+  padding: 10px 15px;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid var(--lightBlue);
+  background-color: transparent;
 }
 
 .homepage--premium {

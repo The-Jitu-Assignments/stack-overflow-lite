@@ -10,13 +10,13 @@ const HomePage = () => {
     <div className='homepage'>
       <div className='homepage--container'>
         <div className='homepage--all'>
-          {/* <h2>All Questions</h2> */}
           <div className='homepage--all__header'>
-            <div>
+            <div className='homepage--search'>
               <input type="search" placeholder='Search a question' />
             </div>
-            <div>
+            <div className='homepage--filter'>
               Filter
+              <BsFilter />
             </div>
           </div>
           <div className='homepage--questions'>
