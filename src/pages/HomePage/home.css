@@ -52,6 +52,14 @@
   flex-basis: 100%;
 }
 
+.home--filter__btn {
+  background-color: var(--lightBlue);
+  color: var(--cream);
+  padding: 7px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 .homepage--premium {
   flex: 1;
 }
