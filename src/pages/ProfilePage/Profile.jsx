@@ -16,15 +16,35 @@ const Profile = () => {
       </div>
       <div className='profile--page__right'>
         <div className='profile--right__top'>
-          <div className="profile--item">Item1</div>
-          <div className="profile--item">Item2</div>
-          <div className="profile--item">Item3</div>
-          <div className="profile--item">Item4</div>
-          <div className="profile--item">Item5</div>
-          <div className="profile--item">Item6</div>
+          <div className="profile--item">
+            <span>Name:</span>
+             John Katua
+          </div>
+          <div className="profile--item">
+            <span>Email: </span>
+            johnkatua99@gmail.com
+          </div>
+          <div className="profile--item">
+            <span>Phone:</span>
+             0795029709
+          </div>
+          <div className="profile--item">
+            <span>Location: </span>
+            Nyeri, Kenya
+          </div>
         </div>
         <div className='profile--right__bottom'>
-          Bottom
+          <div className='profile--bottom__header'>
+            <div className='profile--quizes__recent'>
+              Recent Asked Questions
+            </div>
+            <div className='profile--quizes--mostAnswered'>
+              Most Answered Questions
+            </div>
+          </div>
+          <div>
+            Body
+          </div>
         </div>
       </div>
     </div>
