@@ -4,7 +4,7 @@ import './reply.css';
 
 const Reply = ({ close }) => {
   return (
-    <div className='reply--modal' onClick={close}>
+    <div className='reply--modal' onClick={(e) => e.stopPropagation()}>
       <div className='reply--modal__header'>
         <h2>Reply</h2>
         <Button method={close} className={"closeBtn"} text={"x"} />
