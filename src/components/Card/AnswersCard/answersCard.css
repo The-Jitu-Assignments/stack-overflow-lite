@@ -86,3 +86,11 @@
   flex-direction: column;
   gap: 10px;
 }
+
+.comments--btn {
+  background-color: var(--lightBlue);
+  padding: 4px 10px;
+  color: var(--cream);
+  border-radius: 5px;
+  cursor: pointer;
+}

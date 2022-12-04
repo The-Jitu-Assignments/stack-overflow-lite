@@ -23,14 +23,14 @@ const AnswersCard = ({ post, answer }) => {
         <div className='answersCard--footer'>
           <Button className={"like--btn"} text={"Like"}/>
           <Button className={"like--btn"} text={"Dislike"} />
-          <Button className={"like--btn"} text={"Comment"} method={() => setShow(!show)} />
+          <Button className={"like--btn"} text={"View comments"} method={() => setShow(!show)} />
         </div>
       </div>
       {show && (
       <div className='answer--comments'>
         <div className='answer--comments__input'>
           <input type={"text"} placeholder='Add a comment' />
-          <Button text={"submit"} />
+          <Button className={"comments--btn"} text={"submit"} />
         </div>
         <div className='comment--container'>
           <Comment />
