@@ -18,6 +18,11 @@ const HomePage = () => {
               Filter
               <BsFilter />
             </div>
+            <div className='homepage--filter__buttons'>
+              <div>Item1</div>
+              <div>Item2</div>
+              <div>3S</div>
+            </div>
           </div>
           <div className='homepage--questions'>
             {posts.map((post, i) => (
