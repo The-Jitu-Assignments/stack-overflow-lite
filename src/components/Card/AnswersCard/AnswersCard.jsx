@@ -7,13 +7,13 @@ const AnswersCard = ({ post }) => {
     <div className='answersCard'>
       <div className='answersCard__header'>
         <div className='answersCard__header--user'>   
-          <img src={post.image} alt="user-img" />
-          <h3>{post.userName}</h3>
+          <img src={post?.image} alt="user-img" />
+          <h3>{post?.userName}</h3>
         </div>
         <Button className={"accept--btn"} text={"Accept"} />
       </div>
       <div>
-        {post.question.details}
+        {post?.question.details}
       </div>
       <div className='answersCard--footer'>
         <Button className={"like--btn"} text={"Like"}/>

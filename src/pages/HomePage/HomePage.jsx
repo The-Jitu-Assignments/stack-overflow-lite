@@ -1,11 +1,17 @@
-import React from 'react'
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setSelectedQuiz } from '../../features/question/quizSlice';
 import './home.css';
 import dummyData from '../../data/posts.json';
 import QuestionCard from '../../components/Card/Questions/Question';
 import { BsFilter } from 'react-icons/bs'
 import Button from '../../components/Button/Button';
+import AnswersCard from '../../components/Card/AnswersCard/AnswersCard';
 
 const HomePage = () => {
+  const { selectedQuiz } = useSelector(state => state.quiz)
+  console.log(selectedQuiz)
+  const dispatch = useDispatch();
   const [showFilterBtns, setShowFilterBtns] = React.useState(false);
   const { posts } = dummyData;
   return (
@@ -31,12 +37,13 @@ const HomePage = () => {
           </div>
           <div className='homepage--questions'>
             {posts.map((post, i) => (
-              <QuestionCard key={i} post={post} />
+              <QuestionCard key={i} post={post} selectQuiz={() => dispatch(setSelectedQuiz(post))} />
             ))}
           </div>
         </div>
         <div className='homepage--premium'>
           Answers
+          <AnswersCard post={selectedQuiz} />
         </div>
       </div>
     </div>

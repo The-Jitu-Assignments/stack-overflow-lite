@@ -7,7 +7,7 @@ import User from '../../User/User';
 import Reply from '../../Reply/Reply';
 import ViewAnswers from '../../ViewAnswers/ViewAnswers';
 
-const QuestionCard = ({ post }) => {
+const QuestionCard = ({ post, selectQuiz }) => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState('');
@@ -33,7 +33,7 @@ const QuestionCard = ({ post }) => {
   }
 
   return (
-    <div className='question--card'>
+    <div className='question--card' onClick={selectQuiz}>
       <Modal open={isOpen} close={handleClose} content={content} />
       <div className='question--card__header'>
         <div className='question--user__img' onClick={() => navigate('/profile')}>
