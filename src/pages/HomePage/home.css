@@ -87,3 +87,9 @@
   flex-direction: column;
   gap: 20px;
 }
+
+@media screen and (max-width: 960px) {
+  .homepage--container {
+    flex-direction: column;
+  }
+}

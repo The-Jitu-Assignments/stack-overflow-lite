@@ -20,11 +20,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 70px;
+  height: 50px;
 }
 
 .answersCard__header--user img {
-  width: 70px;
+  width: 50px;
   height: 100%;
   border-radius: 50%;
 }
@@ -56,6 +56,7 @@
   padding: 7px 15px;
   cursor: pointer;
   border-radius: 5px;
+  font-size: 12px;
 }
 
 .answer--comments {
