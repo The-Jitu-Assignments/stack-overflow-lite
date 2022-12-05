@@ -5,8 +5,7 @@ import './answersCard.css'
 
 const AnswersCard = ({ post, answer }) => {
   const [ show, setShow ] = React.useState(false);
-  console.log(answer)
-  console.log('post', post)
+
   return (
     <div className='answers--container'>
       <div className='answersCard'>

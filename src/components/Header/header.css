@@ -32,12 +32,13 @@
   display: flex;
   align-items: center;
   height: 100%;
-  width: 20%;
+  width: 40px;
 }
 
 .header--title {
   display: flex;
   align-items: center;
+  justify-content: center;
   width: 70%;
   height: 100%;
 }
@@ -95,7 +96,7 @@
 
 @media screen and (max-width: 768px) {
   .header {
-    height: 250px;
+    height: 100px;
   }
   .header--box {
     align-items: flex-start;
@@ -107,8 +108,17 @@
   .header--intro {
     display: flex;
     justify-content: space-between;
-    width: 50%;
+    width: 40%;
     flex-basis: 100%;
-    height: 100px;
+    background-color: aqua;
+    gap: 0;
+  }
+
+  .header--auth {
+    display: none;
+  }
+
+  .header--menu {
+    width: 20px;
   }
 }
