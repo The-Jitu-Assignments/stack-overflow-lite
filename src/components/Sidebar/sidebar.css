@@ -1,0 +1,23 @@
+.sidebar--footer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: grey;
+  padding: 20px;
+}
+
+.sidebar--footer__item {
+  padding: 10px;
+  background-color: var(--lightBlue);
+  border-radius: 5px;
+  color: var(--cream);
+}
+
+.sidebar--footer__user{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: var(--lightBlue);
+  color: var(--cream);
+  border-radius: 5px;
+}
