@@ -5,8 +5,10 @@ import { GrLanguage } from 'react-icons/gr';
 import Button from '../Button/Button';
 import './sidebar.css';
 import { RxDoubleArrowLeft } from 'react-icons/rx';
+import { useSelector } from 'react-redux';
 
 const Sidebar = ({ close }) => {
+  const { user } = useSelector((state) => state.user);
   const navigate = useNavigate();
   return (
     <div className='modal--body' onClick={(e) => e.stopPropagation()}>
@@ -25,16 +27,21 @@ const Sidebar = ({ close }) => {
       </div>
       <div className="sidebar--footer">
         <h3>Auth</h3>
-        <div className="sidebar--footer__item">
-          Login
-        </div>
-        <div className="sidebar--footer__item">
-          Signup
-        </div>
+        {user ? (
         <div className="sidebar--footer__user">
           Johnkatua99@gmail.com
           <RxDoubleArrowLeft />
         </div>
+        ) : (
+          <>
+            <div className="sidebar--footer__item">
+              Login
+            </div>
+            <div className="sidebar--footer__item">
+              Signup
+            </div>
+          </>
+        )}
       </div>
     </div>
   )
