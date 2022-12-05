@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { AiFillHome,  } from 'react-icons/ai';
 import { GrLanguage } from 'react-icons/gr';
 import Button from '../Button/Button';
-import './sidebar.css'
+import './sidebar.css';
+import { RxDoubleArrowLeft } from 'react-icons/rx';
 
 const Sidebar = ({ close }) => {
   const navigate = useNavigate();
@@ -32,6 +33,7 @@ const Sidebar = ({ close }) => {
         </div>
         <div className="sidebar--footer__user">
           Johnkatua99@gmail.com
+          <RxDoubleArrowLeft />
         </div>
       </div>
     </div>
