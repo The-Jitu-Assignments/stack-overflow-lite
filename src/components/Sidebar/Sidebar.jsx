@@ -29,7 +29,7 @@ const Sidebar = ({ close }) => {
           Login
         </div>
         <div className="sidebar--footer__item">
-          Logout
+          Signup
         </div>
         <div className="sidebar--footer__user">
           Johnkatua99@gmail.com
