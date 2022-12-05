@@ -40,7 +40,7 @@
   justify-content: flex-end;
   padding-right: 20px;
   height: 80px;
-  border-bottom: 1px solid var(--lightBlue);
+  border-bottom: 1px solid var(--charcoal);
 }
 
 .modal--close__btn {
@@ -108,5 +108,9 @@
 @media screen and (max-width: 768px) {
   .modal--body {
     width: 100%;
+  }
+
+  .modal--content {
+    gap: 10px;
   }
 }

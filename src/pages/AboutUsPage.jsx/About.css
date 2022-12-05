@@ -76,3 +76,9 @@
   border-radius: 5px;
   padding: 20px;
 }
+
+@media screen and (max-width: 768px) {
+  .about--page__right {
+    display: none;
+  }
+}

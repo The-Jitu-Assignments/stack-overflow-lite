@@ -5,12 +5,15 @@ import { GrLanguage } from 'react-icons/gr';
 import Button from '../Button/Button';
 import './sidebar.css';
 import { RxDoubleArrowLeft } from 'react-icons/rx';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout } from '../../features/user/userSlice.js'
 
 const Sidebar = ({ close }) => {
+  const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
   const [showPopUp, setShowPopUp] = React.useState(false);
   const navigate = useNavigate();
+
   return (
     <div className='modal--body' onClick={(e) => e.stopPropagation()}>
       <div className='modal--header'>
@@ -27,7 +30,7 @@ const Sidebar = ({ close }) => {
         </div>
       </div>
       <div className="sidebar--footer">
-        <h3>Auth</h3>
+        {user ? <h3>Welcome Back</h3> : <h3>Join us</h3>}
         {user ? (
           <>
             <div className="sidebar--footer__user" onClick={() => setShowPopUp(!showPopUp)}>
@@ -36,18 +39,18 @@ const Sidebar = ({ close }) => {
             </div>
             {showPopUp && (
               <div className="sidebar--popup">
-                <div className="sidebar--popup__item">Profile</div>
+                <div className="sidebar--popup__item" onClick={() => { navigate('/profile'); close()}}>Profile</div>
                 <div className="sidebar--popup__item">Add a question</div>
-                <div className="sidebar--popup__item">Logout</div>
+                <div className="sidebar--popup__item" onClick={() => dispatch(logout())}>Logout</div>
               </div>
             )}
           </>
         ) : (
           <>
-            <div className="sidebar--footer__item">
+            <div className="sidebar--footer__item" onClick={() => {navigate('/login'); close()}}>>
               Login
             </div>
-            <div className="sidebar--footer__item">
+            <div className="sidebar--footer__item" onClick={() => {navigate('/register'); close()}}>>
               Signup
             </div>
           </>
