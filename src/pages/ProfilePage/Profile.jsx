@@ -34,6 +34,14 @@ const Profile = () => {
             <span>Location: </span>
             Nyeri, Kenya
           </div>
+          <div className="profile--item">
+            <span>Number of Questions asked: </span>
+            378
+          </div>
+          <div className="profile--item">
+            <span>Answered Given: </span>
+            3210
+          </div>
         </div>
         <div className='profile--right__bottom'>
           <div className='profile--bottom__header'>

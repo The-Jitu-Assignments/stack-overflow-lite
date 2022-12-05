@@ -81,4 +81,8 @@
   .about--page__right {
     display: none;
   }
+
+  .about--page__left {
+    width: auto;
+  }
 }

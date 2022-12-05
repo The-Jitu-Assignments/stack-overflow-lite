@@ -3,6 +3,7 @@
   flex-direction: column;
   gap: 10px;
   padding: 20px;
+  visibility: hidden;
 }
 
 .sidebar--footer__item {
@@ -35,4 +36,10 @@
 .sidebar--popup__item {
   padding: 10px;
   cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .sidebar--footer {
+    visibility: visible;
+  }
 }
