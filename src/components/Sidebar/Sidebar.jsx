@@ -9,6 +9,7 @@ import { useSelector } from 'react-redux';
 
 const Sidebar = ({ close }) => {
   const { user } = useSelector((state) => state.user);
+  const [showPopUp, setShowPopUp] = React.useState(false);
   const navigate = useNavigate();
   return (
     <div className='modal--body' onClick={(e) => e.stopPropagation()}>
@@ -28,10 +29,19 @@ const Sidebar = ({ close }) => {
       <div className="sidebar--footer">
         <h3>Auth</h3>
         {user ? (
-        <div className="sidebar--footer__user">
-          Johnkatua99@gmail.com
-          <RxDoubleArrowLeft />
-        </div>
+          <>
+            <div className="sidebar--footer__user" onClick={() => setShowPopUp(!showPopUp)}>
+              Johnkatua99@gmail.com
+              <RxDoubleArrowLeft />
+            </div>
+            {showPopUp && (
+              <div className="sidebar--popup">
+                <div className="sidebar--popup__item">Profile</div>
+                <div className="sidebar--popup__item">Add a question</div>
+                <div className="sidebar--popup__item">Logout</div>
+              </div>
+            )}
+          </>
         ) : (
           <>
             <div className="sidebar--footer__item">

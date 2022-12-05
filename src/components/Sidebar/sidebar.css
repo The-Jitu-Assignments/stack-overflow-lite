@@ -21,4 +21,19 @@
   background-color: var(--lightBlue);
   color: var(--cream);
   border-radius: 5px;
+  cursor: pointer;
+}
+
+.sidebar--popup {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: tomato;
+  margin: 0 20px;
+  border-radius: 5px;
+}
+
+.sidebar--popup__item {
+  padding: 10px;
+  cursor: pointer;
 }
