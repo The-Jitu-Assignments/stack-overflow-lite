@@ -5,7 +5,6 @@ import { AiOutlineEllipsis, AiFillLike, AiFillDislike } from 'react-icons/ai';
 import Modal from '../../Modal/Modal';
 import User from '../../User/User';
 import Reply from '../../Reply/Reply';
-import ViewAnswers from '../../ViewAnswers/ViewAnswers';
 
 const QuestionCard = ({ post, selectQuiz }) => {
   const navigate = useNavigate();
@@ -28,9 +27,7 @@ const QuestionCard = ({ post, selectQuiz }) => {
     content = <Reply close={handleClose} />
   } else if (selectedItem === 'view-user') {
     content = <User close={handleClose} post={post} />
-  } else if (selectedItem === 'view-ans') {
-    content = <ViewAnswers close={handleClose} />
-  }
+  };
 
   return (
     <div className='question--card' onClick={selectQuiz}>
