@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import './question.card.css';
 import { AiOutlineEllipsis, AiFillLike, AiFillDislike } from 'react-icons/ai';
 import Modal from '../../Modal/Modal';
-import User from '../../User/User';
 import Reply from '../../Reply/Reply';
 
 const QuestionCard = ({ post, selectQuiz }) => {
@@ -25,8 +24,6 @@ const QuestionCard = ({ post, selectQuiz }) => {
 
   if (selectedItem === 'reply') {
     content = <Reply close={handleClose} />
-  } else if (selectedItem === 'view-user') {
-    content = <User close={handleClose} post={post} />
   };
 
   return (
