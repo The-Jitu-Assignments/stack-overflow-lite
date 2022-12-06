@@ -1,14 +1,10 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "../components/Layout/Layout";
 import AboutUs from "../pages/AboutUsPage.jsx/AboutUs";
-import AllQuestions from "../pages/AllQuestionsPage.jsx/AllQuestions";
 import HomePage from "../pages/HomePage/HomePage";
 import LoginPage from "../pages/LoginPage/LoginPage";
-import MyQuestions from "../pages/MyQuestionsPage/MyQuestions";
-import Pricing from "../pages/Pricing/Pricing";
 import Profile from "../pages/ProfilePage/Profile";
 import RegisterPage from "../pages/RegisterPage/RegisterPage";
-import UnAnsweredQuestions from "../pages/UnAnsweredQuestions.jsx/UnAnsweredQuestions";
 
 export const AppRoutes = () => {
   return (
