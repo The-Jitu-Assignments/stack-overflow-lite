@@ -95,3 +95,10 @@
   border-radius: 5px;
   cursor: pointer;
 }
+
+@media screen and (max-width: 768px) {
+  .answer--comments__input {
+    flex-direction: column;
+    gap: 5px;
+  }
+}

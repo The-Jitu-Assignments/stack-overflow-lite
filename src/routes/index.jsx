@@ -29,29 +29,9 @@ export const AppRoutes = () => {
             <RegisterPage />
           </Layout>
         } />
-        <Route path="all-questions" element={
-          <Layout>
-            <AllQuestions />
-          </Layout>
-        } />
-        <Route path="pricing" element={
-          <Layout>
-            <Pricing />
-          </Layout>
-        } />
-        <Route path="unanswered-questions" element={
-          <Layout>
-            <UnAnsweredQuestions />
-          </Layout>
-        } />
         <Route path="about-us" element={
           <Layout>
             <AboutUs />
-          </Layout>
-        } />
-        <Route path="my-questions" element={
-          <Layout>
-            <MyQuestions />
           </Layout>
         } />
         <Route path="profile" element={

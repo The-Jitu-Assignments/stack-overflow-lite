@@ -4,6 +4,7 @@
   gap: 10px;
   padding: 20px;
   visibility: hidden;
+   border-top: 1px solid var(--charcoal);
 }
 
 .sidebar--footer__item {
@@ -11,6 +12,7 @@
   background-color: var(--lightBlue);
   border-radius: 5px;
   color: var(--cream);
+  cursor: pointer;
 }
 
 .sidebar--footer__user{

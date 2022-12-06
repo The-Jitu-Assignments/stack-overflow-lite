@@ -20,7 +20,7 @@ const AnswersCard = ({ post, answer }) => {
           {answer.answer}
         </div>
         <div className='answersCard--footer'>
-          <Button className={"like--btn"} text={"Like"}/>
+          <Button className={"like--btn"} text={`Like`}/>
           <Button className={"like--btn"} text={"Dislike"} />
           <Button className={"like--btn"} text={"View comments"} method={() => setShow(!show)} />
         </div>

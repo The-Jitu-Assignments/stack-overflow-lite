@@ -4,7 +4,7 @@ import dummyData from '../../data/posts.json';
 import PersonalQuiz from '../../components/PersonalQuiz/PersonalQuiz';
 
 const Profile = () => {
-  const [currentData, setCurrentData] = useState('Recent Asked Quizes');
+  const [currentData, setCurrentData] = useState('Recent Asked Quistions');
   const { posts } = dummyData;
   const img = posts.map((post) => post.image);
   return (
@@ -53,7 +53,9 @@ const Profile = () => {
             </div>
           </div>
           <div>
-            <PersonalQuiz data={currentData} />
+            {posts.map((post, i) => (
+              <PersonalQuiz data={currentData} key={i} />
+            ))}
           </div>
         </div>
       </div>

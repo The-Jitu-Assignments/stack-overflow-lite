@@ -40,17 +40,17 @@ const Sidebar = ({ close }) => {
             {showPopUp && (
               <div className="sidebar--popup">
                 <div className="sidebar--popup__item" onClick={() => { navigate('/profile'); close()}}>Profile</div>
-                <div className="sidebar--popup__item">Add a question</div>
+                {/* <div className="sidebar--popup__item">Add a question</div> */}
                 <div className="sidebar--popup__item" onClick={() => dispatch(logout())}>Logout</div>
               </div>
             )}
           </>
         ) : (
           <>
-            <div className="sidebar--footer__item" onClick={() => {navigate('/login'); close()}}>>
+            <div className="sidebar--footer__item" onClick={() => {navigate('/login'); close()}}>
               Login
             </div>
-            <div className="sidebar--footer__item" onClick={() => {navigate('/register'); close()}}>>
+            <div className="sidebar--footer__item" onClick={() => {navigate('/register'); close()}}>
               Signup
             </div>
           </>
