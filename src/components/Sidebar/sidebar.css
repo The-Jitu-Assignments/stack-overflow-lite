@@ -1,4 +1,4 @@
-.modal--body {
+.sidebar--container {
   position: absolute;
   top: 0;
   left: 0;
@@ -12,17 +12,15 @@
 
 @keyframes slideIn {
   from {
-    /* width: 0; */
     transform: translateX(-100%);
   }
 
   to {
-    /* width: 20%; */
     transform: translateX(0%);
   }
 }
 
-.modal--header {
+.sidebar--header {
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -59,17 +57,16 @@
   }
 }
 
-.modal--content {
+.sidebar--content {
   display: flex;
-  gap: 20px;
+  gap: 10px;
   flex-direction: column;
   margin-top: 20px;
   padding-bottom: 40px;
-  /* border-bottom: 1px solid var(--charcoal); */
 }
 
 
-.modal--content__item {
+.sidebar--content__item {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -78,7 +75,7 @@
   animation: showText .3s linear;
 }
 
-.modal--content__item:hover {
+.sidebar--content__item:hover {
   background-color: var(--lightBlue);
   color: var(--cream);
 }
@@ -94,11 +91,11 @@
 }
 
 @media screen and (max-width: 768px) {
-  .modal--body {
+  .sidebar--container {
     width: 100%;
   }
 
-  .modal--content {
+  .sidebar--content {
     gap: 10px;
   }
 }

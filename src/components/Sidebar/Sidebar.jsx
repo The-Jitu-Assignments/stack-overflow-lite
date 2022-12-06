@@ -15,16 +15,16 @@ const Sidebar = ({ close }) => {
   const navigate = useNavigate();
 
   return (
-    <div className='modal--body' onClick={(e) => e.stopPropagation()}>
-      <div className='modal--header'>
+    <div className='sidebar--container' onClick={(e) => e.stopPropagation()}>
+      <div className='sidebar--header'>
         <Button method={close} className={"closeBtn"} text={"x"} />
       </div>
-      <div className='modal--content'>
-        <div className="modal--content__item" onClick={() => {navigate('/'); close()}}>
+      <div className='sidebar--content'>
+        <div className="sidebar--content__item" onClick={() => {navigate('/'); close()}}>
           <AiFillHome />
           Home
         </div>
-        <div className="modal--content__item" onClick={() => {navigate('/about-us'); close()}}>
+        <div className="sidebar--content__item" onClick={() => {navigate('/about-us'); close()}}>
           <GrLanguage />
           About Us
         </div>
