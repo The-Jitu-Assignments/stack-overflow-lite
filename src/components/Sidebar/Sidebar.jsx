@@ -40,7 +40,6 @@ const Sidebar = ({ close }) => {
             {showPopUp && (
               <div className="sidebar--popup">
                 <div className="sidebar--popup__item" onClick={() => { navigate('/profile'); close()}}>Profile</div>
-                {/* <div className="sidebar--popup__item">Add a question</div> */}
                 <div className="sidebar--popup__item" onClick={() => dispatch(logout())}>Logout</div>
               </div>
             )}
