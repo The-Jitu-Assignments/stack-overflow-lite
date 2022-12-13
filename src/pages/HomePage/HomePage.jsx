@@ -58,16 +58,21 @@ const HomePage = () => {
             )}
           </div>
           <div className='homepage--questions'>
-            {posts.map((post, i) => (
-              <QuestionCard key={i} post={post} selectQuiz={() => dispatch(setSelectedQuiz(post))} />
-            ))}
+            {questionsData?.map((qn) => {
+              return (
+                <QuestionCard key={qn.id} post={qn} selectQuiz={() => dispatch(setSelectedQuiz(qn))} />
+              )
+            })}
+            {/* {posts.map((post, i) => (
+            ))} */}
           </div>
         </div>
         <div className='homepage--premium'>
           <h2>Answers</h2>
-          {selectedQuiz?.question?.answers.map((answer) => (
+          Coming Soon
+          {/* {selectedQuiz?.question?.answers.map((answer) => (
             <AnswersCard post={selectedQuiz} answer={answer} />
-          ))}
+          ))} */}
         </div>
       </div>
     </div>

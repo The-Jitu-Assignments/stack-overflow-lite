@@ -31,11 +31,11 @@ const QuestionCard = ({ post, selectQuiz }) => {
       <Modal open={isOpen} close={handleClose} content={content} />
       <div className='question--card__header'>
         <div className='question--user__img' onClick={() => navigate('/profile')}>
-          <img src={post.image} alt="user--face" />
+          <img src={post.imgUrl} alt="user--face" />
         </div>
         <div className='question--user__details'>
-          <h3>{post.userName}</h3>
-          <div className='question--user__days'>{post.days > 1 ? `${post.days} days ago` : `${post.days} day ago`}</div>
+          <h3>{post.name}</h3>
+          <div className='question--user__days'>{post.days + ' ago'}</div>
         </div>
         <div className='question--user__links'>
           <AiOutlineEllipsis fontSize={"1.7em"} />
@@ -46,7 +46,7 @@ const QuestionCard = ({ post, selectQuiz }) => {
         </div>
       </div>
       <div className='question--card__body'>
-        {post.question.details}
+        {post.question}
       </div>
       {/* <div className='question--card__footer'>
         <button className='question--btn'>
