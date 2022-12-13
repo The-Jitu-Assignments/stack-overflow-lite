@@ -1,8 +1,15 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 const initialState = {
   selectedQuiz: null,
-}
+  questions: [],
+};
+
+export const fetchQuestions = createAsyncThunk('quiz/fetchQuestions', 
+  async () => {
+    
+  }
+)
 
 export const QuizesSlice = createSlice({
   name: 'quiz',
