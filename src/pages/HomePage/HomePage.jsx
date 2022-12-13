@@ -7,6 +7,7 @@ import QuestionCard from '../../components/Card/Questions/Question';
 import { BsFilter } from 'react-icons/bs'
 import Button from '../../components/Button/Button';
 import AnswersCard from '../../components/Card/AnswersCard/AnswersCard';
+import { AvatorGenerator } from '../../helpers/AvatorGenerator';
 
 const HomePage = () => {
   const { selectedQuiz, questions } = useSelector(state => state.quiz)
@@ -16,7 +17,18 @@ const HomePage = () => {
   const [showFilterBtns, setShowFilterBtns] = React.useState(false);
   const { posts, images } = dummyData;
 
-  console.log(images)
+  // console.log(images)
+
+  const questionsData = questions.map((qn) => {
+    const { imgUrl, ...rest } = qn;
+    const randomImg = AvatorGenerator(images)
+    return {
+      ...rest,
+      imgUrl: imgUrl ? imgUrl : randomImg.avatar
+    }
+  });
+
+  console.log(questionsData)
 
   // let randomAvatar = return ima
 

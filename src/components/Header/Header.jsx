@@ -9,6 +9,7 @@ import Modal from '../Modal/Modal';
 import AddQuestion from '../AddQuestion/AddQuestion';
 
 const Header = () => {
+  const [ open, setIsOpen ] = useState(false);
   const dispatch = useDispatch();
   const { user } = useSelector(state => state.user);
   const [ selectedItem, setSelectedItem ] = useState('');
