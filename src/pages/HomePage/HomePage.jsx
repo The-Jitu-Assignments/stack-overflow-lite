@@ -14,12 +14,16 @@ const HomePage = () => {
   console.log(questions)
   const dispatch = useDispatch();
   const [showFilterBtns, setShowFilterBtns] = React.useState(false);
-  const { posts } = dummyData;
+  const { posts, images } = dummyData;
+
+  console.log(images)
+
+  // let randomAvatar = return ima
 
   React.useEffect(() => {
     dispatch(fetchQuestions())
   }, []);
-  
+
   return (
     <div className='homepage'>
       <div className='homepage--container'>
