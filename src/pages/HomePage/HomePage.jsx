@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setSelectedQuiz } from '../../features/question/quizSlice';
+import { fetchQuestions, setSelectedQuiz } from '../../features/question/quizSlice';
 import './home.css';
 import dummyData from '../../data/posts.json';
 import QuestionCard from '../../components/Card/Questions/Question';
@@ -15,6 +15,11 @@ const HomePage = () => {
   const dispatch = useDispatch();
   const [showFilterBtns, setShowFilterBtns] = React.useState(false);
   const { posts } = dummyData;
+
+  React.useEffect(() => {
+    dispatch(fetchQuestions())
+  }, []);
+  
   return (
     <div className='homepage'>
       <div className='homepage--container'>
