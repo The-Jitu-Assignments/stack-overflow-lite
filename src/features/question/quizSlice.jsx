@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
 
 const initialState = {
   selectedQuiz: null,
@@ -7,7 +8,9 @@ const initialState = {
 
 export const fetchQuestions = createAsyncThunk('quiz/fetchQuestions', 
   async () => {
-    
+    const res = await axios.get('http://localhost:8000/question');
+    const { data } = res.data;
+    return data;
   }
 )
 
