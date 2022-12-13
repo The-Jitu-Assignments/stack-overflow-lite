@@ -21,6 +21,11 @@ export const QuizesSlice = createSlice({
     setSelectedQuiz: (state, action) => {
       state.selectedQuiz = action.payload;
     }
+  },
+  extraReducers (builder) {
+    builder.addCase(fetchQuestions.fulfilled, (state, action) => {
+      state.questions = action.payload
+    })
   }
 });
 

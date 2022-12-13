@@ -11,7 +11,6 @@ import AddQuestion from '../AddQuestion/AddQuestion';
 const Header = () => {
   const dispatch = useDispatch();
   const { user } = useSelector(state => state.user);
-  const [ open, setIsOpen ] = useState(false);
   const [ selectedItem, setSelectedItem ] = useState('');
   const navigate = useNavigate();
   const style = { cursor: 'pointer' };

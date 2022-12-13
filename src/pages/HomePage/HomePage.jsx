@@ -9,8 +9,9 @@ import Button from '../../components/Button/Button';
 import AnswersCard from '../../components/Card/AnswersCard/AnswersCard';
 
 const HomePage = () => {
-  const { selectedQuiz } = useSelector(state => state.quiz)
-  console.log(selectedQuiz?.question?.answers)
+  const { selectedQuiz, questions } = useSelector(state => state.quiz)
+  console.log(selectedQuiz?.question?.answers);
+  console.log(questions)
   const dispatch = useDispatch();
   const [showFilterBtns, setShowFilterBtns] = React.useState(false);
   const { posts } = dummyData;
