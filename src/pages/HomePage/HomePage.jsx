@@ -12,7 +12,8 @@ import { getQuestion } from '../../features/question/quizSlice';
 import Skeleton from 'react-loading-skeleton';
 
 const HomePage = () => {
-  const { selectedQuiz, questions } = useSelector(state => state.quiz)
+  const { selectedQuiz, questions } = useSelector(state => state.quiz);
+  const { answers, question } = selectedQuiz;
   console.log(selectedQuiz)
   const dispatch = useDispatch();
   const [showFilterBtns, setShowFilterBtns] = React.useState(false);
@@ -23,7 +24,7 @@ const HomePage = () => {
     const randomImg = AvatorGenerator(images)
     return {
       ...rest,
-      imgUrl: imgUrl ? imgUrl : randomImg.avatar
+      imgUrl: imgUrl ? imgUrl : randomImg?.avatar
     }
   });
 
@@ -62,7 +63,11 @@ const HomePage = () => {
         </div>
         <div className='homepage--premium'>
           <h2>Answers</h2>
-          Coming Soon
+          <h3>{question.question}</h3>
+          {answers.map(answer => (
+            <AnswersCard key={answer.id} answer={answer} />
+          ))}
+          {/* Coming Soon */}
         </div>
       </div>
     </div>
