@@ -5,11 +5,14 @@ import { AiOutlineEllipsis, AiFillLike, AiFillDislike } from 'react-icons/ai';
 import Modal from '../../Modal/Modal';
 import Reply from '../../Reply/Reply';
 import Skeleton from 'react-loading-skeleton';
+import { createAvatar } from '../../../helpers/CreateAvatar';
 
 const QuestionCard = ({ question, selectQuiz }) => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState('');
+
+  const avatar = createAvatar(question.name);
 
   const handleOpen = (text) => {
     setIsOpen(true)
@@ -32,7 +35,9 @@ const QuestionCard = ({ question, selectQuiz }) => {
       <Modal open={isOpen} close={handleClose} content={content} />
       <div className='question--card__header'>
         <div className='question--user__img' onClick={() => navigate('/profile')}>
-          <img src={question.imgUrl} alt="user--face" />
+          {question.imgUrl ? (
+            <img src={question.imgUrl} alt="user--face" />
+          ) : (<div className='avatar'>{avatar}</div>)} 
         </div>
         <div className='question--user__details'>
           <h3>{question.name}</h3>
