@@ -63,8 +63,6 @@ const HomePage = () => {
                 <QuestionCard key={qn.id} post={qn} selectQuiz={() => dispatch(setSelectedQuiz(qn))} />
               )
             })}
-            {/* {posts.map((post, i) => (
-            ))} */}
           </div>
         </div>
         <div className='homepage--premium'>
