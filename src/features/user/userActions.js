@@ -1,6 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { signUpValidation } from "../../helpers/auth/AuthValidation";
 import axios from "axios";
+import { toast } from "react-toastify";
+import { signUpValidation } from "../../helpers/auth/AuthValidation";
 
 const url = 'http://localhost:4000'
 
@@ -12,7 +13,8 @@ export const registerUser = createAsyncThunk('user/registerUser',
       const { msg } = res.data;
       return msg
     } catch (error) {
-      console.log(error.response.data.msg)
+      // console.log(error.response.data.msg)
+      toast.error(error.response ? error.response.data.msg : error.message)
       return rejectWithValue(error.res ? error.res.data.msg : error.message)
     }
   }
