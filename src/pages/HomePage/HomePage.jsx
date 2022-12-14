@@ -8,16 +8,14 @@ import { BsFilter } from 'react-icons/bs'
 import Button from '../../components/Button/Button';
 import AnswersCard from '../../components/Card/AnswersCard/AnswersCard';
 import { AvatorGenerator } from '../../helpers/AvatorGenerator';
+import Skeleton from 'react-loading-skeleton';
 
 const HomePage = () => {
   const { selectedQuiz, questions } = useSelector(state => state.quiz)
-  console.log(selectedQuiz?.question?.answers);
-  console.log(questions)
+  console.log(selectedQuiz)
   const dispatch = useDispatch();
   const [showFilterBtns, setShowFilterBtns] = React.useState(false);
   const { posts, images } = dummyData;
-
-  // console.log(images)
 
   const questionsData = questions.map((qn) => {
     const { imgUrl, ...rest } = qn;
@@ -27,10 +25,6 @@ const HomePage = () => {
       imgUrl: imgUrl ? imgUrl : randomImg.avatar
     }
   });
-
-  console.log(questionsData)
-
-  // let randomAvatar = return ima
 
   React.useEffect(() => {
     dispatch(fetchQuestions())
@@ -68,9 +62,6 @@ const HomePage = () => {
         <div className='homepage--premium'>
           <h2>Answers</h2>
           Coming Soon
-          {/* {selectedQuiz?.question?.answers.map((answer) => (
-            <AnswersCard post={selectedQuiz} answer={answer} />
-          ))} */}
         </div>
       </div>
     </div>

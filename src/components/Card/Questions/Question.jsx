@@ -4,6 +4,7 @@ import './question.card.css';
 import { AiOutlineEllipsis, AiFillLike, AiFillDislike } from 'react-icons/ai';
 import Modal from '../../Modal/Modal';
 import Reply from '../../Reply/Reply';
+import Skeleton from 'react-loading-skeleton';
 
 const QuestionCard = ({ post, selectQuiz }) => {
   const navigate = useNavigate();
@@ -46,7 +47,7 @@ const QuestionCard = ({ post, selectQuiz }) => {
         </div>
       </div>
       <div className='question--card__body'>
-        {post.question}
+        {post.question || <Skeleton />}
       </div>
       {/* <div className='question--card__footer'>
         <button className='question--btn'>
