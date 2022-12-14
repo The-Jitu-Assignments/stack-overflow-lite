@@ -1,5 +1,5 @@
-export const createAvatar = (str) => {
+export const createAvatar = (str = '') => {
   str = str.split(' ');
-  let avatar = str[0][0] + str[2][0];
+  let avatar = str[0][0] + str[1][0];
   return avatar;
 }

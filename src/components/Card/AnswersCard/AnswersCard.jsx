@@ -2,9 +2,12 @@ import React from 'react'
 import Button from '../../Button/Button'
 import Comment from '../Comments/Comment';
 import './answersCard.css'
+import { createAvatar } from '../../../helpers/CreateAvatar';
 
-const AnswersCard = ({ post, answer }) => {
+const AnswersCard = ({ answer }) => {
   const [ show, setShow ] = React.useState(false);
+  const { name } = answer;
+  const avatar = createAvatar(name);
 
   return (
     <div className='answers--container'>
@@ -13,7 +16,7 @@ const AnswersCard = ({ post, answer }) => {
           <div className='answersCard__header--user'>
             {answer.imgUrl ? (
               <img src={answer.imgUrl} alt="user-img" />
-            ): (<div>J</div>)}  
+            ): (<div className='avatar'>{avatar}</div>)}  
             <h3>{answer.name}</h3>
           </div>
           <Button className={"accept--btn"} text={"Mark as an Answer"} />

@@ -44,3 +44,16 @@ body {
   cursor: pointer;
   font-weight: bold;
 }
+
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cream);
+  width: 50px;
+  height: 100%;
+  border-radius: 50%;
+  background-color: var(--lightBlue);
+  font-size: 20px;
+  font-weight: bold;
+}

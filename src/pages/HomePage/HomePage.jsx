@@ -13,7 +13,7 @@ import Skeleton from 'react-loading-skeleton';
 
 const HomePage = () => {
   const { selectedQuiz, questions } = useSelector(state => state.quiz);
-  const { answers, question } = selectedQuiz;
+  const { answers, question } = selectedQuiz || [];
   console.log(selectedQuiz)
   const dispatch = useDispatch();
   const [showFilterBtns, setShowFilterBtns] = React.useState(false);
@@ -63,8 +63,8 @@ const HomePage = () => {
         </div>
         <div className='homepage--premium'>
           <h2>Answers</h2>
-          <h3>{question.question}</h3>
-          {answers.map(answer => (
+          <h3>{question?.question}</h3>
+          {answers?.map(answer => (
             <AnswersCard key={answer.id} answer={answer} />
           ))}
           {/* Coming Soon */}
