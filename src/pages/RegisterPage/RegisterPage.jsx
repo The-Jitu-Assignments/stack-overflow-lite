@@ -1,10 +1,14 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import './register.css'
 import { registerUser } from '../../features/user/userActions';
+import { useEffect } from 'react';
 
 const RegisterPage = () => {
+  let { errorMessage } = useSelector(state => state.user);
+
+  console.log(errorMessage)
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [user, setUser] = useState({
@@ -30,7 +34,28 @@ const RegisterPage = () => {
       email: '',
       password: ''
     })
-  }
+  };
+
+  useEffect(() => {
+    if (errorMessage !== '') {
+      navigate('/register')
+    } else {
+      navigate('/login')
+    }
+  }, [])
+
+
+  // useEffect(() => {
+  //   if (errorMessage !== '') {
+  //     navigate('/register')
+  //   } else {
+  //     navigate('/login')
+  //   }
+
+  //   return () => {
+  //     errorMessage = ''
+  //   }
+  // }, [errorMessage])
 
   return (
     <div className='registration--page'>

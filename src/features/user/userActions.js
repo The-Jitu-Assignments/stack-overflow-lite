@@ -11,6 +11,7 @@ export const registerUser = createAsyncThunk('user/registerUser',
       await signUpValidation(values);
       const res = await axios.post(`${url}/register`, values);
       const { msg } = res.data;
+      toast.success(msg)
       return msg
     } catch (error) {
       toast.error(error.response ? error.response.data.msg : error.message)

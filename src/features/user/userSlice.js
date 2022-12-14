@@ -3,7 +3,8 @@ import { fetchUserProfile, registerUser } from './userActions';
 
 const initialState = {
   user: null,
-  profile: {}
+  profile: {},
+  errorMessage: ''
 };
 
 const userSlice = createSlice({
@@ -23,6 +24,10 @@ const userSlice = createSlice({
     });
     builder.addCase(registerUser.fulfilled, (state, action) => {
       state.user = action.payload
+      state.errorMessage = ''
+    });
+    builder.addCase(registerUser.rejected, (state, action) => {
+      state.errorMessage = action.payload
     })
   }
 });
