@@ -3,7 +3,7 @@ import axios from "axios";
 
 const initialState = {
   selectedQuiz: null,
-  questions: [],
+  questions: []
 };
 
 export const fetchQuestions = createAsyncThunk('quiz/fetchQuestions', 
@@ -34,7 +34,9 @@ export const QuizesSlice = createSlice({
     builder.addCase(fetchQuestions.fulfilled, (state, action) => {
       state.questions = action.payload
     });
-    
+    builder.addCase(getQuestion.fulfilled, (state, action) => {
+      state.selectedQuiz = action.payload;
+    })
   }
 });
 

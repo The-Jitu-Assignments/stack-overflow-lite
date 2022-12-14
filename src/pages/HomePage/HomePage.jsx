@@ -8,6 +8,7 @@ import { BsFilter } from 'react-icons/bs'
 import Button from '../../components/Button/Button';
 import AnswersCard from '../../components/Card/AnswersCard/AnswersCard';
 import { AvatorGenerator } from '../../helpers/AvatorGenerator';
+import { getQuestion } from '../../features/question/quizSlice';
 import Skeleton from 'react-loading-skeleton';
 
 const HomePage = () => {
@@ -54,7 +55,7 @@ const HomePage = () => {
           <div className='homepage--questions'>
             {questionsData?.map((qn) => {
               return (
-                <QuestionCard key={qn.id} post={qn} selectQuiz={() => dispatch(setSelectedQuiz(qn))} />
+                <QuestionCard key={qn.id} post={qn} selectQuiz={() => dispatch(getQuestion(qn.id))} />
               )
             })}
           </div>
