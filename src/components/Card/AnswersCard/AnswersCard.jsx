@@ -10,14 +10,16 @@ const AnswersCard = ({ post, answer }) => {
     <div className='answers--container'>
       <div className='answersCard'>
         <div className='answersCard__header'>
-          <div className='answersCard__header--user'>   
-            <img src={post?.image} alt="user-img" />
-            <h3>{post?.userName}</h3>
+          <div className='answersCard__header--user'>
+            {answer.imgUrl ? (
+              <img src={answer.imgUrl} alt="user-img" />
+            ): (<div>J</div>)}  
+            <h3>{answer.name}</h3>
           </div>
           <Button className={"accept--btn"} text={"Mark as an Answer"} />
         </div>
         <div>
-          {answer.answer}
+          {answer.comment}
         </div>
         <div className='answersCard--footer'>
           <Button className={"like--btn"} text={`Like`}/>
