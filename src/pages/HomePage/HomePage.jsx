@@ -7,26 +7,13 @@ import QuestionCard from '../../components/Card/Questions/Question';
 import { BsFilter } from 'react-icons/bs'
 import Button from '../../components/Button/Button';
 import AnswersCard from '../../components/Card/AnswersCard/AnswersCard';
-import { AvatorGenerator } from '../../helpers/AvatorGenerator';
 import { getQuestion } from '../../features/question/quizSlice';
-import Skeleton from 'react-loading-skeleton';
 
 const HomePage = () => {
   const { selectedQuiz, questions } = useSelector(state => state.quiz);
   const { answers, question } = selectedQuiz || [];
-  console.log(selectedQuiz)
   const dispatch = useDispatch();
   const [showFilterBtns, setShowFilterBtns] = React.useState(false);
-  const { posts, images } = dummyData;
-
-  const questionsData = questions.map((qn) => {
-    const { imgUrl, ...rest } = qn;
-    const randomImg = AvatorGenerator(images)
-    return {
-      ...rest,
-      imgUrl: imgUrl ? imgUrl : randomImg?.avatar
-    }
-  });
 
   React.useEffect(() => {
     dispatch(fetchQuestions())
@@ -54,7 +41,7 @@ const HomePage = () => {
             )}
           </div>
           <div className='homepage--questions'>
-            {questionsData?.map((question) => {
+            {questions?.map((question) => {
               return (
                 <QuestionCard key={question.id} question={question} selectQuiz={() => dispatch(getQuestion(question.id))} />
               )
@@ -67,7 +54,6 @@ const HomePage = () => {
           {answers?.map(answer => (
             <AnswersCard key={answer.id} answer={answer} />
           ))}
-          {/* Coming Soon */}
         </div>
       </div>
     </div>
