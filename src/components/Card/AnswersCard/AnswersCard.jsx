@@ -16,7 +16,7 @@ const AnswersCard = ({ answer }) => {
           <div className='answersCard__header--user'>
             {answer.imgUrl ? (
               <img src={answer.imgUrl} alt="user-img" />
-            ): (<div className='avatar'>{avatar}</div>)}  
+            ): (<div className='avatar'>{avatar.toUpperCase()}</div>)}  
             <h3>{answer.name}</h3>
           </div>
           <Button className={"accept--btn"} text={"Mark as an Answer"} />
