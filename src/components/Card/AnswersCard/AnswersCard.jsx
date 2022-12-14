@@ -17,7 +17,10 @@ const AnswersCard = ({ answer }) => {
             {answer.imgUrl ? (
               <img src={answer.imgUrl} alt="user-img" />
             ): (<div className='avatar'>{avatar.toUpperCase()}</div>)}  
-            <h3>{answer.name}</h3>
+            <div>
+              <h3>{answer.name}</h3>
+              <p>{answer.days} ago</p>
+            </div>
           </div>
           <Button className={"accept--btn"} text={"Mark as an Answer"} />
         </div>

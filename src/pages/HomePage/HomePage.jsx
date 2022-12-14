@@ -51,9 +51,13 @@ const HomePage = () => {
         <div className='homepage--premium'>
           <h2>Answers</h2>
           <h3>{question?.question}</h3>
-          {answers?.map(answer => (
-            <AnswersCard key={answer.id} answer={answer} />
-          ))}
+          {answers?.length > 0 ? (
+            <>
+              {answers?.map(answer => (
+                <AnswersCard key={answer.id} answer={answer} />
+              ))}
+            </>
+          ) : (selectedQuiz && <span>This question is not answered yet...</span>)}
         </div>
       </div>
     </div>
