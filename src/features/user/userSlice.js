@@ -12,7 +12,7 @@ export const fetchUserProfile = createAsyncThunk('user/fetchUserProfile',
     const { data } = res.data;
     return data;
   }
-)
+);
 
 const userSlice = createSlice({
   name: 'user',

@@ -5,7 +5,7 @@ import { AiOutlineEllipsis, AiFillLike, AiFillDislike } from 'react-icons/ai';
 import Modal from '../../Modal/Modal';
 import Reply from '../../Reply/Reply';
 import Skeleton from 'react-loading-skeleton';
-import { createAvatar } from '../../../helpers/CreateAvatar';
+import { createAvatar } from '../../../helpers/avatar/CreateAvatar';
 
 const QuestionCard = ({ question, selectQuiz }) => {
   const navigate = useNavigate();

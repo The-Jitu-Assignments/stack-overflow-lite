@@ -2,7 +2,7 @@ import React from 'react'
 import Button from '../../Button/Button'
 import Comment from '../Comments/Comment';
 import './answersCard.css'
-import { createAvatar } from '../../../helpers/CreateAvatar';
+import { createAvatar } from '../../../helpers/avatar/CreateAvatar';
 
 const AnswersCard = ({ answer }) => {
   const [ show, setShow ] = React.useState(false);
