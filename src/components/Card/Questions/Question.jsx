@@ -6,7 +6,7 @@ import Modal from '../../Modal/Modal';
 import Reply from '../../Reply/Reply';
 import Skeleton from 'react-loading-skeleton';
 
-const QuestionCard = ({ post, selectQuiz }) => {
+const QuestionCard = ({ question, selectQuiz }) => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState('');
@@ -32,11 +32,11 @@ const QuestionCard = ({ post, selectQuiz }) => {
       <Modal open={isOpen} close={handleClose} content={content} />
       <div className='question--card__header'>
         <div className='question--user__img' onClick={() => navigate('/profile')}>
-          <img src={post.imgUrl} alt="user--face" />
+          <img src={question.imgUrl} alt="user--face" />
         </div>
         <div className='question--user__details'>
-          <h3>{post.name}</h3>
-          <div className='question--user__days'>{post.days + ' ago'}</div>
+          <h3>{question.name}</h3>
+          <div className='question--user__days'>{question.days + ' ago'}</div>
         </div>
         <div className='question--user__links'>
           <AiOutlineEllipsis fontSize={"1.7em"} />

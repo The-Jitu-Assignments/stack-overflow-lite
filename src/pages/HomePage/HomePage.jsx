@@ -54,9 +54,9 @@ const HomePage = () => {
             )}
           </div>
           <div className='homepage--questions'>
-            {questionsData?.map((qn) => {
+            {questionsData?.map((question) => {
               return (
-                <QuestionCard key={qn.id} post={qn} selectQuiz={() => dispatch(getQuestion(qn.id))} />
+                <QuestionCard key={question.id} question={question} selectQuiz={() => dispatch(getQuestion(question.id))} />
               )
             })}
           </div>
