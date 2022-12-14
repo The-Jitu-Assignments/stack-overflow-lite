@@ -47,7 +47,7 @@ const QuestionCard = ({ question, selectQuiz }) => {
         </div>
       </div>
       <div className='question--card__body'>
-        {post.question || <Skeleton />}
+        {question.question || <Skeleton />}
       </div>
       {/* <div className='question--card__footer'>
         <button className='question--btn'>
