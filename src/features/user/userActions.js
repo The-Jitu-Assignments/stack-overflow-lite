@@ -13,9 +13,8 @@ export const registerUser = createAsyncThunk('user/registerUser',
       const { msg } = res.data;
       return msg
     } catch (error) {
-      // console.log(error.response.data.msg)
       toast.error(error.response ? error.response.data.msg : error.message)
-      return rejectWithValue(error.res ? error.res.data.msg : error.message)
+      return rejectWithValue(error.response ? error.response.data.msg : error.message)
     }
   }
 );
