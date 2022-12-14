@@ -1,18 +1,10 @@
-import { createSlice, createAsyncThunk } from  '@reduxjs/toolkit';
-import axios from 'axios';
+import { createSlice } from  '@reduxjs/toolkit';
+import { fetchUserProfile, registerUser } from './userActions';
 
 const initialState = {
   user: null,
   profile: {}
 };
-
-export const fetchUserProfile = createAsyncThunk('user/fetchUserProfile',
-  async (id) => {
-    const res = await axios.get(`http://localhost:4000/profile/${id}`);
-    const { data } = res.data;
-    return data;
-  }
-);
 
 const userSlice = createSlice({
   name: 'user',
@@ -28,6 +20,9 @@ const userSlice = createSlice({
   extraReducers (builder) {
     builder.addCase(fetchUserProfile.fulfilled, (state, action) => {
       state.profile = action.payload
+    });
+    builder.addCase(registerUser.fulfilled, (state, action) => {
+      state.user = action.payload
     })
   }
 });

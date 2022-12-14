@@ -1,9 +1,37 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import './register.css'
+import { registerUser } from '../../features/user/userActions';
 
 const RegisterPage = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [user, setUser] = useState({
+    name: '',
+    email: '',
+    password: ''
+  });
+
+  const { name, email, password } = user;
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUser((user) => ({
+      ...user,
+      [name]: value
+    }))
+  };
+
+  const handleSubmit = () => {
+    dispatch(registerUser({ name, email, password }));
+    setUser({
+      name: '',
+      email: '',
+      password: ''
+    })
+  }
+
   return (
     <div className='registration--page'>
       <div className='register--container'>
@@ -11,22 +39,40 @@ const RegisterPage = () => {
           <h2>Register</h2>
           <div className='register--form__inputs'>
             <div className='form--item'>
-              <label>Email:</label>
-              <input type={"email"} placeholder='Enter your email address' />
+              <label>Name:</label>
+              <input 
+                type={"text"} 
+                placeholder='Text Icon' 
+                name="name" 
+                value={name} 
+                onChange={handleChange} 
+              />
             </div>
             <div className='form--item'>
               <label>Email:</label>
-              <input type={"email"} placeholder='Enter your email address' />
+              <input 
+                type={"email"} 
+                placeholder='Email Input' 
+                name='email'
+                value={email}
+                onChange={handleChange}
+              />
             </div>
             <div className='form--item'>
               <label>Password:</label>
-              <input type={"password"} placeholder='Enter your email address' />
+              <input 
+                type={"password"} 
+                placeholder='Password Input' 
+                name='password'
+                value={password}
+                onChange={handleChange}
+              />
             </div>
           </div>
-          <button className='login--btn'>
+          <button className='form--btn' onClick={handleSubmit}>
             Sign up
           </button>
-          <div className='login--text'>
+          <div className='form--text'>
             Already have an account...<span onClick={() => navigate('/login')}>Login Now</span>
           </div>
         </div>

@@ -30,7 +30,7 @@ const LoginPage = () => {
               <input type={"password"} placeholder='Enter your email address' />
             </div>
           </div>
-          <button className='login--btn' onClick={handleLogin}>
+          <button className='form--btn' onClick={handleLogin}>
             Login
           </button>
           <div className='login--text'>

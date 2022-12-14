@@ -40,12 +40,12 @@
   gap: 10px;
 }
 
-.login--text span {
+.form--text span {
   color: var(--sky);
   cursor: pointer;
 }
 
-.login--text span:hover {
+.form--text span:hover {
   text-decoration: underline;
 }
 
