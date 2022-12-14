@@ -12,6 +12,14 @@ export const fetchQuestions = createAsyncThunk('quiz/fetchQuestions',
     const { data } = res.data;
     return data;
   }
+);
+
+export const getQuestion = createAsyncThunk('quiz/getQuestion',
+  async (id) => {
+    const res = await axios.get(`http://localhost:8000/question/${id}`)
+    const { data } = res.data;
+    return data
+  }
 )
 
 export const QuizesSlice = createSlice({
@@ -25,7 +33,8 @@ export const QuizesSlice = createSlice({
   extraReducers (builder) {
     builder.addCase(fetchQuestions.fulfilled, (state, action) => {
       state.questions = action.payload
-    })
+    });
+    
   }
 });
 
