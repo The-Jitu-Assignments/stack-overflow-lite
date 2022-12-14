@@ -7,4 +7,12 @@ export const signUpValidation = user => {
     password: yup.string().required('Password Field cannot be empty')
   })
   return schema.validate(user);
+};
+
+export const signInValidation = user => {
+  let schema = yup.object().shape({
+    email: yup.string().required('Email field cannot be empty').email('Enter a valid email'),
+    password: yup.string().required('Password Field cannot be empty')
+  });
+  return schema.validate(user)
 }
