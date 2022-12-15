@@ -25,9 +25,10 @@ export const loginUser = createAsyncThunk('user/login',
     try {
       await signInValidation(values);
       const res = await axios.post(`${url}/login`, values);
-      const { msg } = res.data;
+      const { msg, token } = res.data;
       toast.success(msg);
-      console.log(msg)
+      localStorage.setItem('token', token);
+      return { token }
     } catch (error) {
       toast.error(error.response ? error.response.data.msg : error.message)
       return rejectWithValue(error.response ? error.response.data.msg : error.message)

@@ -6,9 +6,7 @@ import { registerUser } from '../../features/user/userActions';
 import { useEffect } from 'react';
 
 const RegisterPage = () => {
-  let { errorMessage } = useSelector(state => state.user);
-
-  console.log(errorMessage)
+  const { isSuccess } = useSelector(state => state.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [user, setUser] = useState({
@@ -36,14 +34,17 @@ const RegisterPage = () => {
     })
   };
 
-  useEffect(() => {
-    if (errorMessage !== '') {
-      navigate('/register')
-    } else {
-      navigate('/login')
-    }
-  }, [])
+  let token = localStorage.getItem('token')
 
+  useEffect(() => {
+    if (isSuccess) {
+      navigate('/login')
+    };
+
+    if (token) {
+      navigate('/')
+    }
+  }, [isSuccess, token])
 
   // useEffect(() => {
   //   if (errorMessage !== '') {
@@ -51,11 +52,7 @@ const RegisterPage = () => {
   //   } else {
   //     navigate('/login')
   //   }
-
-  //   return () => {
-  //     errorMessage = ''
-  //   }
-  // }, [errorMessage])
+  // }, [])
 
   return (
     <div className='registration--page'>

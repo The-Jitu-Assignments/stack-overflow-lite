@@ -4,7 +4,9 @@ import { fetchUserProfile, registerUser, loginUser } from './userActions';
 const initialState = {
   user: null,
   profile: {},
-  errorMessage: ''
+  errorMessage: '',
+  token: null,
+  isSuccess: false,
 };
 
 const userSlice = createSlice({
@@ -25,18 +27,20 @@ const userSlice = createSlice({
     // register
     builder.addCase(registerUser.fulfilled, (state, action) => {
       state.user = action.payload
-      state.errorMessage = ''
+      state.errorMessage = '';
+      state.isSuccess = true;
     });
     builder.addCase(registerUser.rejected, (state, action) => {
-      state.errorMessage = action.payload
+      state.errorMessage = action.payload;
+      state.isSuccess = false;
     });
 
     // login 
     builder.addCase(loginUser.fulfilled, (state, action) => {
-      state.user = action.payload
+      state.isSuccess = true
     });
     builder.addCase(loginUser.rejected, (state, action) => {
-      state.errorMessage = action.payload
+      state.isSuccess = false;
     })
   }
 });

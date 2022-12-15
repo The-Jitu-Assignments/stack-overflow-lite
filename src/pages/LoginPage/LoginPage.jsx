@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import './login.css'
 import { login } from '../../features/user/userSlice';
 import { loginUser } from '../../features/user/userActions';
+import { useEffect } from 'react';
 
 const LoginPage = () => {
+  const { isLoggedIn } = useSelector(state => state.user);
+  // console.log(token)
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [user, setUser] = useState({
@@ -22,28 +25,27 @@ const LoginPage = () => {
   };
 
   const handleSubmit = () => {
-    try { 
-      dispatch(loginUser(user))
-      setUser({
-        email: '',
-        password: ''
-      })
+    dispatch(loginUser(user));
+    setUser({
+      email: '',
+      password: ''
+    })
+  };
+
+  let token = localStorage.getItem('token');
+
+  useEffect(() => {
+    if (isLoggedIn) {
       setTimeout(() => {
         navigate('/')
       }, 1000)
-    } catch (error) {
-      setUser({
-        email: '',
-        password: ''
-      })
-      navigate('/login');
     }
-  }
 
-  // const handleLogin = () => {
-  //   dispatch(login({ email: 'johnkatua@gmail.com' }));
-  //   navigate('/')
-  // }
+    if (token) {
+      navigate('/')
+    }
+  }, [isLoggedIn, token]);
+
   return (
     <div className='login--page'>
       <div className='login--container'>
@@ -67,7 +69,7 @@ const LoginPage = () => {
               <label>Password:</label>
               <input 
                 type={"password"} 
-                placeholder='Enter your email address' 
+                placeholder='Password Input' 
                 name='password'
                 value={user.password}
                 onChange={handleChange}
