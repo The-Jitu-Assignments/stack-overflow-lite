@@ -6,17 +6,32 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addAQuestion } from '../../features/question/quizActions';
 
 const AddQuestion = ({ close }) => {
-  const { isLoading } = useSelector(state => state.quiz);
-  const [question, setQuestion] = useState('');
+  const { isLoading, isSuccess } = useSelector(state => state.quiz);
+  const [quiz, setQuiz] = useState({
+    question: ''
+  })
   const dispatch = useDispatch();
 
+  const handleChange = (e) => {
+    setQuiz((quiz) => ({
+      ...quiz,
+      [e.target.name]: e.target.value
+    }))
+  }
+
   const handleSubmit = () => {
-    dispatch(addAQuestion(question));
-    setQuestion('');
-    if (!isLoading) {
+    dispatch(addAQuestion(quiz));
+    setQuiz({
+      question: ''
+    });
+    if (!isLoading && isSuccess) {
       close();
+    } else {
+      return;
     }
   }
+
+  console.log(quiz)
   return (
     <div onClick={(e) => e.stopPropagation()} className='addquestion--modal'>
       <div className='addquestion--modal__header'>
@@ -26,8 +41,8 @@ const AddQuestion = ({ close }) => {
       <textarea 
         placeholder='Enter your question and make it descriptive...'
         name='question'
-        value={question}
-        onChange={(e) => setQuestion(e.target.value)}
+        value={quiz.question}
+        onChange={handleChange}
       ></textarea>
       <Button 
         method={handleSubmit} 

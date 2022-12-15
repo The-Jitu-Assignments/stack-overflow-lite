@@ -5,7 +5,8 @@ import { addAQuestion } from "./quizActions";
 const initialState = {
   selectedQuiz: null,
   questions: [],
-  isLoading: false
+  isLoading: false,
+  isSuccess: false
 };
 
 export const fetchQuestions = createAsyncThunk('quiz/fetchQuestions', 
@@ -41,12 +42,14 @@ export const QuizesSlice = createSlice({
     });
     builder.addCase(addAQuestion.fulfilled, (state) => {
       state.isLoading = false
+      state.isSuccess = true;
     });
     builder.addCase(addAQuestion.pending, (state) => {
       state.isLoading = true
     });
     builder.addCase(addAQuestion.rejected, (state) => {
       state.isLoading = false;
+      state.isSuccess = false;
     })
   }
 });
