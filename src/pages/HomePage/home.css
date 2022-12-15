@@ -67,6 +67,15 @@
   cursor: pointer;
 }
 
+.homepage--answers {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: end;
+  width: 100%;
+  margin: 20px 0;
+}
+
 .homepage--premium {
   display: flex;
   flex-direction: column;

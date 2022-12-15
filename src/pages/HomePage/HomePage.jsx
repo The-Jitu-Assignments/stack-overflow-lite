@@ -45,10 +45,10 @@ const HomePage = () => {
             )}
           </div>
           <div className='homepage--questions'>
-            {questions?.map((question) => {
+            {questions?.map((post) => {
               return (
                 <>  
-                  <QuestionCard key={question.id} question={question} selectQuiz={() => dispatch(getQuestion(question.id))} />
+                  <QuestionCard key={post.id} post={post} selectQuiz={() => dispatch(getQuestion(post.id))} />
                 </>
               )
             })}
