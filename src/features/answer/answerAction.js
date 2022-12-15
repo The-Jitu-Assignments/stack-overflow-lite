@@ -21,4 +21,4 @@ export const addAnswer = createAsyncThunk('answers/addAnswer',
       toast.error(error.response.data.msg)
     }
   }
-)
+);
