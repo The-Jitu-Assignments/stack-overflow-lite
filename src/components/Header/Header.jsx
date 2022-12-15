@@ -49,10 +49,9 @@ const Header = () => {
         <div className='header--auth'>
           {user ? (
             <div className='auth--btn'>
-              {user}
+              {user.name}
               <div className='auth--tooltip'>
                 <div className='auth--tooltip__item' onClick={() => navigate('/profile')}>Profile</div>
-                {/* <div className='auth--tooltip__item' onClick={() => navigate('/my-questions')}>My questions</div> */}
                 <div className='auth--tooltip__item' onClick={() => handleOpen('add-qn')}>Add a question</div>
                 <div className='auth--tooltip__item' onClick={() => dispatch(logout())}>Logout</div>
               </div>
