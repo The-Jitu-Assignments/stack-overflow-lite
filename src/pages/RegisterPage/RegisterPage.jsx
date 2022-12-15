@@ -38,7 +38,9 @@ const RegisterPage = () => {
 
   useEffect(() => {
     if (isSuccess) {
-      navigate('/login')
+      setTimeout(() => {
+        navigate('/login')
+      }, 1000)
     };
 
     if (token) {
