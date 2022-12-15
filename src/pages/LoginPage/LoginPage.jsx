@@ -7,7 +7,7 @@ import { loginUser } from '../../features/user/userActions';
 import { useEffect } from 'react';
 
 const LoginPage = () => {
-  const { isLoggedIn } = useSelector(state => state.user);
+  const { isSuccess } = useSelector(state => state.user);
   // console.log(token)
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -35,7 +35,7 @@ const LoginPage = () => {
   let token = localStorage.getItem('token');
 
   useEffect(() => {
-    if (isLoggedIn) {
+    if (isSuccess) {
       setTimeout(() => {
         navigate('/')
       }, 1000)
@@ -44,7 +44,7 @@ const LoginPage = () => {
     if (token) {
       navigate('/')
     }
-  }, [isLoggedIn, token]);
+  }, [isSuccess, token]);
 
   return (
     <div className='login--page'>

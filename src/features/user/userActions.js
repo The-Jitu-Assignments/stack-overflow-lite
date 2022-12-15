@@ -43,3 +43,21 @@ export const fetchUserProfile = createAsyncThunk('user/fetchUserProfile',
     return data;
   }
 );
+
+export const getLoggedInUser = createAsyncThunk('user/loggedInUser', 
+  async (_, { rejectWithValue }) => {
+    try {
+      const token = localStorage.getItem('token')
+      const res = await axios.get(`${url}/myProfile`, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+
+      const { name } = res.data;
+      return name;
+    } catch (error) {
+      return rejectWithValue(error.response.data.msg)
+    }
+  }
+)
