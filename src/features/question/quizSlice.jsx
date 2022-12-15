@@ -1,9 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { addAQuestion } from "./quizActions";
 
 const initialState = {
   selectedQuiz: null,
-  questions: []
+  questions: [],
+  isLoading: false
 };
 
 export const fetchQuestions = createAsyncThunk('quiz/fetchQuestions', 
@@ -36,6 +38,15 @@ export const QuizesSlice = createSlice({
     });
     builder.addCase(getQuestion.fulfilled, (state, action) => {
       state.selectedQuiz = action.payload;
+    });
+    builder.addCase(addAQuestion.fulfilled, (state) => {
+      state.isLoading = false
+    });
+    builder.addCase(addAQuestion.pending, (state) => {
+      state.isLoading = true
+    });
+    builder.addCase(addAQuestion.rejected, (state) => {
+      state.isLoading = false;
     })
   }
 });

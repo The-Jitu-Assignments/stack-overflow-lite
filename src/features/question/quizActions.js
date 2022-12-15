@@ -4,6 +4,14 @@ import { toast } from "react-toastify";
 
 const url = 'http://localhost:8001/question';
 
+export const fetchQuestions = createAsyncThunk('quiz/fetchQuestions', 
+  async () => {
+    const res = await axios.get('http://localhost:8001/question');
+    const { data } = res.data;
+    return data;
+  }
+);
+
 export const addAQuestion = createAsyncThunk('quiz/addQuiz', 
   async (values, { dispatch }) => {
     try {
@@ -15,7 +23,7 @@ export const addAQuestion = createAsyncThunk('quiz/addQuiz',
       });
       const { msg } = res.data.data;
       toast.success(msg);
-      // dispatch()
+      dispatch(fetchQuestions())
       return 
     } catch (error) {
       toast.error(error.response.data.msg)

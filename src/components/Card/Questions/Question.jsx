@@ -70,7 +70,7 @@ const QuestionCard = ({ post }) => {
                   <AnswersCard key={answer.id} answer={answer} />
                 ))}
               </>
-            ) : (selectedQuiz && <span>This question is not answered yet...</span>)}
+            ) : (selectedQuiz && <h5>This question is not answered yet...</h5>)}
           </div>
         )
       }
