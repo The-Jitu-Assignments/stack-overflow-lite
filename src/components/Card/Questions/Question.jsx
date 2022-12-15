@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './question.card.css';
-import { AiOutlineEllipsis, AiFillLike, AiFillDislike } from 'react-icons/ai';
+import { AiOutlineEllipsis } from 'react-icons/ai';
 import Modal from '../../Modal/Modal';
 import Reply from '../../Reply/Reply';
 import Skeleton from 'react-loading-skeleton';
@@ -9,7 +9,6 @@ import { createAvatar } from '../../../helpers/avatar/CreateAvatar';
 import { useDispatch, useSelector } from 'react-redux';
 import AnswersCard from '../AnswersCard/AnswersCard';
 import { getQuestion } from '../../../features/question/quizSlice';
-import { useEffect } from 'react';
 
 const QuestionCard = ({ post }) => {
   const dispatch = useDispatch();
@@ -24,7 +23,6 @@ const QuestionCard = ({ post }) => {
   const avatar = createAvatar(post.name);
 
   const handleOpen = () => {
-    console.log(post.id)
     dispatch(getQuestion(post.id))
     setOpenAnswers(!openAnswers)
   }
@@ -53,7 +51,6 @@ const QuestionCard = ({ post }) => {
             <AiOutlineEllipsis fontSize={"1.7em"} />
             <div className='question--tooltip'>
               <div className='question--tooltip__item' onClick={() => setIsOpen(true)}>Reply</div>
-              {/* <div className='question--tooltip__item' onClick={() => setSelectedItem('reply')}>Delete Question</div> */}
             </div>
           </div>
         </div>
@@ -82,15 +79,3 @@ const QuestionCard = ({ post }) => {
 }
 
 export default QuestionCard;
-
-{/* <div className='homepage--premium'>
-          <h2>Answers</h2>
-          <h3>{question?.question}</h3>
-          {answers?.length > 0 ? (
-            <>
-              {answers?.map(answer => (
-                <AnswersCard key={answer.id} answer={answer} />
-              ))}
-            </>
-          ) : (selectedQuiz && <span>This question is not answered yet...</span>)}
-        </div> */}
