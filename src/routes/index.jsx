@@ -30,7 +30,7 @@ export const AppRoutes = () => {
             <AboutUs />
           </Layout>
         } />
-        <Route path="profile" element={
+        <Route path="/profile/:id" element={
           <Layout>
             <Profile />
           </Layout>

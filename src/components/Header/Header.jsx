@@ -12,6 +12,7 @@ const Header = () => {
   const [ open, setIsOpen ] = useState(false);
   const dispatch = useDispatch();
   const { user } = useSelector(state => state.user);
+  console.log(user);
   const [ selectedItem, setSelectedItem ] = useState('');
   const navigate = useNavigate();
   const style = { cursor: 'pointer' };
@@ -51,7 +52,7 @@ const Header = () => {
             <div className='auth--btn'>
               {user.name}
               <div className='auth--tooltip'>
-                <div className='auth--tooltip__item' onClick={() => navigate('/profile')}>Profile</div>
+                <div className='auth--tooltip__item' onClick={() => navigate(`/profile/${user?.id}`)}>Profile</div>
                 <div className='auth--tooltip__item' onClick={() => handleOpen('add-qn')}>Add a question</div>
                 <div className='auth--tooltip__item' onClick={() => dispatch(logout())}>Logout</div>
               </div>

@@ -43,7 +43,7 @@ const QuestionCard = ({ post }) => {
       <div className='question--card'>
         <Modal open={isOpen} close={() => setIsOpen(false)} content={<Reply close={() => setIsOpen(false)} />} />
         <div className='question--card__header'>
-          <div className='question--user__img' onClick={() => navigate('/profile')}>
+          <div className='question--user__img' onClick={() => navigate(`/profile/${post.userId}`)}>
             {post.imgUrl ? (
               <img src={post.imgUrl} alt="user--face" />
             ) : (<div className='avatar'>{avatar}</div>)} 
