@@ -56,7 +56,7 @@ const HomePage = () => {
           </div>
           
         </div>
-        <div className='homepage--premium'>
+        {/* <div className='homepage--premium'>
           <h2>Answers</h2>
           <h3>{question?.question}</h3>
           {answers?.length > 0 ? (
@@ -66,7 +66,7 @@ const HomePage = () => {
               ))}
             </>
           ) : (selectedQuiz && <span>This question is not answered yet...</span>)}
-        </div>
+        </div> */}
       </div>
     </div>
   )
