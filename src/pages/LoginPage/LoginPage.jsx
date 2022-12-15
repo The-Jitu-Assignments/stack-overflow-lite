@@ -2,13 +2,12 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import './login.css'
-import { login } from '../../features/user/userSlice';
 import { loginUser } from '../../features/user/userActions';
 import { useEffect } from 'react';
 
 const LoginPage = () => {
   const { isSuccess } = useSelector(state => state.user);
-  // console.log(token)
+  console.log(isSuccess);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [user, setUser] = useState({

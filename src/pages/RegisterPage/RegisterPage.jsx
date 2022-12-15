@@ -47,15 +47,6 @@ const RegisterPage = () => {
       navigate('/')
     }
   }, [isSuccess, token])
-
-  // useEffect(() => {
-  //   if (errorMessage !== '') {
-  //     navigate('/register')
-  //   } else {
-  //     navigate('/login')
-  //   }
-  // }, [])
-
   return (
     <div className='registration--page'>
       <div className='register--container'>

@@ -44,7 +44,7 @@ export const fetchUserProfile = createAsyncThunk('user/fetchUserProfile',
   }
 );
 
-export const getLoggedInUser = createAsyncThunk('user/loggedInUser', 
+export const getLoggedInUser = createAsyncThunk('user/getLoggedInUser', 
   async (_, { rejectWithValue }) => {
     try {
       const token = localStorage.getItem('token')

@@ -13,11 +13,9 @@ const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    login: (state, action) => {
-      state.user = action.payload
-    },
     logout: (state) => {
       state.user = null;
+      localStorage.removeItem('token')
     }
   },
   extraReducers (builder) {
@@ -26,7 +24,6 @@ const userSlice = createSlice({
     });
     // register
     builder.addCase(registerUser.fulfilled, (state, action) => {
-      state.user = action.payload
       state.errorMessage = '';
       state.isSuccess = true;
     });
@@ -41,10 +38,19 @@ const userSlice = createSlice({
     });
     builder.addCase(loginUser.rejected, (state, action) => {
       state.isSuccess = false;
+    });
+
+    // logged in user
+    builder.addCase(getLoggedInUser.fulfilled, (state, action) => {
+      state.user = action.payload;
+      state.isSuccess = false;
+    });
+    builder.addCase(getLoggedInUser.rejected, (state, action) => {
+      state.errorMessage = action.payload;
     })
   }
 });
 
-export const { login, logout } = userSlice.actions;
+export const { logout } = userSlice.actions;
 
 export default userSlice.reducer;

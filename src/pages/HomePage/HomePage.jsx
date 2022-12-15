@@ -8,15 +8,19 @@ import { BsFilter } from 'react-icons/bs'
 import Button from '../../components/Button/Button';
 import AnswersCard from '../../components/Card/AnswersCard/AnswersCard';
 import { getQuestion } from '../../features/question/quizSlice';
+import { getLoggedInUser } from '../../features/user/userActions';
 
 const HomePage = () => {
   const { selectedQuiz, questions } = useSelector(state => state.quiz);
+  const { user } = useSelector(state => state.user);
+  console.log(user)
   const { answers, question } = selectedQuiz || [];
   const dispatch = useDispatch();
   const [showFilterBtns, setShowFilterBtns] = React.useState(false);
 
   React.useEffect(() => {
-    dispatch(fetchQuestions())
+    dispatch(fetchQuestions());
+    dispatch(getLoggedInUser())
   }, []);
 
   return (
