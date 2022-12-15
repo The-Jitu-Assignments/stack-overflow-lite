@@ -3,7 +3,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { signInValidation, signUpValidation } from "../../helpers/auth/AuthValidation";
 
-const url = 'http://localhost:4000'
+const url = 'http://localhost:4001'
 
 export const registerUser = createAsyncThunk('user/registerUser',
   async (values, { rejectWithValue }) => {
@@ -26,6 +26,7 @@ export const loginUser = createAsyncThunk('user/login',
       await signInValidation(values);
       const res = await axios.post(`${url}/login`, values);
       const { msg } = res.data;
+      toast.success(msg);
       console.log(msg)
     } catch (error) {
       toast.error(error.response ? error.response.data.msg : error.message)

@@ -8,7 +8,7 @@ const initialState = {
 
 export const fetchQuestions = createAsyncThunk('quiz/fetchQuestions', 
   async () => {
-    const res = await axios.get('http://localhost:8000/question');
+    const res = await axios.get('http://localhost:8001/question');
     const { data } = res.data;
     return data;
   }
@@ -16,7 +16,7 @@ export const fetchQuestions = createAsyncThunk('quiz/fetchQuestions',
 
 export const getQuestion = createAsyncThunk('quiz/getQuestion',
   async (id) => {
-    const res = await axios.get(`http://localhost:8000/question/${id}`)
+    const res = await axios.get(`http://localhost:8001/question/${id}`)
     const { data } = res.data;
     return data
   }

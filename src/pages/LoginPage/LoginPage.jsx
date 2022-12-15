@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import './login.css'
 import { login } from '../../features/user/userSlice';
+import { loginUser } from '../../features/user/userActions';
 
 const LoginPage = () => {
   const dispatch = useDispatch();
@@ -18,12 +19,31 @@ const LoginPage = () => {
       ...user,
       [name]: value
     }))
+  };
+
+  const handleSubmit = () => {
+    try { 
+      dispatch(loginUser(user))
+      setUser({
+        email: '',
+        password: ''
+      })
+      setTimeout(() => {
+        navigate('/')
+      }, 1000)
+    } catch (error) {
+      setUser({
+        email: '',
+        password: ''
+      })
+      navigate('/login');
+    }
   }
 
-  const handleLogin = () => {
-    dispatch(login({ email: 'johnkatua@gmail.com' }));
-    navigate('/')
-  }
+  // const handleLogin = () => {
+  //   dispatch(login({ email: 'johnkatua@gmail.com' }));
+  //   navigate('/')
+  // }
   return (
     <div className='login--page'>
       <div className='login--container'>
@@ -54,7 +74,7 @@ const LoginPage = () => {
               />
             </div>
           </div>
-          <button className='form--btn' onClick={handleLogin}>
+          <button className='form--btn' onClick={handleSubmit}>
             Login
           </button>
           <div className='login--text'>
