@@ -54,16 +54,6 @@ const QuestionCard = ({ question, selectQuiz }) => {
       <div className='question--card__body'>
         {question.question || <Skeleton />}
       </div>
-      {/* <div className='question--card__footer'>
-        <button className='question--btn'>
-          Like
-          <AiFillLike />
-        </button>
-        <button className='question--btn'>
-          Dislike
-          <AiFillDislike />
-        </button>
-      </div> */}
     </div>
   )
 }
