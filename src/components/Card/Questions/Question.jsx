@@ -8,6 +8,7 @@ import Skeleton from 'react-loading-skeleton';
 import { createAvatar } from '../../../helpers/avatar/CreateAvatar';
 
 const QuestionCard = ({ question, selectQuiz }) => {
+  const [openAnswers, setOpenAnswers] = useState(false);
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState('');
@@ -31,29 +32,35 @@ const QuestionCard = ({ question, selectQuiz }) => {
   };
 
   return (
-    <div className='question--card' onClick={selectQuiz}>
-      <Modal open={isOpen} close={handleClose} content={content} />
-      <div className='question--card__header'>
-        <div className='question--user__img' onClick={() => navigate('/profile')}>
-          {question.imgUrl ? (
-            <img src={question.imgUrl} alt="user--face" />
-          ) : (<div className='avatar'>{avatar}</div>)} 
-        </div>
-        <div className='question--user__details'>
-          <h3>{question.name}</h3>
-          <div className='question--user__days'>{question.days + ' ago'}</div>
-        </div>
-        <div className='question--user__links'>
-          <AiOutlineEllipsis fontSize={"1.7em"} />
-          <div className='question--tooltip'>
-            <div className='question--tooltip__item' onClick={() => handleOpen('reply')}>Reply</div>
-            <div className='question--tooltip__item' onClick={() => setSelectedItem('reply')}>Delete Question</div>
+    <div>
+      <div className='question--card' onClick={selectQuiz}>
+        <Modal open={isOpen} close={handleClose} content={content} />
+        <div className='question--card__header'>
+          <div className='question--user__img' onClick={() => navigate('/profile')}>
+            {question.imgUrl ? (
+              <img src={question.imgUrl} alt="user--face" />
+            ) : (<div className='avatar'>{avatar}</div>)} 
+          </div>
+          <div className='question--user__details'>
+            <h3>{question.name}</h3>
+            <div className='question--user__days'>{question.days + ' ago'}</div>
+          </div>
+          <div className='question--user__links'>
+            <AiOutlineEllipsis fontSize={"1.7em"} />
+            <div className='question--tooltip'>
+              <div className='question--tooltip__item' onClick={() => handleOpen('reply')}>Reply</div>
+              <div className='question--tooltip__item' onClick={() => setSelectedItem('reply')}>Delete Question</div>
+            </div>
           </div>
         </div>
+        <div className='question--card__body'>
+          {question.question || <Skeleton />}
+        </div>
+        <div onClick={() => setOpenAnswers(!openAnswers)}>
+          View Answers
+        </div>
       </div>
-      <div className='question--card__body'>
-        {question.question || <Skeleton />}
-      </div>
+      {openAnswers && (<div>Answers</div>)}
     </div>
   )
 }

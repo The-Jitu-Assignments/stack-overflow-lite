@@ -47,10 +47,14 @@ const HomePage = () => {
           <div className='homepage--questions'>
             {questions?.map((question) => {
               return (
-                <QuestionCard key={question.id} question={question} selectQuiz={() => dispatch(getQuestion(question.id))} />
+                <>  
+                  <QuestionCard key={question.id} question={question} selectQuiz={() => dispatch(getQuestion(question.id))} />
+                </>
               )
             })}
+
           </div>
+          
         </div>
         <div className='homepage--premium'>
           <h2>Answers</h2>
