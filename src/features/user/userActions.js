@@ -53,8 +53,8 @@ export const getLoggedInUser = createAsyncThunk('user/getLoggedInUser',
           Authorization: `Bearer ${token}`
         }
       });
-      const { name } = res.data.data;
-      return name;
+      const { data } = res.data;
+      return data;
     } catch (error) {
       return rejectWithValue(error.response.data.msg)
     }
