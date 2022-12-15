@@ -27,11 +27,16 @@ const QuestionCard = ({ post }) => {
     setOpenAnswers(!openAnswers)
   }
 
+  const handleOpenReply = () => {
+    dispatch(getQuestion(post.id));
+    setIsOpen(true)
+  }
+
   useEffect(() => {
     if (question?.id !== post.id) {
       setOpenAnswers(false)
     }
-  }, [post, selectedQuiz])
+  }, [post, selectedQuiz]);
 
   return (
     <div>
@@ -50,7 +55,7 @@ const QuestionCard = ({ post }) => {
           <div className='question--user__links'>
             <AiOutlineEllipsis fontSize={"1.7em"} />
             <div className='question--tooltip'>
-              <div className='question--tooltip__item' onClick={() => setIsOpen(true)}>Reply</div>
+              <div className='question--tooltip__item' onClick={handleOpenReply}>Reply</div>
             </div>
           </div>
         </div>
