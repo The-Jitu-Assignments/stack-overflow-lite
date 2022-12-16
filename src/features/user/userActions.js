@@ -38,7 +38,7 @@ export const loginUser = createAsyncThunk('user/login',
 
 export const fetchUserProfile = createAsyncThunk('user/fetchUserProfile',
   async (id) => {
-    const res = await axios.get(`http://localhost:4000/profile/${id}`);
+    const res = await axios.get(`${url}/profile/${id}`);
     const { data } = res.data;
     return data;
   }
