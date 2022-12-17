@@ -7,7 +7,7 @@ const url = 'http://localhost:8001/question';
 
 export const fetchQuestions = createAsyncThunk('quiz/fetchQuestions', 
   async () => {
-    const res = await axios.get('http://localhost:8001/question');
+    const res = await axios.get(url);
     const { data } = res.data;
     return data;
   }

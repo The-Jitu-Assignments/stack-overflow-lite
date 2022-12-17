@@ -23,6 +23,8 @@ const HomePage = () => {
     dispatch(getLoggedInUser())
   }, []);
 
+  console.log(btn)
+
   return (
     <div className='homepage'>
       <div className='homepage--container'>
@@ -39,9 +41,9 @@ const HomePage = () => {
             </div>
             {showFilterBtns && (
             <div className='homepage--filter__buttons'>
-              <Button text={"All"} className={"home--filter__btn"} />
-              <Button text={"Most Recent"} className={"home--filter__btn"} />
-              <Button text={"Most Replies"} className={"home--filter__btn"} />
+              <Button text={"All"} className={"home--filter__btn"} method={() => handleFilter('all')} />
+              <Button text={"Most Recent"} className={"home--filter__btn"} method={() => handleFilter('recent')} />
+              <Button text={"Most Replies"} className={"home--filter__btn"} method={() => handleFilter('replies')} />
             </div>
             )}
           </div>
