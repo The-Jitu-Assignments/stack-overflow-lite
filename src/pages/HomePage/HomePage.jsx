@@ -19,6 +19,10 @@ const HomePage = () => {
   }
 
   useEffect(() => {
+    console.log('FI')
+  }, [btn])
+
+  useEffect(() => {
     dispatch(fetchQuestions());
     dispatch(getLoggedInUser())
   }, []);
