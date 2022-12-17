@@ -39,6 +39,7 @@ const HomePage = () => {
             </div>
             {showFilterBtns && (
             <div className='homepage--filter__buttons'>
+              <Button text={"All"} className={"home--filter__btn"} />
               <Button text={"Most Recent"} className={"home--filter__btn"} />
               <Button text={"Most Replies"} className={"home--filter__btn"} />
             </div>
