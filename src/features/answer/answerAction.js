@@ -22,3 +22,11 @@ export const addAnswer = createAsyncThunk('answers/addAnswer',
     }
   }
 );
+
+export const getAnswer = createAsyncThunk('answer/getAnswer',
+  async (id) => {
+    const res = await axios.get(`${url}/${id}`);
+    const { data } = res.data;
+    return data
+  }
+)
