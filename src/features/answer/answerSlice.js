@@ -4,12 +4,17 @@ import { addAnswer } from "./answerAction";
 const initialState = {
   answers: [],
   isSuccess: false,
+  answer: null,
 };
 
 export const answersSlice = createSlice({
   name: 'answers',
   initialState,
-  reducers: {},
+  reducers: {
+    setAnswer: (state, action) => {
+      state.answer = action.payload
+    }
+  },
   extraReducers (builder) {
     builder.addCase(addAnswer.fulfilled, (state) => {
       state.isSuccess = true
