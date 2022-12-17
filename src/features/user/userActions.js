@@ -2,6 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { signInValidation, signUpValidation } from "../../helpers/auth/AuthValidation";
+import { logout } from "./userSlice";
 
 const url = 'http://localhost:4001'
 
@@ -45,7 +46,7 @@ export const fetchUserProfile = createAsyncThunk('user/fetchUserProfile',
 );
 
 export const getLoggedInUser = createAsyncThunk('user/getLoggedInUser', 
-  async (_, { rejectWithValue }) => {
+  async (_, { dispatch, rejectWithValue }) => {
     try {
       const token = localStorage.getItem('token')
       const res = await axios.get(`${url}/myProfile`, {
@@ -56,6 +57,10 @@ export const getLoggedInUser = createAsyncThunk('user/getLoggedInUser',
       const { data } = res.data;
       return data;
     } catch (error) {
+      const { message } = error.response.data.msg;
+      if (message === 'jwt expired') {
+        dispatch(logout())
+      }
       return rejectWithValue(error.response.data.msg)
     }
   }
