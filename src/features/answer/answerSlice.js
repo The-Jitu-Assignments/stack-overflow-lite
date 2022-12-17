@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { addAnswer } from "./answerAction";
+import { addAnswer, getAnswer } from "./answerAction";
 
 const initialState = {
   answers: [],
   isSuccess: false,
-  answer: null,
+  selectedAnswer: null,
 };
 
 export const answersSlice = createSlice({
@@ -17,6 +17,11 @@ export const answersSlice = createSlice({
     })
     builder.addCase(addAnswer.rejected, (state) => {
       state.isSuccess = false;
+    })
+
+    // get answer
+    builder.addCase(getAnswer.fulfilled, (state, action) => {
+      state.selectedAnswer = action.payload
     })
   }
 });

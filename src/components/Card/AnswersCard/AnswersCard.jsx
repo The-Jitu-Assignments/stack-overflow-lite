@@ -3,14 +3,20 @@ import Button from '../../Button/Button'
 import Comment from '../Comments/Comment';
 import './answersCard.css'
 import { createAvatar } from '../../../helpers/avatar/CreateAvatar';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAnswer } from '../../../features/answer/answerAction';
 
 const AnswersCard = ({ answer }) => {
+  console.log(answer)
+  const dispatch = useDispatch();
+  const { selectedAnswer } = useSelector(state => state.answers);
+  console.log(selectedAnswer)
   const [ show, setShow ] = React.useState(false);
   const { name } = answer;
   const avatar = createAvatar(name);
 
   return (
-    <div className='answers--container'>
+    <div className='answers--container' onClick={() => dispatch(getAnswer(answer.id))}>
       <div className='answersCard'>
         <div className='answersCard__header'>
           <div className='answersCard__header--user'>

@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { answersSlice } from "./features/answer/answerSlice";
+import answersSlice from "./features/answer/answerSlice";
 import quizSlice from "./features/question/quizSlice";
 import userSlice from "./features/user/userSlice";
 
