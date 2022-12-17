@@ -63,7 +63,7 @@ const QuestionCard = ({ post }) => {
         <div className='question--card__body'>
           {post.question || <Skeleton />}
         </div>
-        <div onClick={handleOpen}>
+        <div onClick={handleOpen} className='view--ans__btn'>
           View Answers
         </div>
       </div>

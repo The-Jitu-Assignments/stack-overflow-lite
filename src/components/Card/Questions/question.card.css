@@ -100,3 +100,21 @@
 .question--btn:hover {
   background-color: var(--darkBlue);
 }
+
+.view--ans__btn {
+  display: flex;
+  justify-content: center;
+  border: 1px solid var(--charcoal);
+  width: 100px;
+  padding: 5px 0;
+  border-radius: 5px;
+  font-size: 12px;
+  color: gray;
+}
+
+.view--ans__btn:hover {
+  color: white;
+  border: none;
+  background-color: var(--lightBlue);
+}
+
