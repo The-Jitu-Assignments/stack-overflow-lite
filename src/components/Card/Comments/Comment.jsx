@@ -12,7 +12,10 @@ const Comment = ({ comment }) => {
             <img src={comment.imgUrl} alt='comment--img' className='comment--img' /> 
           ) : (<div className='comment--avatar'>{avatar}</div>)}
         </div>
-        <div></div>
+        <div>
+          <h3>{comment.name}</h3>
+          <div className='comment--days'>{comment.days}</div>
+        </div>
       </div>
       <div>{comment.comment}</div>
     </div>
