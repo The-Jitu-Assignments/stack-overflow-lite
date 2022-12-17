@@ -7,6 +7,7 @@ import { BsFilter } from 'react-icons/bs'
 import Button from '../../components/Button/Button';
 import { getQuestion } from '../../features/question/quizSlice';
 import { getLoggedInUser } from '../../features/user/userActions';
+import { fetchRecentAskedQuestions } from '../../features/question/quizActions';
 
 const HomePage = () => {
   const { questions } = useSelector(state => state.quiz);
@@ -19,13 +20,17 @@ const HomePage = () => {
   }
 
   useEffect(() => {
-    console.log('FI')
+    if (btn === 'all') {
+      dispatch(fetchQuestions())
+    } else if (btn === 'recent') {
+      dispatch(fetchRecentAskedQuestions());
+    }
+    dispatch(getLoggedInUser())
   }, [btn])
 
-  useEffect(() => {
-    dispatch(fetchQuestions());
-    dispatch(getLoggedInUser())
-  }, []);
+  // useEffect(() => {
+  //   dispatch(fetchQuestions());
+  // }, []);
 
   console.log(btn)
 

@@ -11,6 +11,7 @@ import AnswersCard from '../AnswersCard/AnswersCard';
 import { getQuestion } from '../../../features/question/quizSlice';
 
 const QuestionCard = ({ post }) => {
+  console.log(post)
   const dispatch = useDispatch();
   const { selectedQuiz } = useSelector(state => state.quiz);
    const { answers, question } = selectedQuiz || [];
@@ -20,7 +21,7 @@ const QuestionCard = ({ post }) => {
   const [isOpen, setIsOpen] = useState(false);
 
 
-  const avatar = createAvatar(post.name);
+  const avatar = createAvatar(post?.name);
 
   const handleOpen = () => {
     dispatch(getQuestion(post.id))
