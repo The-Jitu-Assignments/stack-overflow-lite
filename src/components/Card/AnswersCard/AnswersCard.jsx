@@ -1,19 +1,50 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Button from '../../Button/Button'
 import Comment from '../Comments/Comment';
 import './answersCard.css'
 import { createAvatar } from '../../../helpers/avatar/CreateAvatar';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAnswer } from '../../../features/answer/answerAction';
+import { addComment } from '../../../features/comment/commentActions';
 
 const AnswersCard = ({ answer }) => {
-  console.log(answer)
+  const [data, setData] = useState({
+    comment: '',
+    answerId: ''
+  });
   const dispatch = useDispatch();
   const { selectedAnswer } = useSelector(state => state.answers);
-  console.log(selectedAnswer)
   const [ show, setShow ] = React.useState(false);
   const { name } = answer;
   const avatar = createAvatar(name);
+
+  useEffect(() => {
+    if (selectedAnswer) {
+      setData({
+        comment: '',
+        answerId: selectedAnswer.answer.id
+      })
+    }
+  }, [selectedAnswer])
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setData((data) => ({
+      ...data,
+      [name]: value
+    }))
+  };
+
+
+  const handleSubmit = () => {
+    dispatch(addComment(data));
+    setData({
+      comment: '',
+      answerId: ''
+    })
+  };
+
+  console.log(data)
 
   return (
     <div className='answers--container' onClick={() => dispatch(getAnswer(answer.id))}>
@@ -42,8 +73,14 @@ const AnswersCard = ({ answer }) => {
       {show && (
       <div className='answer--comments'>
         <div className='answer--comments__input'>
-          <input type={"text"} placeholder='Add a comment' />
-          <Button className={"comments--btn"} text={"submit"} />
+          <input 
+            type={"text"} 
+            placeholder='Add a comment' 
+            name='comment'
+            value={data.comment}
+            onChange={handleChange}
+          />
+          <Button className={"comments--btn"} text={"submit"} method={handleSubmit} />
         </div>
         <div className='comment--container'>
           {selectedAnswer?.comments.length > 0 ? (

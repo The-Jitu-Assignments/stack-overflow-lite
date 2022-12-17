@@ -1,8 +1,9 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { fetchQuestions } from "../question/quizActions";
 
-const url = 'http://localhost:8001/comments'
+const url = 'http://localhost:8001/comment'
 
 export const addComment = createAsyncThunk('comments/addComment', 
   async(values, { dispatch }) => {
@@ -14,7 +15,8 @@ export const addComment = createAsyncThunk('comments/addComment',
         }
       });
       const { msg } = res.data;
-      toast.success(msg)
+      toast.success(msg);
+      dispatch(fetchQuestions())
     } catch (error) {
       toast.error(error.response.data.msg)
     }
