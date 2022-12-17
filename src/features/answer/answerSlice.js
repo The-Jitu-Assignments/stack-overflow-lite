@@ -10,11 +10,7 @@ const initialState = {
 export const answersSlice = createSlice({
   name: 'answers',
   initialState,
-  reducers: {
-    setAnswer: (state, action) => {
-      state.answer = action.payload
-    }
-  },
+  reducers: {},
   extraReducers (builder) {
     builder.addCase(addAnswer.fulfilled, (state) => {
       state.isSuccess = true
