@@ -46,7 +46,15 @@ const AnswersCard = ({ answer }) => {
           <Button className={"comments--btn"} text={"submit"} />
         </div>
         <div className='comment--container'>
-          <Comment />
+          {selectedAnswer?.comments.length > 0 ? (
+            <>
+              {selectedAnswer?.comments.map((comment) => {
+                return (
+                  <Comment comment={comment} />
+                )
+              })}
+            </>
+          ) : (<div>No Comments</div>)}
         </div>
       </div>
       )}
