@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchQuestions } from '../../features/question/quizSlice';
 import './home.css';
@@ -10,10 +10,15 @@ import { getLoggedInUser } from '../../features/user/userActions';
 
 const HomePage = () => {
   const { questions } = useSelector(state => state.quiz);
+  const [btn, setBtn] = useState('all');
   const dispatch = useDispatch();
-  const [showFilterBtns, setShowFilterBtns] = React.useState(false);
+  const [showFilterBtns, setShowFilterBtns] = useState(false);
 
-  React.useEffect(() => {
+  const handleFilter = (text) => {
+    setBtn(text)
+  }
+
+  useEffect(() => {
     dispatch(fetchQuestions());
     dispatch(getLoggedInUser())
   }, []);
