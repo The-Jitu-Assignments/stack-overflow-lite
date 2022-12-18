@@ -5,8 +5,17 @@ import HomePage from "../pages/HomePage/HomePage";
 import LoginPage from "../pages/LoginPage/LoginPage";
 import Profile from "../pages/ProfilePage/Profile";
 import RegisterPage from "../pages/RegisterPage/RegisterPage";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { getLoggedInUser } from "../features/user/userActions";
 
 export const AppRoutes = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getLoggedInUser())
+  }, [])
+  
   return (
     <BrowserRouter>
       <Routes>

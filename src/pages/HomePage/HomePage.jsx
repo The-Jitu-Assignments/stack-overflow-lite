@@ -6,7 +6,6 @@ import QuestionCard from '../../components/Card/Questions/Question';
 import { BsFilter } from 'react-icons/bs'
 import Button from '../../components/Button/Button';
 import { getQuestion } from '../../features/question/quizSlice';
-import { getLoggedInUser } from '../../features/user/userActions';
 import { fetchMostAnsweredQuestions, fetchRecentAskedQuestions, searchQuestion } from '../../features/question/quizActions';
 
 const HomePage = () => {
@@ -30,10 +29,7 @@ const HomePage = () => {
     } else {
       dispatch(searchQuestion(searchValue))
     }
-    dispatch(getLoggedInUser())
   }, [btn, searchValue]);
-
-  console.log(searchValue)
 
   return (
     <div className='homepage'>

@@ -11,11 +11,12 @@ const Profile = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const { profile, user } = useSelector(state => state.user);
+  // const { myQuestions }s
   const [currentData, setCurrentData] = useState('Recent Asked Quistions');
   const { posts } = dummyData;
 
   useEffect(() => {
-    dispatch(fetchUserProfile(id))
+    dispatch(fetchUserProfile(id));
   }, [id]);
 
   let avatar;
@@ -34,7 +35,7 @@ const Profile = () => {
         </div>
         <div>{profile.name}</div>
         <div>{profile.email}</div>
-        {user.id === profile.id && (
+        {user?.id === profile.id && (
           <>
             {profile.profileId ? (
               <div className='profile--btn'>Edit</div>
