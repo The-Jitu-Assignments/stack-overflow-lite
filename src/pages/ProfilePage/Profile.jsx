@@ -21,7 +21,11 @@ const Profile = () => {
     dispatch(fetchUserProfile(id))
   }, [id]);
 
-  const avatar = createAvatar(profile.name)
+  let avatar;
+
+  if (profile.name !== undefined) {
+    avatar = createAvatar(profile.name);
+  }
 
   return (
     <div className='profile--page'>
