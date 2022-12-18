@@ -46,4 +46,16 @@ export const fetchMostAnsweredQuestions = createAsyncThunk('quiz/fetchMostAnswer
     const { data } = res.data;
     return data; 
   }
-)
+);
+
+export const searchQuestion = createAsyncThunk('quiz/searchQuestion',
+  async (search) => {
+    const res = await axios.get(`${url}/quiz/searchQn`, {
+      params: {
+        value: search
+      }
+    });
+    const { data } = res.data;
+    return data;
+  }
+);
