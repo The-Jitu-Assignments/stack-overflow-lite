@@ -6,6 +6,7 @@ import { createAvatar } from '../../../helpers/avatar/CreateAvatar';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAnswer } from '../../../features/answer/answerAction';
 import { addComment } from '../../../features/comment/commentActions';
+import { AiFillLike, AiFillDislike } from 'react-icons/ai';
 
 const AnswersCard = ({ answer }) => {
   const [data, setData] = useState({
@@ -65,8 +66,8 @@ const AnswersCard = ({ answer }) => {
           {answer.comment}
         </div>
         <div className='answersCard--footer'>
-          <Button className={"like--btn"} text={`Like`}/>
-          <Button className={"like--btn"} text={"Dislike"} />
+          <Button className={"like--btn"} text={<AiFillLike size={'1.5em'} />}/>
+          <Button className={"like--btn"} text={<AiFillDislike size={'1.5em'} />} />
           <Button className={"like--btn"} text={"View comments"} method={() => setShow(!show)} />
         </div>
       </div>

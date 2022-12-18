@@ -59,6 +59,9 @@
 }
 
 .like--btn {
+  display: flex;
+  align-items: center;
+  justify-content: center                                                                                                                                                                                               ;
   background-color: var(--lightBlue);
   padding: 5px 14px;
   color: var(--cream);
