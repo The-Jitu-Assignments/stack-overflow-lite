@@ -1,13 +1,13 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { addAQuestion, fetchMostAnsweredQuestions, fetchRecentAskedQuestions, searchQuestion } from "./quizActions";
+import { addAQuestion, fetchMostAnsweredQuestions, fetchRecentAskedQuestions, myQuestions, searchQuestion } from "./quizActions";
 
 const initialState = {
   selectedQuiz: null,
   questions: [],
   isLoading: false,
   isSuccess: false,
-  foundData: []
+  myQuestions: []
 };
 
 export const fetchQuestions = createAsyncThunk('quiz/fetchQuestions', 
@@ -66,6 +66,11 @@ export const QuizesSlice = createSlice({
     // search questions
     builder.addCase(searchQuestion.fulfilled, (state, action) => {
       state.questions = action.payload
+    });
+
+    // specific user questions
+    builder.addCase(myQuestions.fulfilled, (state, action) => {
+      state.myQuestions = action.payload
     })
   }
 });

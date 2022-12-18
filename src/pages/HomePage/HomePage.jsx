@@ -11,8 +11,7 @@ import { fetchMostAnsweredQuestions, fetchRecentAskedQuestions, searchQuestion }
 
 const HomePage = () => {
   const [searchValue, setSearchValue] = useState('');
-  const { questions, foundData } = useSelector(state => state.quiz);
-  console.log(foundData)
+  const { questions } = useSelector(state => state.quiz);
   const [btn, setBtn] = useState('all');
   const dispatch = useDispatch();
   const [showFilterBtns, setShowFilterBtns] = useState(false);
