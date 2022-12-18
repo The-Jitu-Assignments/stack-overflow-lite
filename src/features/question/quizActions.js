@@ -61,7 +61,7 @@ export const searchQuestion = createAsyncThunk('quiz/searchQuestion',
 
 export const getMyQuestions = createAsyncThunk('quiz/getMyQuestions',
   async (id) => {
-    const res = await axios.get(`${url}/myqQuestions/${id}`);
+    const res = await axios.get(`${url}/myQuestions/${id}`);
     const { data } = res.data;
     return data;
   }

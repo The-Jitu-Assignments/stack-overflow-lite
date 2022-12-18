@@ -6,17 +6,20 @@ import dummyData from '../../data/posts.json';
 import PersonalQuiz from '../../components/PersonalQuiz/PersonalQuiz';
 import { fetchUserProfile } from '../../features/user/userActions';
 import { createAvatar } from '../../helpers/avatar/CreateAvatar';
+import { getMyQuestions } from '../../features/question/quizActions';
 
 const Profile = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const { profile, user } = useSelector(state => state.user);
-  // const { myQuestions }s
+  const { myQuestions } = useSelector(state => state.quiz);
+  console.log(myQuestions)
   const [currentData, setCurrentData] = useState('Recent Asked Quistions');
   const { posts } = dummyData;
 
   useEffect(() => {
     dispatch(fetchUserProfile(id));
+    dispatch(getMyQuestions(id))
   }, [id]);
 
   let avatar;
