@@ -67,7 +67,7 @@ const AnswersCard = ({ answer }) => {
         </div>
         <div className='answersCard--footer'>
           <Button className={"like--btn"} text={<AiFillLike size={'1.5em'} />}/>
-          <Button className={"like--btn"} text={<AiFillDislike size={'1.5em'} />} />
+          <Button className={"like--btn dislike--btn"} text={<AiFillDislike size={'1.5em'} />} />
           <Button className={"like--btn"} text={"View comments"} method={() => setShow(!show)} />
         </div>
       </div>

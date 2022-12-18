@@ -70,6 +70,10 @@
   font-size: 12px;
 }
 
+.dislike--btn {
+  transform: rotateY(180deg);
+}
+
 .accept--btn {
   background-color: var(--lightBlue);
   color: var(--cream);
