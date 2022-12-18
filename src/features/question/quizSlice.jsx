@@ -65,7 +65,7 @@ export const QuizesSlice = createSlice({
 
     // search questions
     builder.addCase(searchQuestion.fulfilled, (state, action) => {
-      state.foundData = action.payload
+      state.questions = action.payload
     })
   }
 });

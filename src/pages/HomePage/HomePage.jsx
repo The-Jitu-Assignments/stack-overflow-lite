@@ -7,10 +7,12 @@ import { BsFilter } from 'react-icons/bs'
 import Button from '../../components/Button/Button';
 import { getQuestion } from '../../features/question/quizSlice';
 import { getLoggedInUser } from '../../features/user/userActions';
-import { fetchMostAnsweredQuestions, fetchRecentAskedQuestions } from '../../features/question/quizActions';
+import { fetchMostAnsweredQuestions, fetchRecentAskedQuestions, searchQuestion } from '../../features/question/quizActions';
 
 const HomePage = () => {
-  const { questions } = useSelector(state => state.quiz);
+  const [searchValue, setSearchValue] = useState('');
+  const { questions, foundData } = useSelector(state => state.quiz);
+  console.log(foundData)
   const [btn, setBtn] = useState('all');
   const dispatch = useDispatch();
   const [showFilterBtns, setShowFilterBtns] = useState(false);
@@ -24,11 +26,15 @@ const HomePage = () => {
       dispatch(fetchQuestions())
     } else if (btn === 'recent') {
       dispatch(fetchRecentAskedQuestions());
-    } else {
+    } else if (btn === 'replies') {
       dispatch(fetchMostAnsweredQuestions());
+    } else {
+      dispatch(searchQuestion(searchValue))
     }
     dispatch(getLoggedInUser())
-  }, [btn])
+  }, [btn, searchValue]);
+
+  console.log(searchValue)
 
   return (
     <div className='homepage'>
@@ -37,8 +43,8 @@ const HomePage = () => {
           <div className='homepage--all__header'>
             <div className='homepage--all__filter'>
               <div className='homepage--search'>
-                <input type="search" placeholder='Search a question' />
-                <Button text={"search"} className={"home--filter__btn"} />
+                <input type="search" placeholder='Search a question' name='searchValue' value={searchValue} onChange={(e) => setSearchValue(e.target.value)} />
+                <Button text={"search"} className={"home--filter__btn"} method={() => dispatch(searchQuestion(searchValue))} />
               </div>
               <div className='homepage--filter' onClick={() => setShowFilterBtns(!showFilterBtns)}>
                 Filter
