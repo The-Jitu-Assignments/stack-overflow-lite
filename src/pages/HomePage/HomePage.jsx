@@ -7,6 +7,7 @@ import { BsFilter } from 'react-icons/bs'
 import Button from '../../components/Button/Button';
 import { getQuestion } from '../../features/question/quizSlice';
 import { fetchMostAnsweredQuestions, fetchRecentAskedQuestions, searchQuestion } from '../../features/question/quizActions';
+import { getLoggedInUser } from '../../features/user/userActions';
 
 const HomePage = () => {
   const [searchValue, setSearchValue] = useState('');
@@ -29,6 +30,7 @@ const HomePage = () => {
     } else {
       dispatch(searchQuestion(searchValue))
     }
+    dispatch(getLoggedInUser())
   }, [btn, searchValue]);
 
   return (

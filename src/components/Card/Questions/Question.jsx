@@ -63,7 +63,7 @@ const QuestionCard = ({ post }) => {
           {post.question || <Skeleton />}
         </div>
         <div onClick={handleOpen} className='view--ans__btn'>
-          View Answers
+          View Answers <span>{post.totalAns}</span>
         </div>
       </div>
       {openAnswers && 

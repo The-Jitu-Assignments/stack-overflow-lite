@@ -7,6 +7,7 @@ import PersonalQuiz from '../../components/PersonalQuiz/PersonalQuiz';
 import { fetchUserProfile } from '../../features/user/userActions';
 import { createAvatar } from '../../helpers/avatar/CreateAvatar';
 import { getMyQuestions } from '../../features/question/quizActions';
+import QuestionCard from '../../components/Card/Questions/Question';
 
 const Profile = () => {
   const { id } = useParams();
@@ -86,9 +87,9 @@ const Profile = () => {
               Most Answered Questions
             </div>
           </div>
-          <div>
-            {posts.map((post, i) => (
-              <PersonalQuiz data={currentData} key={i} />
+          <div className='profile--questions'>
+            {myQuestions.map((post) => (
+              <QuestionCard key={post.id} post={post} selectQuiz={() => dispatch(getQuestion(post.id))} />
             ))}
           </div>
         </div>

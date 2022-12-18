@@ -104,12 +104,30 @@
 .view--ans__btn {
   display: flex;
   justify-content: center;
+  align-items: center;
+  gap: 10px;
   border: 1px solid var(--charcoal);
-  width: 100px;
+  width: 150px;
   padding: 5px 0;
   border-radius: 5px;
   font-size: 12px;
   color: gray;
+}
+
+.view--ans__btn span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--lightBlue);
+  color: white;
+  padding: 4px 9px;
+  border-radius: 50%;
+  font-size: 10px;
+}
+
+.view--ans__btn span:hover {
+  background-color: var(--cream);
+  color: var(--lightBlue);
 }
 
 .view--ans__btn:hover {
