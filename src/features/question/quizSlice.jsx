@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { addAQuestion, fetchRecentAskedQuestions } from "./quizActions";
+import { addAQuestion, fetchMostAnsweredQuestions, fetchRecentAskedQuestions } from "./quizActions";
 
 const initialState = {
   selectedQuiz: null,
@@ -54,6 +54,11 @@ export const QuizesSlice = createSlice({
 
     // recent questions
     builder.addCase(fetchRecentAskedQuestions.fulfilled, (state, action) => {
+      state.questions = action.payload
+    })
+
+    // most answered questions
+    builder.addCase(fetchMostAnsweredQuestions.fulfilled, (state, action) => {
       state.questions = action.payload
     })
   }

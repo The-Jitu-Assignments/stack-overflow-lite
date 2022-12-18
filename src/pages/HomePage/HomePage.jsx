@@ -7,7 +7,7 @@ import { BsFilter } from 'react-icons/bs'
 import Button from '../../components/Button/Button';
 import { getQuestion } from '../../features/question/quizSlice';
 import { getLoggedInUser } from '../../features/user/userActions';
-import { fetchRecentAskedQuestions } from '../../features/question/quizActions';
+import { fetchMostAnsweredQuestions, fetchRecentAskedQuestions } from '../../features/question/quizActions';
 
 const HomePage = () => {
   const { questions } = useSelector(state => state.quiz);
@@ -24,6 +24,8 @@ const HomePage = () => {
       dispatch(fetchQuestions())
     } else if (btn === 'recent') {
       dispatch(fetchRecentAskedQuestions());
+    } else {
+      dispatch(fetchMostAnsweredQuestions());
     }
     dispatch(getLoggedInUser())
   }, [btn])
