@@ -30,12 +30,6 @@ const HomePage = () => {
     dispatch(getLoggedInUser())
   }, [btn])
 
-  // useEffect(() => {
-  //   dispatch(fetchQuestions());
-  // }, []);
-
-  console.log(btn)
-
   return (
     <div className='homepage'>
       <div className='homepage--container'>
