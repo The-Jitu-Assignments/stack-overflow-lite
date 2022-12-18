@@ -25,7 +25,6 @@ export const addAQuestion = createAsyncThunk('quiz/addQuiz',
       const { msg } = res.data;
       toast.success(msg);
       dispatch(fetchQuestions())
-      return 
     } catch (error) {
       toast.error(error.response ? error.response.data.msg : error.message)
     }
@@ -59,3 +58,11 @@ export const searchQuestion = createAsyncThunk('quiz/searchQuestion',
     return data;
   }
 );
+
+export const myQuestions = createAsyncThunk('quiz/myQuestions',
+  async (id) => {
+    const res = await axios.get(`${url}/myqQuestions/${id}`);
+    const { data } = res.data;
+    return data;
+  }
+)
