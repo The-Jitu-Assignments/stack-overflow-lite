@@ -11,11 +11,8 @@ const Profile = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const { profile, user } = useSelector(state => state.user);
-  console.log(profile)
-  console.log(id)
   const [currentData, setCurrentData] = useState('Recent Asked Quistions');
   const { posts } = dummyData;
-  const img = posts.map((post) => post.image);
 
   useEffect(() => {
     dispatch(fetchUserProfile(id))
