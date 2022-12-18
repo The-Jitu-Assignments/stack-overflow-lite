@@ -4,7 +4,7 @@ import Comment from '../Comments/Comment';
 import './answersCard.css'
 import { createAvatar } from '../../../helpers/avatar/CreateAvatar';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAnswer } from '../../../features/answer/answerAction';
+import { addLikeOrDislike, getAnswer } from '../../../features/answer/answerAction';
 import { addComment } from '../../../features/comment/commentActions';
 import { AiFillLike, AiFillDislike } from 'react-icons/ai';
 
@@ -66,8 +66,18 @@ const AnswersCard = ({ answer }) => {
           {answer.comment}
         </div>
         <div className='answersCard--footer'>
-          <Button className={"like--btn"} text={<AiFillLike size={'1.5em'} />}/>
-          <Button className={"like--btn dislike--btn"} text={<AiFillDislike size={'1.5em'} />} />
+          <Button 
+            className={"like--btn"} 
+            text={<AiFillLike size={'1.5em'} />}
+            method={() => dispatch(addLikeOrDislike({ answerId: selectedAnswer.answer.id, total: 1}))}
+            title={"Like"}
+          />
+          <Button 
+            className={"like--btn dislike--btn"} 
+            text={<AiFillDislike size={'1.5em'} />} 
+            method={() => dispatch(addLikeOrDislike({ answerId: selectedAnswer.answer.id, total: -1}))}
+            title={"Dislike"}
+          />
           <Button className={"like--btn"} text={"View comments"} method={() => setShow(!show)} />
         </div>
       </div>

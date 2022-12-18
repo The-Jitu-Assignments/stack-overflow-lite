@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { addAnswer, getAnswer } from "./answerAction";
+import { addAnswer, addLikeOrDislike, getAnswer } from "./answerAction";
 
 const initialState = {
   answers: [],
@@ -22,6 +22,14 @@ export const answersSlice = createSlice({
     // get answer
     builder.addCase(getAnswer.fulfilled, (state, action) => {
       state.selectedAnswer = action.payload
+    });
+
+    // like/dislike
+    builder.addCase(addLikeOrDislike.fulfilled, (state) => {
+      state.isSuccess = true;
+    })
+    builder.addCase(addLikeOrDislike.rejected, (state) => {
+      state.isSuccess = false
     })
   }
 });

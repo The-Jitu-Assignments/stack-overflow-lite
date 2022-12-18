@@ -33,13 +33,16 @@ export const getAnswer = createAsyncThunk('answer/getAnswer',
 
 export const addLikeOrDislike = createAsyncThunk('answer/addLikeOrDislike',
   async (values) => {
+    console.log(values)
     try {
       const token = localStorage.getItem('token');
-      await axios.post('http://localhost:8001/likes', values, {
+      const res = await axios.post('http://localhost:8001/likes', values, {
         headers: {
           Authorization: `Bearer ${token}`
         }
-      })
+      });
+      const { msg } = res.data;
+      return msg
     } catch (error) {
       toast.error(error.response.data.msg)
     }
