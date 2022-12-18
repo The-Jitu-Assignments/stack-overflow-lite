@@ -38,6 +38,7 @@ const HomePage = () => {
             <div className='homepage--all__filter'>
               <div className='homepage--search'>
                 <input type="search" placeholder='Search a question' />
+                <Button text={"search"} className={"home--filter__btn"} />
               </div>
               <div className='homepage--filter' onClick={() => setShowFilterBtns(!showFilterBtns)}>
                 Filter
