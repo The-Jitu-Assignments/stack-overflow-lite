@@ -25,13 +25,15 @@ const HomePage = () => {
 
   const handleNextPage = () => {
     if (page < totalPages) {
-      setPage(page + 1)
+      setPage(page + 1);
+      dispatch(fetchQuestions({ pageNumber: page + 1, pageSize: limit }))
     }
   };
 
   const handlePrevPage = () => {
     if (page > 1) {
-      setPage(page - 1)
+      setPage(page - 1);
+      dispatch(fetchQuestions({ pageNumber: page - 1, pageSize: limit }))
     }
   }
 
