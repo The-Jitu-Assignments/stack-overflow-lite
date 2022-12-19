@@ -62,9 +62,9 @@ const QuestionCard = ({ post }) => {
         <div className='question--card__body'>
           {post.question || <Skeleton />}
         </div>
-        <div onClick={handleOpen} className='view--ans__btn'>
+        <button onClick={handleOpen} className='view--ans__btn' disabled={post.totalAns === 0}>
           View Answers <span>{post.totalAns}</span>
-        </div>
+        </button>
       </div>
       {openAnswers && 
         (

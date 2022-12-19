@@ -112,6 +112,12 @@
   border-radius: 5px;
   font-size: 12px;
   color: gray;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.view--ans__btn:disabled {
+  cursor: not-allowed;
 }
 
 .view--ans__btn span {

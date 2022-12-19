@@ -7,6 +7,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addLikeOrDislike, getAnswer } from '../../../features/answer/answerAction';
 import { addComment } from '../../../features/comment/commentActions';
 import { AiFillLike, AiFillDislike } from 'react-icons/ai';
+import { fetchQuestions } from '../../../features/question/quizActions';
+import { getQuestion } from '../../../features/question/quizSlice';
 
 const AnswersCard = ({ answer }) => {
   const [data, setData] = useState({
@@ -26,6 +28,7 @@ const AnswersCard = ({ answer }) => {
         answerId: selectedAnswer.answer.id
       })
     }
+    dispatch(getQuestion(selectedAnswer?.answer.questionId));
   }, [selectedAnswer])
 
   const handleChange = (e) => {
@@ -44,8 +47,6 @@ const AnswersCard = ({ answer }) => {
       answerId: ''
     })
   };
-
-  console.log(data)
 
   return (
     <div className='answers--container' onClick={() => dispatch(getAnswer(answer.id))}>
@@ -68,14 +69,26 @@ const AnswersCard = ({ answer }) => {
         <div className='answersCard--footer'>
           <Button 
             className={"like--btn"} 
-            text={<AiFillLike size={'1.5em'} />}
-            method={() => dispatch(addLikeOrDislike({ answerId: selectedAnswer.answer.id, total: 1}))}
+            text={
+              <div className='answer--text'>
+                <AiFillLike size={'1.5em'} />
+                <span>{answer.totalLikes}</span>
+              </div>
+            }
+            method={() => dispatch(addLikeOrDislike({ answerId: selectedAnswer?.answer.id, total: 1}))}
             title={"Like"}
           />
           <Button 
-            className={"like--btn dislike--btn"} 
-            text={<AiFillDislike size={'1.5em'} />} 
-            method={() => dispatch(addLikeOrDislike({ answerId: selectedAnswer.answer.id, total: -1}))}
+            className={"like--btn"} 
+            text={
+              <div className='answer--text'>
+                <span className='dislike--btn'>
+                  <AiFillDislike size={'1.5em'} />
+                </span>
+                <span>{answer.totalDislikes}</span>
+              </div>
+            } 
+            method={() => dispatch(addLikeOrDislike({ answerId: selectedAnswer?.answer.id, total: -1}))}
             title={"Dislike"}
           />
           <Button className={"like--btn"} text={"View comments"} method={() => setShow(!show)} />

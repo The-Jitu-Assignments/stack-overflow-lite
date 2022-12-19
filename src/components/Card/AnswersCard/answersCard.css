@@ -71,6 +71,8 @@
 }
 
 .dislike--btn {
+  display: flex;
+  align-items: center;
   transform: rotateY(180deg);
 }
 
@@ -118,6 +120,12 @@
   color: var(--cream);
   border-radius: 5px;
   cursor: pointer;
+}
+
+.answer--text {
+  display: flex;
+  align-items: center;
+  gap: 7px;
 }
 
 @media screen and (max-width: 768px) {

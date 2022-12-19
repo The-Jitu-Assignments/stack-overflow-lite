@@ -32,7 +32,7 @@ export const getAnswer = createAsyncThunk('answer/getAnswer',
 )
 
 export const addLikeOrDislike = createAsyncThunk('answer/addLikeOrDislike',
-  async (values) => {
+  async (values, { dispatch }) => {
     console.log(values)
     try {
       const token = localStorage.getItem('token');
@@ -42,6 +42,7 @@ export const addLikeOrDislike = createAsyncThunk('answer/addLikeOrDislike',
         }
       });
       const { msg } = res.data;
+      dispatch(fetchQuestions())
       return msg
     } catch (error) {
       toast.error(error.response.data.msg)
