@@ -111,7 +111,7 @@
 
 .profile--bottom__header {
   display: flex;
-  justify-content: space-evenly;
+  font-weight: bold;
   border-bottom: 1px solid var(--charcoal);
 }
 .profile--quizes__recent {

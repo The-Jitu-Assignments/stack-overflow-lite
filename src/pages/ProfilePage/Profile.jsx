@@ -80,12 +80,13 @@ const Profile = () => {
         </div>
         <div className='profile--right__bottom'>
           <div className='profile--bottom__header'>
-            <div className='profile--quizes__recent' onClick={() => setCurrentData('Recent Asked Questions')}>
+            Questions
+            {/* <div className='profile--quizes__recent' onClick={() => setCurrentData('Recent Asked Questions')}>
               Recent Asked Questions
             </div>
             <div className='profile--quizes--mostAnswered' onClick={() => setCurrentData('Most Answered Questions')}>
               Most Answered Questions
-            </div>
+            </div> */}
           </div>
           <div className='profile--questions'>
             {myQuestions.map((post) => (
