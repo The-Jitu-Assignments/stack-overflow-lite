@@ -9,8 +9,9 @@ import { fetchMostAnsweredQuestions, fetchRecentAskedQuestions, searchQuestion, 
 import { getLoggedInUser } from '../../features/user/userActions';
 
 const HomePage = () => {
+  const [page, setPage] = useState(1);
   const [searchValue, setSearchValue] = useState('');
-  const { questions } = useSelector(state => state.quiz);
+  const { questions, total } = useSelector(state => state.quiz);
   const [btn, setBtn] = useState('all');
   const dispatch = useDispatch();
   const [showFilterBtns, setShowFilterBtns] = useState(false);
@@ -63,7 +64,12 @@ const HomePage = () => {
                 </>
               )
             })}
-          </div>    
+          </div>  
+          <div className='home--pagination'>
+            <span>{page}</span>
+            Out of
+            <span>{total}</span>
+          </div>  
         </div>
       </div>
     </div>

@@ -79,6 +79,19 @@
   margin: 20px 0;
 }
 
+.home--pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: gray;
+  margin: 30px 0;
+}
+
+.home--pagination span {
+  font-weight: bold;
+}
+
 .homepage--premium {
   display: flex;
   flex-direction: column;
