@@ -70,6 +70,10 @@
   font-size: 12px;
 }
 
+.like--btn:disabled {
+  cursor: not-allowed;
+}
+
 .dislike--btn {
   display: flex;
   align-items: center;

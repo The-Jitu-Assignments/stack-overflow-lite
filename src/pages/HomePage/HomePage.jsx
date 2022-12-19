@@ -10,14 +10,29 @@ import { getLoggedInUser } from '../../features/user/userActions';
 
 const HomePage = () => {
   const [page, setPage] = useState(1);
+  const [limit, setLimit] = useState(4);
   const [searchValue, setSearchValue] = useState('');
   const { questions, total } = useSelector(state => state.quiz);
   const [btn, setBtn] = useState('all');
   const dispatch = useDispatch();
   const [showFilterBtns, setShowFilterBtns] = useState(false);
 
+  const totalPages = Math.ceil(total / limit)
+
   const handleFilter = (text) => {
     setBtn(text)
+  };
+
+  const handleNextPage = () => {
+    if (page < totalPages) {
+      setPage(page + 1)
+    }
+  };
+
+  const handlePrevPage = () => {
+    if (page > 1) {
+      setPage(page - 1)
+    }
   }
 
   useEffect(() => {
@@ -66,9 +81,11 @@ const HomePage = () => {
             })}
           </div>  
           <div className='home--pagination'>
+            <button className='like--btn' onClick={handlePrevPage} disabled={page === 1}>Next</button>
             <span>{page}</span>
             Out of
-            <span>{total}</span>
+            <span>{totalPages}</span>
+            <button className='like--btn' onClick={handleNextPage} disabled={page === totalPages}>Next</button>
           </div>  
         </div>
       </div>
