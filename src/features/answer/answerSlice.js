@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { addAnswer, addLikeOrDislike, getAnswer } from "./answerAction";
+import { addAnswer, addLikeOrDislike, getAnswer, setAnswerAsPreferred } from "./answerAction";
 
 const initialState = {
   answers: [],
@@ -29,6 +29,14 @@ export const answersSlice = createSlice({
       state.isSuccess = true;
     })
     builder.addCase(addLikeOrDislike.rejected, (state) => {
+      state.isSuccess = false
+    })
+
+    // mark as preferred
+    builder.addCase(setAnswerAsPreferred.fulfilled, (state) => {
+      state.isSuccess = true
+    });
+    builder.addCase(setAnswerAsPreferred.rejected, (state) => {
       state.isSuccess = false
     })
   }

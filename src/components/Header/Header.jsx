@@ -12,7 +12,6 @@ const Header = () => {
   const [ open, setIsOpen ] = useState(false);
   const dispatch = useDispatch();
   const { user } = useSelector(state => state.user);
-  console.log(user);
   const [ selectedItem, setSelectedItem ] = useState('');
   const navigate = useNavigate();
   const style = { cursor: 'pointer' };
