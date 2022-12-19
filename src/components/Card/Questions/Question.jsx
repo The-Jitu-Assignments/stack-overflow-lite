@@ -12,6 +12,7 @@ import { getQuestion } from '../../../features/question/quizSlice';
 
 const QuestionCard = ({ post }) => {
   const dispatch = useDispatch();
+  const { user } = useSelector(state => state.user);
   const { selectedQuiz } = useSelector(state => state.quiz);
    const { answers, question } = selectedQuiz || [];
   const [openAnswers, setOpenAnswers] = useState(false);
@@ -56,6 +57,9 @@ const QuestionCard = ({ post }) => {
             <AiOutlineEllipsis fontSize={"1.7em"} />
             <div className='question--tooltip'>
               <div className='question--tooltip__item' onClick={handleOpenReply}>Reply</div>
+              {user?.id === post.userId && (
+                <div className='question--tooltip__item' onClick={handleOpenReply}>Delete</div>
+              )}
             </div>
           </div>
         </div>

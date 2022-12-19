@@ -81,7 +81,8 @@ const HomePage = () => {
                 </>
               )
             })}
-          </div>  
+          </div>
+          {btn === 'all' && (
           <div className='home--pagination'>
             <button className='like--btn' onClick={handlePrevPage} disabled={page === 1}>Next</button>
             <span>{page}</span>
@@ -89,6 +90,7 @@ const HomePage = () => {
             <span>{totalPages}</span>
             <button className='like--btn' onClick={handleNextPage} disabled={page === totalPages}>Next</button>
           </div>  
+          )} 
         </div>
       </div>
     </div>
