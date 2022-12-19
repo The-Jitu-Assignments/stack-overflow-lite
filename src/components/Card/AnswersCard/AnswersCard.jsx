@@ -17,6 +17,8 @@ const AnswersCard = ({ answer }) => {
   });
   const dispatch = useDispatch();
   const { selectedAnswer } = useSelector(state => state.answers);
+  const { selectedQuiz } = useSelector(state => state.quiz);
+  const { user } = useSelector(state => state.user);
   const [ show, setShow ] = React.useState(false);
   const { name } = answer;
   const avatar = createAvatar(name);
@@ -39,7 +41,6 @@ const AnswersCard = ({ answer }) => {
     }))
   };
 
-
   const handleSubmit = () => {
     dispatch(addComment(data));
     setData({
@@ -61,7 +62,9 @@ const AnswersCard = ({ answer }) => {
               <p>{answer.days} ago</p>
             </div>
           </div>
-          <Button className={"accept--btn"} text={"Mark as an Answer"} />
+          {user?.id === selectedQuiz?.question.userId && (
+            <Button className={"accept--btn"} text={"Mark as an Answer"} method={console.log('working')} />
+          )}
         </div>
         <div>
           {answer.comment}
