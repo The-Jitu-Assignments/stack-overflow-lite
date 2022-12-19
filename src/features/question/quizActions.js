@@ -5,13 +5,27 @@ import { quizValidation } from "../../helpers/quiz/QuizValidation";
 
 const url = 'http://localhost:8001/question';
 
-export const fetchQuestions = createAsyncThunk('quiz/fetchQuestions', 
-  async () => {
-    const res = await axios.get(url);
-    const { data } = res.data;
-    return data;
+// export const fetchQuestions = createAsyncThunk('quiz/fetchQuestions', 
+//   async () => {
+//     const res = await axios.get(url);
+//     const { data } = res.data;
+//     return data;
+//   }
+// );
+
+export const fetchQuestions = createAsyncThunk('quiz/fetchQuestions',
+  async ({pageNumber, pageSize}) => {
+    const res = await axios.get(`${url}/all`, {
+      params: {
+        pageNumber,
+        pageSize
+      }
+    });
+    console.log(res)
+    const { newData, total } = res.data.data;
+    return { newData, total };
   }
-);
+)
 
 export const addAQuestion = createAsyncThunk('quiz/addQuiz', 
   async (values, { dispatch }) => {

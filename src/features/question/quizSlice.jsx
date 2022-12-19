@@ -5,7 +5,8 @@ import {
   fetchMostAnsweredQuestions, 
   fetchRecentAskedQuestions, 
   getMyQuestions, 
-  searchQuestion 
+  searchQuestion,
+  fetchQuestions
 } from "./quizActions";
 
 const initialState = {
@@ -13,16 +14,10 @@ const initialState = {
   questions: [],
   isLoading: false,
   isSuccess: false,
-  myQuestions: []
+  myQuestions: [],
+  total: 0
 };
 
-export const fetchQuestions = createAsyncThunk('quiz/fetchQuestions', 
-  async () => {
-    const res = await axios.get('http://localhost:8001/question');
-    const { data } = res.data;
-    return data;
-  }
-);
 
 export const getQuestion = createAsyncThunk('quiz/getQuestion',
   async (id) => {
@@ -42,7 +37,8 @@ export const QuizesSlice = createSlice({
   },
   extraReducers (builder) {
     builder.addCase(fetchQuestions.fulfilled, (state, action) => {
-      state.questions = action.payload
+      state.questions = action.payload.newData,
+      state.total = action.payload.total
     });
     builder.addCase(getQuestion.fulfilled, (state, action) => {
       state.selectedQuiz = action.payload;

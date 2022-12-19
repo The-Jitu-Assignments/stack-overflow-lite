@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchQuestions } from '../../features/question/quizSlice';
 import './home.css';
 import QuestionCard from '../../components/Card/Questions/Question';
 import { BsFilter } from 'react-icons/bs'
 import Button from '../../components/Button/Button';
 import { getQuestion } from '../../features/question/quizSlice';
-import { fetchMostAnsweredQuestions, fetchRecentAskedQuestions, searchQuestion } from '../../features/question/quizActions';
+import { fetchMostAnsweredQuestions, fetchRecentAskedQuestions, searchQuestion, fetchQuestions } from '../../features/question/quizActions';
 import { getLoggedInUser } from '../../features/user/userActions';
 
 const HomePage = () => {
@@ -22,7 +21,7 @@ const HomePage = () => {
 
   useEffect(() => {
     if (btn === 'all') {
-      dispatch(fetchQuestions())
+      dispatch(fetchQuestions({ pageNumber: 1, pageSize: 4 }))
     } else if (btn === 'recent') {
       dispatch(fetchRecentAskedQuestions());
     } else if (btn === 'replies') {
