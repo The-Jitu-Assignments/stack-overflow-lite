@@ -12,7 +12,6 @@ const HomePage = () => {
   const [limit, setLimit] = useState(4);
   const [searchValue, setSearchValue] = useState('');
   const { questions, total } = useSelector(state => state.quiz);
-  // console.log(questions);
   const [btn, setBtn] = useState('all');
   const dispatch = useDispatch();
   const [showFilterBtns, setShowFilterBtns] = useState(false);
@@ -26,16 +25,22 @@ const HomePage = () => {
   const handleNextPage = () => {
     if (page < totalPages) {
       setPage(page + 1);
-      dispatch(fetchQuestions({ pageNumber: page + 1, pageSize: limit }))
-      dispatch(fetchRecentAskedQuestions({ pageNumber: page + 1 ,pageSize: limit }));
+      if (btn === 'all') {
+        dispatch(fetchQuestions({ pageNumber: page + 1, pageSize: limit }))
+      } else if (btn === 'recent') {
+        dispatch(fetchRecentAskedQuestions({ pageNumber: page + 1, pageSize: limit }));
+      }
     }
   };
 
   const handlePrevPage = () => {
     if (page > 1) {
       setPage(page - 1);
-      dispatch(fetchQuestions({ pageNumber: page - 1, pageSize: limit }))
-      dispatch(fetchRecentAskedQuestions({ pageNumber: page - 1 ,pageSize: limit }));
+      if (btn === 'all') {
+        dispatch(fetchQuestions({ pageNumber: page - 1, pageSize: limit }))
+      } else if (btn === 'recent') {
+        dispatch(fetchRecentAskedQuestions({ pageNumber: page - 1, pageSize: limit }));
+      }
     }
   }
 
@@ -76,15 +81,19 @@ const HomePage = () => {
             )}
           </div>
           <div className='homepage--questions'>
-            {questions?.map((post) => {
-              return (
-                <>  
-                  <QuestionCard key={post.id} post={post} />
-                </>
-              )
-            })}
+            {questions?.length > 0 ? (
+              <> 
+              {questions?.map((post) => {
+                return (
+                  <>  
+                    <QuestionCard key={post.id} post={post} />
+                  </>
+                )
+              })}
+              </>
+            ) : (<h2>No Data</h2>)}
           </div>
-          {btn !== 'replies' && (
+          {btn !== 'replies' && questions?.length > 0 && (
           <div className='home--pagination'>
             <button className='like--btn' onClick={handlePrevPage} disabled={page === 1}>Prev</button>
             <span>{page}</span>

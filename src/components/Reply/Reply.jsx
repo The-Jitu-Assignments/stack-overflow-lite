@@ -22,6 +22,9 @@ const Reply = ({ close }) => {
   };
 
   const handleSubmit = () => {
+    if (response.comment === '') {
+      return
+    }
     dispatch(addAnswer(response));
     close();
   };
@@ -46,6 +49,7 @@ const Reply = ({ close }) => {
         name='comment'
         value={response.comment}
         onChange={handleChange}
+        className={response.comment === '' && 'reply--error'}
       ></textarea>
       <Button method={handleSubmit} className={'submitButton'} text={"Submit"} />
     </div>

@@ -52,7 +52,8 @@ const AnswersCard = ({ answer, post }) => {
     setData({
       comment: '',
       answerId: ''
-    })
+    });
+    dispatch(getAnswer(answer.id))
   };
 
   const handleLikeDislike = (value) => {

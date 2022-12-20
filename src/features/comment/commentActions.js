@@ -16,7 +16,7 @@ export const addComment = createAsyncThunk('comments/addComment',
       });
       const { msg } = res.data;
       toast.success(msg);
-      dispatch(fetchQuestions())
+      dispatch(fetchQuestions({ pageNumber: 1, pageSize: 4 }))
     } catch (error) {
       toast.error(error.response.data.msg)
     }

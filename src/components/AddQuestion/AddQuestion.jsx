@@ -20,6 +20,9 @@ const AddQuestion = ({ close }) => {
   }
 
   const handleSubmit = () => {
+    if (quiz.question === '') {
+      return;
+    }
     dispatch(addAQuestion(quiz));
     close()
   };
@@ -35,6 +38,7 @@ const AddQuestion = ({ close }) => {
         name='question'
         value={quiz.question}
         onChange={handleChange}
+        className={quiz.question === '' && 'quiz--error'}
       ></textarea>
       <Button 
         method={handleSubmit} 

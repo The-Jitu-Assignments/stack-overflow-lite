@@ -59,6 +59,9 @@ export const QuizesSlice = createSlice({
     builder.addCase(searchQuestion.fulfilled, (state, action) => {
       state.questions = action.payload
     });
+    builder.addCase(searchQuestion.rejected, (state, action) => {
+      state.questions = action.payload
+    })
 
     // specific user questions
     builder.addCase(getMyQuestions.fulfilled, (state, action) => {
