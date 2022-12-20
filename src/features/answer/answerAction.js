@@ -41,7 +41,6 @@ export const addLikeOrDislike = createAsyncThunk('answer/addLikeOrDislike',
         }
       });
       const { msg } = res.data;
-      dispatch(fetchQuestions({ pageNumber: 1, pageSize: 4 }))
       return msg
     } catch (error) {
       toast.error(error.response.data.msg)
