@@ -4,6 +4,15 @@ import { toast } from "react-toastify";
 
 const url = 'http://localhost:8001/question';
 
+export const getQuestion = createAsyncThunk('quiz/getQuestion',
+  async (id) => {
+    const res = await axios.get(`${url}/${id}`)
+    const { data } = res.data;
+    console.log(data)
+    return data
+  }
+)
+
 export const fetchQuestions = createAsyncThunk('quiz/fetchQuestions',
   async ({pageNumber, pageSize}) => {
     const res = await axios.get(`${url}/all`, {

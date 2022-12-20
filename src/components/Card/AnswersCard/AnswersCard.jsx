@@ -4,13 +4,13 @@ import Comment from '../Comments/Comment';
 import './answersCard.css'
 import { createAvatar } from '../../../helpers/avatar/CreateAvatar';
 import { useDispatch, useSelector } from 'react-redux';
-import { addLikeOrDislike, getAnswer } from '../../../features/answer/answerAction';
+import { addLikeOrDislike, getAnswer, setAnswerAsPreferred } from '../../../features/answer/answerAction';
 import { addComment } from '../../../features/comment/commentActions';
 import { AiFillLike, AiFillDislike } from 'react-icons/ai';
-import { fetchQuestions } from '../../../features/question/quizActions';
-import { getQuestion } from '../../../features/question/quizSlice';
+// import { fetchQuestions } from '../../../features/question/quizActions';
+// import { getQuestion } from '../../../features/question/quizSlice';
 
-const AnswersCard = ({ answer }) => {
+const AnswersCard = ({ answer, post }) => {
   const [data, setData] = useState({
     comment: '',
     answerId: ''
@@ -30,7 +30,7 @@ const AnswersCard = ({ answer }) => {
         answerId: selectedAnswer.answer.id
       })
     }
-    dispatch(getQuestion(selectedAnswer?.answer.questionId));
+    // dispatch(getQuestion(selectedAnswer?.answer.questionId));
   }, [selectedAnswer])
 
   const handleChange = (e) => {
@@ -63,7 +63,13 @@ const AnswersCard = ({ answer }) => {
             </div>
           </div>
           {user?.id === selectedQuiz?.question.userId && (
-            <Button className={"accept--btn"} text={"Mark as an Answer"} method={console.log('working')} />
+            <Button 
+              className={"accept--btn"} 
+              text={answer.accepted === 1 ? 'Accepted' : 'Mark as Answer'} 
+              method={() => dispatch(setAnswerAsPreferred({ 
+                id: answer?.id, values: { questionId: selectedQuiz?.question.id, comment: answer.comment, accepted: 1}
+              }))} 
+            />
           )}
         </div>
         <div>

@@ -8,12 +8,14 @@ import Skeleton from 'react-loading-skeleton';
 import { createAvatar } from '../../../helpers/avatar/CreateAvatar';
 import { useDispatch, useSelector } from 'react-redux';
 import AnswersCard from '../AnswersCard/AnswersCard';
-import { getQuestion } from '../../../features/question/quizSlice';
+import { getQuestion } from '../../../features/question/quizActions';
+// import { getQuestion } from '../../../features/question/quizSlice';
 
 const QuestionCard = ({ post }) => {
   const dispatch = useDispatch();
   const { user } = useSelector(state => state.user);
   const { selectedQuiz } = useSelector(state => state.quiz);
+  // console.log(selectedQuiz)
    const { answers, question } = selectedQuiz || [];
   const [openAnswers, setOpenAnswers] = useState(false);
 
@@ -24,17 +26,21 @@ const QuestionCard = ({ post }) => {
   const avatar = createAvatar(post?.name);
 
   const handleOpen = () => {
-    dispatch(getQuestion(post.id))
-    setOpenAnswers(!openAnswers)
+    // console.log('working1', post.id)
+    console.log(post.id)
+    if (post?.id !== undefined) {
+      dispatch(getQuestion(post.id))
+      setOpenAnswers(!openAnswers)
+    }
   }
 
   const handleOpenReply = () => {
-    dispatch(getQuestion(post.id));
+    // dispatch(getQuestion(post.id));
     setIsOpen(true)
   }
 
   useEffect(() => {
-    if (question?.id !== post.id) {
+    if (selectedQuiz?.question.id !== post.id) {
       setOpenAnswers(false)
     }
   }, [post, selectedQuiz]);
@@ -76,7 +82,7 @@ const QuestionCard = ({ post }) => {
             {answers?.length > 0 ? (
               <>
                 {answers?.map(answer => (
-                  <AnswersCard key={answer.id} answer={answer} />
+                  <AnswersCard key={answer.id} answer={answer} post={post} />
                 ))}
               </>
             ) : (selectedQuiz && <h5>This question is not answered yet...</h5>)}
