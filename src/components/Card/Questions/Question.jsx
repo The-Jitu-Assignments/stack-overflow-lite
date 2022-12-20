@@ -9,13 +9,11 @@ import { createAvatar } from '../../../helpers/avatar/CreateAvatar';
 import { useDispatch, useSelector } from 'react-redux';
 import AnswersCard from '../AnswersCard/AnswersCard';
 import { getQuestion } from '../../../features/question/quizActions';
-// import { getQuestion } from '../../../features/question/quizSlice';
 
 const QuestionCard = ({ post }) => {
   const dispatch = useDispatch();
   const { user } = useSelector(state => state.user);
   const { selectedQuiz } = useSelector(state => state.quiz);
-  // console.log(selectedQuiz)
    const { answers, question } = selectedQuiz || [];
   const [openAnswers, setOpenAnswers] = useState(false);
 

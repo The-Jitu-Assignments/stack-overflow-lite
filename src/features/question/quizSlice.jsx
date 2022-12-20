@@ -7,7 +7,8 @@ import {
   getMyQuestions, 
   searchQuestion,
   fetchQuestions,
-  getQuestion
+  getQuestion,
+  deleteAQuestion
 } from "./quizActions";
 
 const initialState = {
@@ -62,6 +63,14 @@ export const QuizesSlice = createSlice({
     // specific user questions
     builder.addCase(getMyQuestions.fulfilled, (state, action) => {
       state.myQuestions = action.payload
+    });
+
+    // delete question
+    builder.addCase(deleteAQuestion.fulfilled, (state) => {
+      state.isSuccess = true
+    });
+    builder.addCase(deleteAQuestion.rejected, (state) => {
+      state.isSuccess = false
     })
   }
 });

@@ -78,4 +78,22 @@ export const getMyQuestions = createAsyncThunk('quiz/getMyQuestions',
     const { data } = res.data;
     return data;
   }
+);
+
+export const deleteAQuestion = createAsyncThunk('quiz/deleteAQuestion',
+  async (id, { dispatch }) => {
+    try {
+      const token = localStorage.getItem('token');
+      const res = await axios.delete(`${url}/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+      const { msg } = res.data;
+      dispatch(fetchQuestions({ pageNumber: 1, pageSize: 4 }));
+      toast.success(msg);
+    } catch (error) {
+      toast.error(error.response.data.msg)
+    }
+  }
 )

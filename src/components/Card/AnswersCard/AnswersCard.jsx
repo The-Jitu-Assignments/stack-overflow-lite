@@ -55,6 +55,12 @@ const AnswersCard = ({ answer, post }) => {
     })
   };
 
+  const handleLikeDislike = (value) => {
+    if (answer.id === selectedAnswer?.answer.id) {
+      dispatch(addLikeOrDislike({ answerId: selectedAnswer?.answer.id, total: value }))
+    }
+  }
+
   
 
   return (
@@ -92,7 +98,7 @@ const AnswersCard = ({ answer, post }) => {
                 <span>{answer.totalLikes}</span>
               </div>
             }
-            method={() => dispatch(addLikeOrDislike({ answerId: selectedAnswer?.answer.id, total: 1 }))}
+            method={() => handleLikeDislike(1)}
             title={"Like"}
           />
           <Button 
@@ -105,7 +111,7 @@ const AnswersCard = ({ answer, post }) => {
                 <span>{answer.totalDislikes}</span>
               </div>
             } 
-            method={() => dispatch(addLikeOrDislike({ answerId: selectedAnswer?.answer.id, total: -1}))}
+            method={() => handleLikeDislike(-1)}
             title={"Dislike"}
           />
           <Button className={"like--btn"} text={"View comments"} method={() => setShow(!show)} />
