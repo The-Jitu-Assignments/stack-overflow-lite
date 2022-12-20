@@ -45,8 +45,13 @@ export const addAQuestion = createAsyncThunk('quiz/addQuiz',
 );
 
 export const fetchRecentAskedQuestions = createAsyncThunk('quiz/fetchRecentAskedQuestions',
-  async () => {
-    const res = await axios.get(`${url}/recent`);
+  async ({ pageNumber, pageSize }) => {
+    const res = await axios.get(`${url}/recent`, {
+      params: {
+        pageNumber,
+        pageSize
+      }
+    });
     const { data } = res.data;
     return data;
   }

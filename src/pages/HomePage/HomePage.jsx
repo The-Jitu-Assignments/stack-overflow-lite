@@ -40,7 +40,7 @@ const HomePage = () => {
     if (btn === 'all') {
       dispatch(fetchQuestions({ pageNumber: 1, pageSize: 4 }))
     } else if (btn === 'recent') {
-      dispatch(fetchRecentAskedQuestions());
+      dispatch(fetchRecentAskedQuestions({ pageNumber: page, pageSize: limit}));
     } else if (btn === 'replies') {
       dispatch(fetchMostAnsweredQuestions());
     } else {
@@ -81,7 +81,7 @@ const HomePage = () => {
               )
             })}
           </div>
-          {btn === 'all' && (
+          {btn !== 'replies' && (
           <div className='home--pagination'>
             <button className='like--btn' onClick={handlePrevPage} disabled={page === 1}>Next</button>
             <span>{page}</span>
