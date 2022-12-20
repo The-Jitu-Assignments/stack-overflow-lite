@@ -55,6 +55,7 @@ const QuestionCard = ({ post }) => {
             <h3>{post.name}</h3>
             <div className='question--user__days'>{post.days + ' ago'}</div>
           </div>
+          {user?.id && (
           <div className='question--user__links'>
             <AiOutlineEllipsis fontSize={"1.7em"} />
             <div className='question--tooltip'>
@@ -64,6 +65,7 @@ const QuestionCard = ({ post }) => {
               )}
             </div>
           </div>
+          )}
         </div>
         <div className='question--card__body'>
           {post.question || <Skeleton />}

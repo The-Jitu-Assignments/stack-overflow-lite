@@ -1,0 +1,16 @@
+.add--profile {
+  background: white;
+  height: auto;
+  width: 40%;
+  z-index: 1;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.add--profile h3 {
+  margin-bottom: 10px;
+}
+
+.add--profile__details {
+  margin-top: 10px;
+}

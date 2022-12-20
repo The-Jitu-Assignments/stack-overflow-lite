@@ -78,7 +78,7 @@ const AnswersCard = ({ answer, post }) => {
           </div>
           {user?.id === selectedQuiz?.question.userId && (
             <Button 
-              className={"accept--btn"} 
+              className={answer.accepted === 1 ?  "accepted--btn" : "accept--btn"} 
               text={answer.accepted === 1 ? 'Accepted' : 'Mark as Answer'} 
               method={() => dispatch(setAnswerAsPreferred({ 
                 id: answer?.id, values: { questionId: selectedQuiz?.question.id, comment: answer.comment, accepted: 1 }
@@ -119,6 +119,7 @@ const AnswersCard = ({ answer, post }) => {
       </div>
       {show && (
       <div className='answer--comments'>
+        {user?.id && (
         <div className='answer--comments__input'>
           <input 
             type={"text"} 
@@ -129,6 +130,7 @@ const AnswersCard = ({ answer, post }) => {
           />
           <Button className={"comments--btn"} text={"submit"} method={handleSubmit} />
         </div>
+        )}
         <div className='comment--container'>
           {selectedAnswer?.comments.length > 0 ? (
             <>

@@ -89,6 +89,15 @@
   font-size: 12px;
 }
 
+.accepted--btn {
+  background-color: var(--charcoal);
+  color: white;
+  padding: 7px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 12px;
+}
+
 .answer--comments {
   display: flex;
   flex-direction: column;
