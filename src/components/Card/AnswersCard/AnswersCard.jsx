@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addLikeOrDislike, getAnswer, setAnswerAsPreferred } from '../../../features/answer/answerAction';
 import { addComment } from '../../../features/comment/commentActions';
 import { AiFillLike, AiFillDislike } from 'react-icons/ai';
+import { fetchQuestions, getQuestion } from '../../../features/question/quizActions';
 // import { fetchQuestions } from '../../../features/question/quizActions';
 // import { getQuestion } from '../../../features/question/quizSlice';
 
@@ -17,6 +18,7 @@ const AnswersCard = ({ answer, post }) => {
   });
   const dispatch = useDispatch();
   const { selectedAnswer } = useSelector(state => state.answers);
+  console.log(selectedAnswer);
   const { selectedQuiz } = useSelector(state => state.quiz);
   const { user } = useSelector(state => state.user);
   const [ show, setShow ] = React.useState(false);
@@ -30,8 +32,12 @@ const AnswersCard = ({ answer, post }) => {
         answerId: selectedAnswer.answer.id
       })
     }
-    // dispatch(getQuestion(selectedAnswer?.answer.questionId));
-  }, [selectedAnswer])
+    dispatch(getQuestion(post.id));
+  }, [selectedAnswer]);
+
+  useEffect(() => {
+    dispatch(getAnswer(answer.id))
+  }, [])
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -48,6 +54,8 @@ const AnswersCard = ({ answer, post }) => {
       answerId: ''
     })
   };
+
+  
 
   return (
     <div className='answers--container' onClick={() => dispatch(getAnswer(answer.id))}>
@@ -67,7 +75,7 @@ const AnswersCard = ({ answer, post }) => {
               className={"accept--btn"} 
               text={answer.accepted === 1 ? 'Accepted' : 'Mark as Answer'} 
               method={() => dispatch(setAnswerAsPreferred({ 
-                id: answer?.id, values: { questionId: selectedQuiz?.question.id, comment: answer.comment, accepted: 1}
+                id: answer?.id, values: { questionId: selectedQuiz?.question.id, comment: answer.comment, accepted: 1 }
               }))} 
             />
           )}
@@ -84,7 +92,7 @@ const AnswersCard = ({ answer, post }) => {
                 <span>{answer.totalLikes}</span>
               </div>
             }
-            method={() => dispatch(addLikeOrDislike({ answerId: selectedAnswer?.answer.id, total: 1}))}
+            method={() => dispatch(addLikeOrDislike({ answerId: selectedAnswer?.answer.id, total: 1 }))}
             title={"Like"}
           />
           <Button 
