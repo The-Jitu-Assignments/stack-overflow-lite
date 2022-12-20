@@ -52,8 +52,8 @@ export const fetchRecentAskedQuestions = createAsyncThunk('quiz/fetchRecentAsked
         pageSize
       }
     });
-    const { data } = res.data;
-    return data;
+    const { data, total } = res.data.data;
+    return { data, total };
   }
 );
 

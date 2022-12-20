@@ -47,7 +47,7 @@ export const QuizesSlice = createSlice({
 
     // recent questions
     builder.addCase(fetchRecentAskedQuestions.fulfilled, (state, action) => {
-      state.questions = action.payload
+      state.questions = action.payload.data
     })
 
     // most answered questions

@@ -12,6 +12,7 @@ const HomePage = () => {
   const [limit, setLimit] = useState(4);
   const [searchValue, setSearchValue] = useState('');
   const { questions, total } = useSelector(state => state.quiz);
+  // console.log(questions);
   const [btn, setBtn] = useState('all');
   const dispatch = useDispatch();
   const [showFilterBtns, setShowFilterBtns] = useState(false);
@@ -26,6 +27,7 @@ const HomePage = () => {
     if (page < totalPages) {
       setPage(page + 1);
       dispatch(fetchQuestions({ pageNumber: page + 1, pageSize: limit }))
+      dispatch(fetchRecentAskedQuestions({ pageNumber: page + 1 ,pageSize: limit }));
     }
   };
 
@@ -33,6 +35,7 @@ const HomePage = () => {
     if (page > 1) {
       setPage(page - 1);
       dispatch(fetchQuestions({ pageNumber: page - 1, pageSize: limit }))
+      dispatch(fetchRecentAskedQuestions({ pageNumber: page - 1 ,pageSize: limit }));
     }
   }
 
@@ -40,9 +43,9 @@ const HomePage = () => {
     if (btn === 'all') {
       dispatch(fetchQuestions({ pageNumber: 1, pageSize: 4 }))
     } else if (btn === 'recent') {
-      dispatch(fetchRecentAskedQuestions({ pageNumber: page, pageSize: limit}));
+      dispatch(fetchRecentAskedQuestions({ pageNumber: 1 ,pageSize: 4}));
     } else if (btn === 'replies') {
-      dispatch(fetchMostAnsweredQuestions());
+      dispatch(fetchMostAnsweredQuestions({pageNumber: 1,pageSize: 4} ));
     } else {
       dispatch(searchQuestion(searchValue))
     }
@@ -83,7 +86,7 @@ const HomePage = () => {
           </div>
           {btn !== 'replies' && (
           <div className='home--pagination'>
-            <button className='like--btn' onClick={handlePrevPage} disabled={page === 1}>Next</button>
+            <button className='like--btn' onClick={handlePrevPage} disabled={page === 1}>Prev</button>
             <span>{page}</span>
             Out of
             <span>{totalPages}</span>
