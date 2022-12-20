@@ -8,7 +8,7 @@ import Skeleton from 'react-loading-skeleton';
 import { createAvatar } from '../../../helpers/avatar/CreateAvatar';
 import { useDispatch, useSelector } from 'react-redux';
 import AnswersCard from '../AnswersCard/AnswersCard';
-import { getQuestion } from '../../../features/question/quizActions';
+import { deleteAQuestion, getQuestion } from '../../../features/question/quizActions';
 
 const QuestionCard = ({ post }) => {
   const dispatch = useDispatch();
@@ -24,8 +24,6 @@ const QuestionCard = ({ post }) => {
   const avatar = createAvatar(post?.name);
 
   const handleOpen = () => {
-    // console.log('working1', post.id)
-    console.log(post.id)
     if (post?.id !== undefined) {
       dispatch(getQuestion(post.id))
       setOpenAnswers(!openAnswers)
@@ -33,7 +31,7 @@ const QuestionCard = ({ post }) => {
   }
 
   const handleOpenReply = () => {
-    // dispatch(getQuestion(post.id));
+    dispatch(getQuestion(post.id));
     setIsOpen(true)
   }
 
@@ -62,7 +60,7 @@ const QuestionCard = ({ post }) => {
             <div className='question--tooltip'>
               <div className='question--tooltip__item' onClick={handleOpenReply}>Reply</div>
               {user?.id === post.userId && (
-                <div className='question--tooltip__item' onClick={handleOpenReply}>Delete</div>
+                <div className='question--tooltip__item' onClick={() => dispatch(deleteAQuestion(post.id))}>Delete</div>
               )}
             </div>
           </div>
