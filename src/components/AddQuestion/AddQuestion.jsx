@@ -21,17 +21,9 @@ const AddQuestion = ({ close }) => {
 
   const handleSubmit = () => {
     dispatch(addAQuestion(quiz));
-    setQuiz({
-      question: ''
-    });
-    if (!isLoading && isSuccess) {
-      close();
-    } else {
-      return;
-    }
-  }
+    close()
+  };
 
-  console.log(quiz)
   return (
     <div onClick={(e) => e.stopPropagation()} className='addquestion--modal'>
       <div className='addquestion--modal__header'>

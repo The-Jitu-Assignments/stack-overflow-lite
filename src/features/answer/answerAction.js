@@ -33,7 +33,6 @@ export const getAnswer = createAsyncThunk('answer/getAnswer',
 
 export const addLikeOrDislike = createAsyncThunk('answer/addLikeOrDislike',
   async (values, { dispatch }) => {
-    console.log(values)
     try {
       const token = localStorage.getItem('token');
       const res = await axios.post('http://localhost:8001/likes', values, {
@@ -42,7 +41,7 @@ export const addLikeOrDislike = createAsyncThunk('answer/addLikeOrDislike',
         }
       });
       const { msg } = res.data;
-      dispatch(fetchQuestions());
+      dispatch(fetchQuestions({ pageNumber: 1, pageSize: 4 }))
       return msg
     } catch (error) {
       toast.error(error.response.data.msg)
