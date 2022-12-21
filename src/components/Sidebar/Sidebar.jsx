@@ -30,16 +30,16 @@ const Sidebar = ({ close }) => {
         </div>
       </div>
       <div className="sidebar--footer">
-        {user ? <h3>Welcome Back</h3> : <h3>Join us</h3>}
-        {user ? (
+        {user?.id ? <h3>Welcome Back</h3> : <h3>Join us</h3>}
+        {user?.id ? (
           <>
             <div className="sidebar--footer__user" onClick={() => setShowPopUp(!showPopUp)}>
-              Johnkatua99@gmail.com
+              {user?.name}
               <RxDoubleArrowLeft />
             </div>
             {showPopUp && (
               <div className="sidebar--popup">
-                <div className="sidebar--popup__item" onClick={() => { navigate('/profile'); close()}}>Profile</div>
+                <div className="sidebar--popup__item" onClick={() => { navigate(`/profile/${user?.id}`); close()}}>Profile</div>
                 <div className="sidebar--popup__item" onClick={() => dispatch(logout())}>Logout</div>
               </div>
             )}

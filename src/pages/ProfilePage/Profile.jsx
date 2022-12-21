@@ -1,22 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import './Profile.css'
-import dummyData from '../../data/posts.json';
-import PersonalQuiz from '../../components/PersonalQuiz/PersonalQuiz';
 import { fetchUserProfile } from '../../features/user/userActions';
 import { createAvatar } from '../../helpers/avatar/CreateAvatar';
 import { getMyQuestions } from '../../features/question/quizActions';
 import QuestionCard from '../../components/Card/Questions/Question';
-import Modal from '../../components/Modal/Modal';
-import AddProfile from '../../components/AddProfile/AddProfile';
+
 
 const Profile = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
-  const { profile, user } = useSelector(state => state.user);
+  const { profile } = useSelector(state => state.user);
   const { myQuestions } = useSelector(state => state.quiz);
-  const [open, setIsOpen] = useState(false);
 
   useEffect(() => {
     dispatch(fetchUserProfile(id));
@@ -39,14 +35,6 @@ const Profile = () => {
         </div>
         <div>{profile.name}</div>
         <div>{profile.email}</div>
-        {/* {user?.id === profile.id && (
-          <>
-            {profile.profileId ? (
-              <div className='profile--btn'>Edit</div>
-            ) : (<div className='profile--btn' onClick={() => setIsOpen(true)}>Add Profile</div>)}
-          </>
-        )}
-        <Modal open={open} close={() => setIsOpen(false)} content={<AddProfile />} /> */}
       </div>
       <div className='profile--page__right'>
         <div className='profile--right__top'>

@@ -8,7 +8,6 @@ export const getQuestion = createAsyncThunk('quiz/getQuestion',
   async (id) => {
     const res = await axios.get(`${url}/${id}`)
     const { data } = res.data;
-    console.log(data)
     return data
   }
 )

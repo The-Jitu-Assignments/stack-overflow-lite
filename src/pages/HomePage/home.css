@@ -116,4 +116,25 @@
   .homepage--container {
     flex-direction: column;
   }
+
+  .homepage--all__filter {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .homepage--search {
+    flex-basis: 100%;
+  }
+}
+
+@media screen and (max-width: 470px) {
+  .homepage--search input {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+
+  .home--filter__btn {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
 }

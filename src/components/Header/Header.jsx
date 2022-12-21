@@ -43,7 +43,7 @@ const Header = () => {
             <AiOutlineMenu style={style} fontSize={"1.7em"} onClick={() => handleOpen('sidebar')} />
           </div>
           <div onClick={() => navigate('/')} className='header--title'>
-          <img src='/assets/johnQA.png' alt='header--title' />
+            <img src='/assets/johnQA.png' alt='header--title' />
           </div>
         </div>
         <div className='header--auth'>

@@ -7,6 +7,7 @@ const initialState = {
   errorMessage: '',
   token: null,
   isSuccess: false,
+  isLoginSuccess: false
 };
 
 const userSlice = createSlice({
@@ -15,6 +16,8 @@ const userSlice = createSlice({
   reducers: {
     logout: (state) => {
       state.user = null;
+      state.isLoginSuccess = false;
+      state.isSuccess = false;
       localStorage.removeItem('token')
     }
   },
@@ -33,11 +36,11 @@ const userSlice = createSlice({
     });
 
     // login 
-    builder.addCase(loginUser.fulfilled, (state, action) => {
-      state.isSuccess = true
+    builder.addCase(loginUser.fulfilled, (state) => {
+      state.isLoginSuccess = true
     });
-    builder.addCase(loginUser.rejected, (state, action) => {
-      state.isSuccess = false;
+    builder.addCase(loginUser.rejected, (state) => {
+      state.isLoginSuccess = false;
     });
 
     // logged in user

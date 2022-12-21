@@ -108,7 +108,7 @@
   .header--intro {
     display: flex;
     justify-content: space-between;
-    width: 40%;
+    width: 150px;
     flex-basis: 100%;
     gap: 0;
   }
@@ -119,5 +119,15 @@
 
   .header--menu {
     width: 20px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .header--box {
+    margin: 0 20px;
+  }
+
+  .header--title {
+    width: 100px;
   }
 }

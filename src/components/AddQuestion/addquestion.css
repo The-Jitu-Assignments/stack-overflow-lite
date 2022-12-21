@@ -35,3 +35,9 @@
     width: 80%;
   }
 }
+
+@media screen and (max-width: 460px) {
+  .addquestion--modal__header {
+    font-size: 14px;
+  }
+}

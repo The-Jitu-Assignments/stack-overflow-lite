@@ -86,3 +86,9 @@
     width: auto;
   }
 }
+
+@media screen and (max-width: 460px) {
+  .about--page__left {
+    font-size: 16px;
+  }
+}

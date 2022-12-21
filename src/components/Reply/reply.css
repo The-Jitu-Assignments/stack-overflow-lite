@@ -33,3 +33,13 @@
     width: 80%;
   }
 }
+
+@media screen and (max-width: 460px) {
+  .reply--modal {
+    width: 90%;
+  }
+  
+  .reply--modal__header {
+    font-size: 14px;
+  }
+}

@@ -12,12 +12,12 @@ const Comment = ({ comment }) => {
             <img src={comment.imgUrl} alt='comment--img' className='comment--img' /> 
           ) : (<div className='comment--avatar'>{avatar}</div>)}
         </div>
-        <div>
+        <div className='comment--user__details'>
           <h3>{comment.name}</h3>
-          <div className='comment--days'>{comment.days}</div>
+          <div className='comment--days'>{comment.days} ago</div>
         </div>
       </div>
-      <div>{comment.comment}</div>
+      <div className='comment--body'>{comment.comment}</div>
     </div>
   )
 }

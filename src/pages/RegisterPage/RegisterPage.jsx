@@ -57,7 +57,7 @@ const RegisterPage = () => {
               <label>Name:</label>
               <input 
                 type={"text"} 
-                placeholder='Text Icon' 
+                placeholder='Text Input' 
                 name="name" 
                 value={name} 
                 onChange={handleChange} 

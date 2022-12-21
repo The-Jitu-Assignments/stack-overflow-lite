@@ -147,3 +147,44 @@
     gap: 5px;
   }
 }
+
+@media screen and (max-width: 460px) {
+  .answer--user__details {
+    font-size: 12px;
+  }
+
+  .answersCard__header--user {
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+
+  .answersCard__header {
+    height: auto;
+  }
+
+  .answersCard__header--user img {
+    height: 50px;
+  }
+
+  .avatar {
+    height: 50px;
+  }
+
+  .answersCard--body {
+    font-size: 12px;
+  }
+
+  .accept--btn {
+    padding: 4px 8px;
+  }
+
+  .like--btn {
+    padding: 2px 4px;
+    font-size: 12px;
+  }
+
+  .answer--comments__input {
+    padding: 5px 10px;
+  }
+}
