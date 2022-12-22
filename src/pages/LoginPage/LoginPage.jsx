@@ -6,7 +6,7 @@ import { loginUser } from '../../features/user/userActions';
 import { useEffect } from 'react';
 
 const LoginPage = () => {
-  const { isLoginSuccess } = useSelector(state => state.user);
+  const { isLoginSuccess, isSuccess } = useSelector(state => state.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [user, setUser] = useState({
@@ -33,6 +33,7 @@ const LoginPage = () => {
   let token = localStorage.getItem('token');
 
   useEffect(() => {
+    isSuccess = false;
     if (isLoginSuccess) {
       setTimeout(() => {
         navigate('/')
@@ -42,7 +43,7 @@ const LoginPage = () => {
     if (token) {
       navigate('/')
     }
-  }, [isLoginSuccess, token]);
+  }, [isLoginSuccess, token, isSuccess]);
 
   return (
     <div className='login--page'>

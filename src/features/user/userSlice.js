@@ -19,6 +19,9 @@ const userSlice = createSlice({
       state.isLoginSuccess = false;
       state.isSuccess = false;
       localStorage.removeItem('token')
+    },
+    reset: (state) => {
+      state.isSuccess = false
     }
   },
   extraReducers (builder) {
