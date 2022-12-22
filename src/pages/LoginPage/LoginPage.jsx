@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import './login.css'
 import { loginUser } from '../../features/user/userActions';
 import { useEffect } from 'react';
+import { reset } from '../../features/user/userSlice';
 
 const LoginPage = () => {
   const { isLoginSuccess, isSuccess } = useSelector(state => state.user);
@@ -33,7 +34,7 @@ const LoginPage = () => {
   let token = localStorage.getItem('token');
 
   useEffect(() => {
-    isSuccess = false;
+    dispatch(reset());
     if (isLoginSuccess) {
       setTimeout(() => {
         navigate('/')
