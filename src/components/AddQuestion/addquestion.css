@@ -29,15 +29,20 @@
   border: 1px solid red;
 }
 
+.disabled--submit {
+  background-color: var(--lightBlue);
+  padding: 10px 0;
+  border-radius: 5px;
+  text-align: center;
+  color: var(--cream);
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  cursor: not-allowed;
+  font-weight: bold;
+}
 
 @media screen and (max-width: 768px) {
   .addquestion--modal {
     width: 80%;
-  }
-}
-
-@media screen and (max-width: 460px) {
-  .addquestion--modal__header {
-    font-size: 14px;
   }
 }

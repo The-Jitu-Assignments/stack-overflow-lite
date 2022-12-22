@@ -42,7 +42,7 @@ const AddQuestion = ({ close }) => {
       ></textarea>
       <Button 
         method={handleSubmit} 
-        className={"submitButton"} 
+        className={quiz.question ==='' ? 'disabled--submit' : "submitButton"} 
         text={isLoading ? <ClipLoader color='white' size={20} /> : 'Submit'} 
       />
     </div>

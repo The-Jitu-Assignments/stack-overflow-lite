@@ -60,6 +60,9 @@ export const fetchMostAnsweredQuestions = createAsyncThunk('quiz/fetchMostAnswer
   async () => {
     const res = await axios.get(`${url}/quiz/mostAnsweredQn`);
     const { data } = res.data;
+    data.sort((a, b) => {
+      return b.totalAns - a.totalAns;
+    })
     return data; 
   }
 );

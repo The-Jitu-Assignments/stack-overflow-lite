@@ -51,7 +51,11 @@ const Reply = ({ close }) => {
         onChange={handleChange}
         className={response.comment === '' && 'reply--error'}
       ></textarea>
-      <Button method={handleSubmit} className={'submitButton'} text={"Submit"} />
+      <Button 
+        method={handleSubmit} 
+        className={response.comment === '' ? 'disabled--submit' : 'submitButton'} 
+        text={"Submit"} 
+      />
     </div>
   )
 }
